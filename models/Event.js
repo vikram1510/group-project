@@ -7,7 +7,6 @@ const commentSchema = new mongoose.Schema({
   timestamps: true
 })
 
-
 const eventSchema = new mongoose.Schema({
   name: { type: String, required: true },
   location: { type: String, required: true },
@@ -25,5 +24,7 @@ const eventSchema = new mongoose.Schema({
 { 
   timestamps: true 
 })
+
+eventSchema.plugin(require('mongoose-unique-validator'))
 
 module.exports = mongoose.model('Event', eventSchema)

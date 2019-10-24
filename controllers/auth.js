@@ -15,11 +15,14 @@ function login(req, res) {
   User
     .findOne({ email: req.body.email })
     .then(user => {
-      // condition: is the user 
+      // condition: is a user present? Or, is the validatePassword method returning false
       if (!user || !user.validatePassword(req.body.password)) {
         return res.status(404).json({ message: 'Not Found' })
       }
+      const token = jwt.sign({ sub: user._id }, secret, { expiresIn: '24h' })
+      res.status(202).json({ message: `Welcome back ${user.username}`, token })
     })
+    .catch(() => res.status(401).json({ message: 'Unauthorized' }))
 }
 
 module.exports = { register, login }
