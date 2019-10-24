@@ -19,7 +19,7 @@ const eventSchema = new mongoose.Schema({
   images: { type: [String], required: false },
   industry: { type: String },
   comments: {  type: [commentSchema] },
-  hostUser: { type: [mongoose.Schema.ObjectId], ref: 'User', required: false },
+  hostUser: { type: mongoose.Schema.ObjectId, ref: 'User', required: false },
   attendees: { type: [mongoose.Schema.ObjectId], ref: 'User', required: false }
 }, 
 { 

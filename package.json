@@ -6,7 +6,8 @@
   "author": "Vikram Bageja <vikram.bageja@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "serve": "nodemon index.js"
+    "serve": "nodemon index.js",
+    "seed": "node db/seeds.js"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
