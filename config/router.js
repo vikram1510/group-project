@@ -9,8 +9,8 @@ router.route('/events')
 
 router.route('/events/:id')
   .get(events.show)
-  .put(events.update)
-  .delete(events.delete)
+  .put(secureRoute, events.update)
+  .delete(secureRoute, events.delete)
 
 router.route('/register')
   .post(users.register)
