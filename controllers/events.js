@@ -4,9 +4,18 @@ function index(req, res) {
   Event
     .find()
     .then(events => res.status(200).json(events))
-    .catch(() => res.status(400).json({ message: 'Not Found' }))
+    .catch(() => res.status(404).json({ message: 'Not Found' }))
 }
 
+function show(req, res) {
+  Event
+    .findById(req.params.id)
+    .then(event => {
+      if (!event) return res.status(404).json({ message: 'Not Found' })
+      res.status(200).json(event)
+        .catch(() => res.status(404).json({ message: 'Not Found' }))
+    })
+}
 
 function create(req, res) {
   Event
@@ -15,4 +24,4 @@ function create(req, res) {
     .catch(err => console.log(err))
 }
 
-module.exports = { create, index }
+module.exports = { create, index, show }
