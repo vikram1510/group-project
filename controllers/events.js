@@ -2,6 +2,7 @@ const Event = require('../models/Event')
 
 
 function create(req, res){
+  console.log(req.currentUser)
   Event
     .create(req.body)
     .then(event => res.status(201).json(event))
