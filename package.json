@@ -1,0 +1,13 @@
+{
+  "name": "group-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:vikram1510/group-project.git",
+  "author": "Vikram Bageja <vikram.bageja@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0"
+  }
+}
