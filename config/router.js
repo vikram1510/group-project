@@ -8,9 +8,7 @@ router.route('/events')
 
 router.route('/events/:id')
   .get(events.show)
-
-
-router.route('/events/:id')
   .put(events.update)
+  .delete(events.delete)
 
 module.exports = router

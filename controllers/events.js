@@ -1,5 +1,6 @@
 const Event = require('../models/Event')
 
+// INDEX ROUTE FOR EVENT - '/events'
 function index(req, res) {
   Event
     .find()
@@ -7,6 +8,7 @@ function index(req, res) {
     .catch(() => res.status(404).json({ message: 'Not Found' }))
 }
 
+// SHOW ROUTE FOR EVENT - '/events/:id'
 function show(req, res) {
   Event
     .findById(req.params.id)
@@ -17,6 +19,7 @@ function show(req, res) {
     })
 }
 
+// CREATE ROUTE FOR EVENT - '/events'
 function create(req, res) {
   Event
     .create(req.body)
@@ -24,6 +27,7 @@ function create(req, res) {
     .catch(err => console.log(err))
 }
 
+// UPDATE ROUTE FOR EVENT - '/events/:id'
 function update(req, res) {
   Event
     .findById(req.params.id)
@@ -36,5 +40,16 @@ function update(req, res) {
     .catch(err => res.status(422).json(err))
 }
 
+// DELETE ROUTE FOR EVENT - '/events/:id'
+function deleteEvent(req, res) {
+  Event
+    .findById(req.params.id)
+    .then(event => {
+      if (!event) return res.status(404).json({ message: 'Not Found' })
+      return event.remove()
+    })
+    .then(() => res.sendStatus(204))
+    .catch(err => res.status(400).json(err))
+}
 
-module.exports = { create, index, show, update }
+module.exports = { create, index, show, update, delete: deleteEvent }
