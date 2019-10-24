@@ -18,6 +18,12 @@ router.route('/register')
 router.route('/login')
   .post(users.login)
 
+router.route('/events/:id/comments')
+  .post(secureRoute, events.commentCreate)
+
+router.route('/events/:id/comments/:commentId')
+  .delete(secureRoute, events.commentDelete)
+
 module.exports = router
 
 
