@@ -20,7 +20,9 @@ function show(req, res) {
 }
 
 // CREATE ROUTE FOR EVENT - '/events'
-function create(req, res) {
+
+function create(req, res){
+  req.body.hostUser = req.currentUser
   Event
     .create(req.body)
     .then(event => res.status(201).json(event))
