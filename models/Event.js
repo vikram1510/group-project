@@ -7,7 +7,6 @@ const commentSchema = new mongoose.Schema({
   timestamps: true
 })
 
-
 const eventSchema = new mongoose.Schema({
   name: { type: String, required: true },
   location: { type: String, required: true },
@@ -19,11 +18,13 @@ const eventSchema = new mongoose.Schema({
   images: { type: [String], required: false },
   industry: { type: String },
   comments: {  type: [commentSchema] },
-  hostUser: { type: [mongoose.Schema.ObjectId], ref: 'User', required: false },
+  hostUser: { type: mongoose.Schema.ObjectId, ref: 'User', required: false },
   attendees: { type: [mongoose.Schema.ObjectId], ref: 'User', required: false }
 }, 
 { 
   timestamps: true 
 })
+
+eventSchema.plugin(require('mongoose-unique-validator'))
 
 module.exports = mongoose.model('Event', eventSchema)
