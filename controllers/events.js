@@ -24,4 +24,17 @@ function create(req, res) {
     .catch(err => console.log(err))
 }
 
-module.exports = { create, index, show }
+function update(req, res) {
+  Event
+    .findById(req.params.id)
+    .then(event => {
+      if (!event) return res.status(404).json({ message: 'Not Found' })
+      return event.set(req.body)
+    })
+    .then(event => event.save())
+    .then(event => res.status(202).json(event))
+    .catch(err => res.status(422).json(err))
+}
+
+
+module.exports = { create, index, show, update }

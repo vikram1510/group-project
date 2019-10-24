@@ -10,4 +10,7 @@ router.route('/events/:id')
   .get(events.show)
 
 
+router.route('/events/:id')
+  .put(events.update)
+
 module.exports = router
