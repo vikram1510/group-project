@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Link, Route } from 'react-router-dom'
+import './style.scss'
 
 import Home from './components/common/Home'
 import EventIndex from './components/events/EventIndex'
@@ -12,18 +13,27 @@ class App extends React.Component{
     return (
       <BrowserRouter>
         <main>
-          <nav>
-            <Link to='/'>Home</Link>
-            <Link to='/events'>Index</Link>
-            <Link to='/register'>Register</Link>
-            <Link to='/login'>Login</Link>
-          </nav>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/events' component={EventIndex} />
-            <Route path='/register' component={Register} />
-            <Route path='/login' component={Login} />
-          </Switch>
+          <div className="nav-sidebar">
+            <div className="burger-menu">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <nav>
+              <Link to='/'>Home</Link>
+              <Link to='/events'>Index</Link>
+              <Link to='/register'>Register</Link>
+              <Link to='/login'>Login</Link>
+            </nav>
+          </div>
+          <div className="page-structure ">
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/events' component={EventIndex} />
+              <Route path='/register' component={Register} />
+              <Route path='/login' component={Login} />
+            </Switch>
+          </div>
         </main>
 
       </BrowserRouter>
