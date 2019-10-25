@@ -93,7 +93,7 @@ function commentDelete(req, res){
 }
 
 // POST: Attend event ROUTE FOR EVENT - '/events/:id/attend'
-function attendEvent(req, res) {
+function attendEvent(req, res){
   req.body.user = req.currentUser
   Event
     .findById(req.params.id)
