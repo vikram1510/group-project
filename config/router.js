@@ -30,6 +30,9 @@ router.route('/events/:id/comments/:commentId')
 
 router.route('/events/:id/attend')
   .post(secureRoute, events.attendEvent)
+  
+router.route('/events/:id/unattend')
+  .post(secureRoute, events.unAttendEvent)
 
 module.exports = router
 

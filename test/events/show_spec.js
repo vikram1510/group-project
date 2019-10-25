@@ -56,7 +56,7 @@ describe('GET /events/:id', () => {
   it('should return a 200 status', done => {
     Event.find()
       .then(event => {
-        api.get(`/events/${event[0]._id}`)
+        api.get(`/api/events/${event[0]._id}`)
           .end((err, res) => {
             expect(res.status).to.eq(200)
             done()
@@ -68,7 +68,7 @@ describe('GET /events/:id', () => {
     Event
       .find()
       .then(event => {
-        api.get(`/events/${event[0]._id}`)
+        api.get(`/api/events/${event[0]._id}`)
           .end((err, res) => {
             expect(res.body).to.contain.keys([
               '_id',

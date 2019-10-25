@@ -51,7 +51,7 @@ describe('GET /events', () => {
 
   // test for a 200 response
   it('should return a 200 response', done => {
-    api.get('/events')
+    api.get('/api/events')
       .end((err, res) => {
         expect(res.status).to.eq(200)
         done()
@@ -60,7 +60,7 @@ describe('GET /events', () => {
 
   // test for an array response
   it('should return an array', done => {
-    api.get('/events')
+    api.get('/api/events')
       .end((err, res) => {
         expect(res.body).to.be.an('array')
         done()
@@ -69,7 +69,7 @@ describe('GET /events', () => {
 
   // test for an array of objects response
   it('should return an array of objects', done => {
-    api.get('/events')
+    api.get('/api/events')
       .end((err, res) => {
         res.body.forEach(event => {
           expect(event).to.be.an('object')
@@ -80,7 +80,7 @@ describe('GET /events', () => {
 
   // test for correct fields in response - for required fields
   it('should return the correct fields', done => {
-    api.get('/events')
+    api.get('/api/events')
       .end((err, res) => {
         res.body.forEach(event => {
           expect(event).to.contains.keys([
@@ -97,7 +97,7 @@ describe('GET /events', () => {
 
   // test for correct data types in field - for required fields
   it('should return the correct data types within fields', done => {
-    api.get('/events')
+    api.get('/api/events')
       .end((err, res) => {
         res.body.forEach(event => {
           expect(event._id).to.be.a('string')
