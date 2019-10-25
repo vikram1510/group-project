@@ -4,7 +4,9 @@ const Event = require('../../models/Event')
 const User = require('../../models/User')
 
 describe('PUT /drinks', () => {
-  const user = {
+
+  // test users stored in const
+  const user1 = {
     username: 'Soph',
     email: 'soph@email',
     password: 'pass',
@@ -18,10 +20,12 @@ describe('PUT /drinks', () => {
     passwordConfirmation: 'pass'
   }
   
+  // before each test create the users and events
+  // NOTE: user1 is the host user for all events
   beforeEach(done => {
     
     User
-      .create([user, user2])
+      .create([user1, user2])
       .then( users => {
         return Event.create([
           {
@@ -44,20 +48,25 @@ describe('PUT /drinks', () => {
       .then(() => done())
   })
 
+  // at the end of the test remove all data from database
   afterEach(done => {
     User.deleteMany()
       .then(() => Event.deleteMany())
       .then(() => done())
   })
   
-  it('should give a 201 status', done => {
+  // Test1: login using hostUser (user1) and edit an event
+  it('should give a 201 status when hostUser edits', done => {
     api.post('/login')
-      .send({ email: user.email, password: user.password })
+      // send user1 email and password in body
+      .send({ email: user1.email, password: user1.password })
       .end((err, loginRes) => {
+        // check there's a valid token and login is successful
         const token = loginRes.body.token
         assert.equal(loginRes.status, 202, 'Login Failed')
         assert.typeOf(token, 'string', 'Token not found')
         Event.findOne()
+          // find the first event in the DB and try to edit it's price
           .then(event => {
             api.put(`/events/${event._id}`)
               .send({ price: 5 })
@@ -70,9 +79,10 @@ describe('PUT /drinks', () => {
       })
   })
 
+  // Test2: login with user2, who should not be allowed to edit, so expect 401
   it('only the hostUser should be able to edit, expect 401', done => {
     api.post('/login')
-      .send({ email: user2.email, password: user.password })
+      .send({ email: user2.email, password: user2.password })
       .end((err, loginRes) => {
         const token = loginRes.body.token
         assert.equal(loginRes.status, 202, 'Login Failed')
@@ -92,7 +102,7 @@ describe('PUT /drinks', () => {
 
   it('should be able to edit fields successfully', done => {
     api.post('/login')
-      .send({ email: user.email, password: user.password })
+      .send({ email: user1.email, password: user1.password })
       .end((err, loginRes) => {
         const token = loginRes.body.token
         assert.equal(loginRes.status, 202, 'Login Failed')
