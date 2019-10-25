@@ -23,12 +23,16 @@ router.route('/users/:id')
 
 router.route('/events/:id/comments')
   .post(secureRoute, events.commentCreate)
+  .put(secureRoute, events.commentUpdate)
 
 router.route('/events/:id/comments/:commentId')
   .delete(secureRoute, events.commentDelete)
 
 router.route('/events/:id/attend')
   .post(secureRoute, events.attendEvent)
+  
+router.route('/events/:id/unattend')
+  .post(secureRoute, events.unAttendEvent)
 
 module.exports = router
 
