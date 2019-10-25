@@ -57,7 +57,7 @@ describe('PUT /drinks', () => {
   
   // Test1: login using hostUser (user1) and edit an event
   it('should give a 201 status when hostUser edits', done => {
-    api.post('/login')
+    api.post('/api/login')
       // send user1 email and password in body
       .send({ email: user1.email, password: user1.password })
       .end((err, loginRes) => {
@@ -68,7 +68,7 @@ describe('PUT /drinks', () => {
         Event.findOne()
           // find the first event in the DB and try to edit it's price
           .then(event => {
-            api.put(`/events/${event._id}`)
+            api.put(`/api/events/${event._id}`)
               .send({ price: 5 })
               .set('Authorization','Bearer ' + token)
               .end((err, res) => {
@@ -81,7 +81,7 @@ describe('PUT /drinks', () => {
 
   // Test2: login with user2, who should not be allowed to edit, so expect 401
   it('only the hostUser should be able to edit, expect 401', done => {
-    api.post('/login')
+    api.post('/api/login')
       .send({ email: user2.email, password: user2.password })
       .end((err, loginRes) => {
         const token = loginRes.body.token
@@ -89,7 +89,7 @@ describe('PUT /drinks', () => {
         assert.typeOf(token, 'string', 'Token not found')
         Event.findOne()
           .then(event => {
-            api.put(`/events/${event._id}`)
+            api.put(`/api/events/${event._id}`)
               .send({ price: 5 })
               .set('Authorization','Bearer ' + token)
               .end((err, res) => {
@@ -101,7 +101,7 @@ describe('PUT /drinks', () => {
   })
 
   it('should be able to edit fields successfully', done => {
-    api.post('/login')
+    api.post('/api/login')
       .send({ email: user1.email, password: user1.password })
       .end((err, loginRes) => {
         const token = loginRes.body.token
@@ -109,7 +109,7 @@ describe('PUT /drinks', () => {
         assert.typeOf(token, 'string', 'Token not found')
         Event.findOne({ location: 'Shoreditch' })
           .then(event => {
-            api.put(`/events/${event._id}`)
+            api.put(`/api/events/${event._id}`)
               .send({ location: 'Monument' })
               .set('Authorization','Bearer ' + token)
               .end((err, res) => {

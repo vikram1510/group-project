@@ -1,5 +1,4 @@
 const Event = require('../models/Event')
-const User = require('../models/User')
 
 // INDEX ROUTE FOR EVENT - '/events'
 function index(req, res) {
@@ -36,8 +35,10 @@ function create(req, res){
 function update(req, res) {
   Event
     .findById(req.params.id)
+    .populate('hostUser')
     .then(event => {
       if (!event) return res.status(404).json({ message: 'Not Found' })
+      if (!req.currentUser.equals(event.hostUser)) return res.status(401).json({ message: 'Unauthorized' })
       return event.set(req.body)
     })
     .then(event => event.save())
@@ -49,8 +50,10 @@ function update(req, res) {
 function deleteEvent(req, res) {
   Event
     .findById(req.params.id)
+    .populate('hostUser')
     .then(event => {
       if (!event) return res.status(404).json({ message: 'Not Found' })
+      if (!req.currentUser.equals(event.hostUser)) return res.status(401).json({ message: 'Unauthorized' })
       return event.remove()
     })
     .then(() => res.sendStatus(204))
