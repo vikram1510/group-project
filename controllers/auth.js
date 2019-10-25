@@ -11,7 +11,7 @@ function register(req, res, next) {
 }
 
 // login function
-function login(req, res) {
+function login(req, res){
   User
     .findOne({ email: req.body.email })
     .then(user => {
@@ -25,4 +25,15 @@ function login(req, res) {
     .catch(() => res.status(401).json({ message: 'Unauthorized' }))
 }
 
-module.exports = { register, login }
+function profile(req, res){
+  User
+    .findById(req.params.id)
+    .populate('eventsAttend')
+    .then(user => {
+      if (!user) return res.status(404).json({ message: 'Not Found' })
+      res.status(200).json(user)
+    })
+    .catch(err => res.status(400).json(err))
+}
+
+module.exports = { register, login, profile }
