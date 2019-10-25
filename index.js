@@ -11,12 +11,13 @@ const logger = require('./lib/logger')
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
   () => console.log('Mongo is connected'))
 
-// need to yarn add body-parser and need to hook it up here
+app.use(express.static(`${__dirname}/dist`))
+
 app.use(bodyParser.json())
 
 app.use(logger)
 
-app.use(router)
+app.use('/api', router)
 
 
 

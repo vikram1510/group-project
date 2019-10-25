@@ -1,4 +1,5 @@
 const Event = require('../models/Event')
+const User = require('../models/User')
 
 // INDEX ROUTE FOR EVENT - '/events'
 function index(req, res) {
@@ -14,6 +15,7 @@ function index(req, res) {
 function show(req, res) {
   Event
     .findById(req.params.id)
+    .populate('attendees')
     .then(event => {
       if (!event) return res.status(404).json({ message: 'Not Found' })
       res.status(200).json(event)
@@ -22,7 +24,6 @@ function show(req, res) {
 }
 
 // CREATE ROUTE FOR EVENT - '/events'
-
 function create(req, res){
   req.body.hostUser = req.currentUser
   Event
@@ -71,6 +72,7 @@ function commentCreate(req, res){
     .catch((err) => res.status(400).json(err))
 }
 
+// Comment delete ROUTE FOR EVENT - '/events/:id/comments/:commentId'
 function commentDelete(req, res){
   Event
     .findById(req.params.id)
@@ -89,4 +91,36 @@ function commentDelete(req, res){
     .catch(err => res.status(400).json(err))
 }
 
-module.exports = { create, index, show, update, delete: deleteEvent, commentCreate, commentDelete }
+// Comment update ROUTE FOR EVENT - '/events/:id/comments/:commentId'
+function commentUpdate(req, res){
+  Event
+    .findById(req.params.id)
+    .then(event => {
+      if (!event) return res.status(404).json({ message: 'Not Found' })
+      const comment = event.comments.id(req.params.commentId)
+      return comment.set(req.body)
+    })
+    .then(comment => comment.save())
+    .then(comment => res.status(202).json(comment))
+    .catch(err => res.status(400).json(err))
+}
+
+
+// POST: Attend event ROUTE FOR EVENT - '/events/:id/attend'
+function attendEvent(req, res){
+  req.body.user = req.currentUser
+  Event
+    .findById(req.params.id)
+    .then(event =>{
+      if (!event) return res.status(404).json({ message: 'Not Found' })
+      event.attendees.push(req.body.user)
+      req.currentUser.eventsAttend.push(event)
+      req.currentUser.save()
+      return event.save()
+    })
+    .then(() => res.status(201).json(req.currentUser))
+    .catch(err => res.status(400).json(err))
+
+}
+
+module.exports = { create, index, show, update, delete: deleteEvent, commentCreate, commentDelete, attendEvent, commentUpdate }

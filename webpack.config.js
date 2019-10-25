@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+require('dotenv').config()
 
 module.exports = {
   entry: './src/app.js',
@@ -22,7 +23,13 @@ module.exports = {
     open: true,
     port: 8000,
     watchContentBase: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:4000',
+        secure: false
+      }
+    }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -30,6 +37,7 @@ module.exports = {
       template: 'src/index.html',
       filename: 'index.html',
       inject: 'body'
-    })
+    }),
+    new webpack.EnvironmentPlugin(['MAPBOX_ACCESS_TOKEN'])
   ]
 }
