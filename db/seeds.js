@@ -133,6 +133,7 @@ mongoose.connect(
             location: 'Liverpool Street',
             description: 'For the historians out there',
             price: '5',
+            images: '',
             hostUser: users[0],
             attendees: [ users[0], users [1], users[2] ]
           },
