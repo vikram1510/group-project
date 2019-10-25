@@ -57,4 +57,57 @@ describe('GET /events', () => {
         done()
       })
   })
+
+  // test for an array response
+  it('should return an array', done => {
+    api.get('/events')
+      .end((err, res) => {
+        expect(res.body).to.be.an('array')
+        done()
+      })
+  })
+
+  // test for an array of objects response
+  it('should return an array of objects', done => {
+    api.get('/events')
+      .end((err, res) => {
+        res.body.forEach(event => {
+          expect(event).to.be.an('object')
+        })
+        done()
+      })
+  })
+
+  // test for correct fields in response - for required fields
+  it('should return the correct fields', done => {
+    api.get('/events')
+      .end((err, res) => {
+        res.body.forEach(event => {
+          expect(event).to.contains.keys([
+            '_id',
+            'name',
+            'location',
+            'description',
+            'price'
+          ])
+        })
+        done()
+      })
+  })
+
+  // test for correct data types in field - for required fields
+  it('should return the correct data types within fields', done => {
+    api.get('/events')
+      .end((err, res) => {
+        res.body.forEach(event => {
+          expect(event._id).to.be.a('string')
+          expect(event.name).to.be.a('string')
+          expect(event.location).to.be.a('string')
+          expect(event.description).to.be.a('string')
+          expect(event.price).to.be.a('number')
+        })
+        done()
+      })
+  })
+
 })
