@@ -17,8 +17,8 @@ function show(req, res) {
     .then(event => {
       if (!event) return res.status(404).json({ message: 'Not Found' })
       res.status(200).json(event)
-        .catch(() => res.status(404).json({ message: 'Not Found' }))
     })
+    .catch(() => res.status(404).json({ message: 'Not Found' }))
 }
 
 // CREATE ROUTE FOR EVENT - '/events'
