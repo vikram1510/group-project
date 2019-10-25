@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "webpack-dev-server --mode=development"
+    "test": "mocha test/**/*_spec.js --require test/helper --recursive --exit",
+    "serve:front": "webpack-dev-server --mode=development",
+    "seed": "node db/seeds.js",
+    "serve:back": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",

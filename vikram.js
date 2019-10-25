@@ -1,7 +1,6 @@
 /* global describe, beforeEach, afterEach, it, expect, api */
 const Drink = require('../../models/Drink')
 const User = require('../../models/User')
-
 describe('GET /drinks', () => {
   beforeEach(done => {
     User.create({
@@ -73,15 +72,4 @@ describe('GET /drinks', () => {
       })
   })
 })
-Collapse
-
-
-
-
-
-
-
-
-Message Vikram Bageja, Reema Patel - LDN, Tom Good
-
-
+Collap

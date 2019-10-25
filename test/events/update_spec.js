@@ -1,4 +1,4 @@
-/* global describe, beforeEach, afterEach, it, expect, assert, api */
+/* global describe, beforeEach, afterEach, it, assert, api */
 
 const Event = require('../../models/Event')
 const User = require('../../models/User')
