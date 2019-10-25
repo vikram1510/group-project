@@ -23,6 +23,7 @@ router.route('/users/:id')
 
 router.route('/events/:id/comments')
   .post(secureRoute, events.commentCreate)
+  .put(secureRoute, events.commentUpdate)
 
 router.route('/events/:id/comments/:commentId')
   .delete(secureRoute, events.commentDelete)
