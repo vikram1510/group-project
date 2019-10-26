@@ -22,20 +22,31 @@ class EventIndex extends React.Component {
     const { events } = this.state
     if (!events) return null
     return (
-      <div>
-        {
-          events.map(event => (
-            <div key={event._id}>
-              <Link to={`/events/${event._id}`}><h4>{event.name}</h4></Link>
-              <p>{event.description}</p>
-            </div>
-          ))
-        }
-
-        <Map />
-        
+      <div className="index-page-wrapper">
+        <div className="filter-list-wrapper">FILTER BAR</div>
+        <div className="list-map-wrapper">
+          <div className="event-list">
+            {
+              events.map(event => (
+                <Link to={`/events/${event._id}`} key={event._id}>
+                  <div className="event-wrapper" >
+                    <div className="event-name">
+                      <h4>{event.name}</h4>
+                    </div>
+                    <div className="event-description">
+                      <p>{event.description}</p>
+                    </div>
+                    <div className="event-thumbnail-image">imge</div>
+                  </div>
+                </Link>
+              ))
+            }
+          </div>
+          <div className="map-wrapper">
+            <Map />
+          </div>
+        </div>
       </div>
-
     )
   }
 }
