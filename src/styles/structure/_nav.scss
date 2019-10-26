@@ -5,7 +5,7 @@
 .nav-sidebar {
   width: 15%;
   height: 100%;
-  background-color: purple;
+  background-color: rgb(228, 124, 6);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,6 +15,7 @@
 
 // burger menu
 .burger-menu {
+  margin: 20px 0;
   div:nth-of-type(1) {
     width: 45px;
     height: 5px;
@@ -43,5 +44,7 @@ nav {
 
   a{
     font-size: 23px;
+    color: white;
+    text-decoration: none;
   }
 }

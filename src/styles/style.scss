@@ -1,42 +1,8 @@
-// basic structure of website and page layout
-@import 'structure';
+// basic structure of website and navigation sidebar
+@import 'structure/basic-structure';
+@import 'structure/nav';
 
 
-// show page styling
-@import 'show';
-
-
-
-
-
-// HOME PAGE
-.home-page { // the home page base container
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  padding-top: 20px;
-}
-
-// tech language wrapper for all the boxes
-.tech-lang-wrapper {
-  background-color: wheat;
-  width: 90%;
-  height: 700px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  
-
-  div {
-    width: 200px;
-    height: 200px;
-    background-color: yellowgreen;
-    border: black solid 1px;
-    margin: 5px;
-
-  }
-}
-
-
-
+// page styling
+@import 'pages/home';
+@import 'pages/show';
