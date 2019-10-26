@@ -1,0 +1,20 @@
+.show-page {
+  input.text {
+    border: 0;
+    width: 200px;
+    height: 200px;
+    background-color: dodgerblue;
+    &:disabled{
+      color: black;
+    }
+    &.enabled {
+      border: rgb(143, 143, 143) 1px solid;
+      &:hover{
+        border: black 1px solid;
+      }
+      &:focus {
+        background-color: rgb(107, 181, 255);
+      }
+    }
+  }
+}

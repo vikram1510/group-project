@@ -12,7 +12,7 @@ class Profile extends React.Component {
   }
 
   componentDidMount(){
-    axios.get(`/api/users/${this.props.match.params.id}`, {
+    axios.get('/api/profile', {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => this.setState({ user: res.data }))

@@ -59,9 +59,15 @@ class EventShow extends React.Component{
     const { event } = this.state
     if (!event) return null
     return (
-      <div>
+      <div className="show-page">
         <h1>{event.name}</h1>
         <h3>People Attending</h3>
+        <input 
+          className={`text ${Auth.isAuthenticated() ? 'enabled' : ''}`}
+          name="description"
+          value={event.description}
+          disabled={!Auth.isAuthenticated()}>
+        </input>
         <ul>
           {event.attendees.map(attendee => {
             return <li key={attendee._id}>{attendee.username}</li>

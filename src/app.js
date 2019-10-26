@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Link, Route } from 'react-router-dom'
-import './style.scss'
+import './styles/style.scss'
 
 import Home from './components/common/Home'
 import EventIndex from './components/events/EventIndex'

@@ -26,14 +26,7 @@ function login(req, res){
 }
 
 function profile(req, res){
-  User
-    .findById(req.params.id)
-    .populate('eventsAttend')
-    .then(user => {
-      if (!user) return res.status(404).json({ message: 'Not Found' })
-      res.status(200).json(user)
-    })
-    .catch(err => res.status(400).json(err))
+  res.status(200).json(req.currentUser)
 }
 
 module.exports = { register, login, profile }
