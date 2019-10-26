@@ -1,0 +1,29 @@
+// HOME PAGE
+
+
+.home-page { // the home page wrapper
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.tech-lang-wrapper { // tech language wrapper for all the boxes
+  background-color: wheat;
+  width: 90%;
+  height: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+
+  div { // the boxes for each tech language
+    width: 200px;
+    height: 200px;
+    background-color: yellowgreen;
+    border: black solid 1px;
+    margin: 5px;
+
+  }
+}
