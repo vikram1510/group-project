@@ -13,52 +13,64 @@
   }
 }
 
-.tech-lang-wrapper { // tech language wrapper for all the boxes
-  width: 90%;
-  height: 700px;
+.grid-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  // background-color: rgb(121, 250, 250);
+}
+
+.grid { // tech language wrapper for all the boxes
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-auto-rows: 200px;
+  grid-gap: 25px;
+  // background-color: burlywood;
   
 
   div { // the boxes for each tech language
-    width: 200px;
-    height: 200px;
-    border: black solid 1px;
-    margin: 5px;
+    border: rgb(12, 11, 11) solid 1px;
     background-size: cover;
-    background-position: center;
+    
+    // filter: grayscale(50%);
 
+    // &:nth-of-type(1){
+    //   background-image: url('https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg');
+    // }
+    // &:nth-of-type(2){
+    //   background-image: url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg');
+    // }
+    // &:nth-of-type(3){
+    //         background-image: url('https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg');
+    // }
+    // &:nth-of-type(4){
+    //         background-image: url('https://images.pexels.com/photos/50711/board-electronics-computer-data-processing-50711.jpeg');
+    // }
+    // &:nth-of-type(5){
+    //         background-image: url('https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg');
+    // }
+    // &:nth-of-type(6){
+    //         background-image: url('https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg');
+    // }
+    // &:nth-of-type(7){
+    //         background-image: url('https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg');
+    // }
+    // &:nth-of-type(8){
+    //         background-image: url('https://images.pexels.com/photos/4316/technology-computer-chips-gigabyte.jpg');
+    // }
 
-    &:nth-of-type(1){
-      background-image: url('https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg');
-    }
-    &:nth-of-type(2){
-      background-image: url('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg');
-    }
-    &:nth-of-type(3){
-            background-image: url('https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg');
-    }
-    &:nth-of-type(4){
-            background-image: url('https://images.pexels.com/photos/50711/board-electronics-computer-data-processing-50711.jpeg');
-    }
-    &:nth-of-type(5){
-            background-image: url('https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg');
-    }
-    &:nth-of-type(6){
-            background-image: url('https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg');
-    }
-    &:nth-of-type(7){
-            background-image: url('https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg');
-    }
-    &:nth-of-type(8){
-            background-image: url('https://images.pexels.com/photos/4316/technology-computer-chips-gigabyte.jpg');
-    }
-
-    filter: grayscale(50%);
 
 
   }
 
 
+}
+
+@media only screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 200px);
+  }
 }

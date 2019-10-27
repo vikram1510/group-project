@@ -5,16 +5,20 @@ class Home extends React.Component {
     return (
       <div className="home-page">
         <h2>Home Page</h2>
-        <div className="tech-lang-wrapper">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+        <div className="grid-wrapper">
+          <div className="grid">
+            <div>hello</div>
+            <div>hello</div>
+            <div>hello</div>
+            <div>hello</div>
+            <div>hello</div>
+            <div>hello</div>
+            <div>hello</div>
+            <div>hello</div>
+          </div>
+
         </div>
+
       </div>
     )
   }
