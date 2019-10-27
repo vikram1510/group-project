@@ -9,10 +9,10 @@ const commentSchema = new mongoose.Schema({
 
 const eventSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  location: { type: String, required: true },
+  location: { type: String, required: true }, //full address including 
   description: { type: String, required: true },
   price: { type: Number, required: true },
-  category: { type: String, required: false },
+  category: { type: String, required: false }, //programming language
   date: { type: Date, required: false },
   time: { type: String, required: false },
   images: { type: [String], required: false },

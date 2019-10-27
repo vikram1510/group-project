@@ -3,13 +3,17 @@ import MapGL, { Marker } from 'react-map-gl'
 import axios from 'axios'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
+
 const token = process.env.MAPBOX_ACCESS_TOKEN
 
 class Map extends React.Component {
   constructor() {
     super()
 
-    this.state = { events: [] }
+    this.state = { 
+      events: []
+    }
+    
   }
     
 
@@ -21,7 +25,6 @@ class Map extends React.Component {
       .then(res => console.log(res))
       .catch(err => console.log(err))
   }
-
 
 
   render() {
@@ -38,6 +41,8 @@ class Map extends React.Component {
           zoom={12}
           latitude={51.515}
           longitude={- 0.078}
+          {...this.state.viewport}
+          onViewportChange={(viewport) => this.setState({ viewport })}
         >
 
           {
@@ -50,7 +55,7 @@ class Map extends React.Component {
                 <div className="marker">🤟</div>
               </Marker>
             ))
-          }
+          }, 
 
         </MapGL >
       </div>

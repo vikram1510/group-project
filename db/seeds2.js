@@ -85,7 +85,7 @@ mongoose.connect(
           },
           {
             name: 'Compilers in C++',
-            location: 'Aldate East',
+            location: 'Aldgate East',
             description: 'I recommend that people take Standard conformance very seriously when considering a compiler. If you can, avoid any compiler that doesn\'t closely approximate the ISO standard or fails to supply a solid implementation of the standard library. The recent releases from all the major C++ vendors do that. Most of these compilers are embedded in frameworks of software development tools and libraries. These frameworks, environments, and libraries can be most helpful, but do remember that their use can lock you into a single vendor and that some uses have significant run-time performance implications. When looking for C++ on the web, you find that much of the information is "hidden" under various product names. In fact, I had more luck finding C++ compilers using google.com than by going directly to vendors that I knew sold them. Here, I have chosen to list C++ implementations simply by the name of their provider, ignoring marketing labels.',
             category: 'C++',
             price: 15,
