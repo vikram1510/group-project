@@ -22,8 +22,16 @@ class EventIndex extends React.Component {
     const { events } = this.state
     if (!events) return null
     return (
-      <div className="index-page-wrapper">
-        <div className="filter-list-wrapper">FILTER BAR</div>
+      <div className="index-page">
+        <div className="filter-list-wrapper">
+          <h2>FILTER BAR</h2>
+          <div className="filters">
+            <p>Category</p>
+            <p>Location</p>
+            <p>Date</p>
+            <p>Free Events Only</p>
+          </div>
+        </div>
         <div className="list-map-wrapper">
           <div className="event-list">
             {
