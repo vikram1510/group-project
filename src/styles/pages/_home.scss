@@ -8,7 +8,7 @@
   align-items: center;
   padding-top: 20px;
 
-  h2 {
+  p {
     margin-bottom: 20px;
   }
 }
@@ -32,10 +32,13 @@
   
 
   div { // the boxes for each tech language
-    border: rgb(12, 11, 11) solid 1px;
+    width: 150px;
+    height: 150px;
+    border: black solid 1px;
+    margin: 5px;
     background-size: cover;
-    
-    // filter: grayscale(50%);
+    background-position: center;
+
 
     &:nth-of-type(1){
       // background-image: url('https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg');
@@ -72,13 +75,13 @@
             // background-image: url('../../assets/gigabyte.jpeg');
     }
 
+    border: rgb(12, 11, 11) solid 1px;
+    background-size: cover;
     filter: grayscale(50%);
-
-
+    box-shadow: 0px 0px 5px 1px #000000;
   }
-
-
 }
+
 
 @media only screen and (max-width: 600px) {
   .grid {
