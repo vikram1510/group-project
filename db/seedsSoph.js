@@ -3,6 +3,7 @@ const { dbURI } = require('../config/environment')
 const Event = require('../models/Event')
 const User = require('../models/User')
 
+
 mongoose.connect(
   dbURI,
   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
@@ -123,6 +124,10 @@ mongoose.connect(
           }
         ])
       })
+    // JAVA ICON
+    // <i class="fab fa-java"></i>
+    // SWIFT ICON
+    // <i class="fab fa-swift"></i>
 
       // ADD EVENTS
       .then((users) => {
@@ -221,7 +226,7 @@ mongoose.connect(
           },
           {
             name: 'Keynote by Heather VanCura on The Future of Java and You',
-            location: 'Cannon Street',
+            location: 'SKills Matter, CodeNode, 11 South Pl, Finsbury, London EC2M 7EB',
             description: 'This session will explore how Java development has been brought into the open - several Java developer efforts have brought open source development processes and new levels of transparency and participation into their communities. The Java Community Process (JCP) program celebrates twenty years of Java standards development in 2019. Learn about the latest Java innovations to the Java SE Platform - Java SE 11, 12, 13 and beyond. Since the initiation of efforts to expand the developer participation in the Java community, Java standards development is more open that it ever has been.   Learn how to take part in the Java developer community and the upcoming changes to Java - you can participate as an individual, corporation, or nonprofit such as a Java user group(JUG).This session answers questions about why and how to participate in the evolution of the Java platform.You will also learn about the global Adoption programs and how you can participate in contributing to the future of Java.',
             category: 'Java',
             price: 0,
@@ -255,6 +260,136 @@ mongoose.connect(
             time: '19:00',
             industry: 'Retail',
             images: 'http://www.duchess-france.org/wp-content/uploads/2017/05/DanielaSfregolaArticle.png',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'Swift - intro to building an iOS App',
+            location: 'Central Station, 37 Wharfdale Road, Kings Cross, London, N1 9UA',
+            description: 'We return to more technical matters with a look at the programming language Swift and how Apple are pushing the language and it’s developers as, maybe, iPhone and iPad sales slow.',
+            category: 'Swift',
+            price: 5,
+            date: '2020-10-30',
+            time: '19:00',
+            industry: 'Tech',
+            images: 'https://cdn.worldvectorlogo.com/logos/swift-logo-with-text.svg',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'Serverless SWIFT and Combine',
+            location: 'SKills Matter, CodeNode, 11 South Pl, Finsbury, London EC2M 7EB',
+            description: 'Schedule  7pm : How To Work with AWS Lambda in Swift   Discover the importance of the Serverless architecture for mobile apps and how the open- source Swift library created for AWS Lambda can allow Full Stack Swift development on AWS Serverless.   Andrea Scuderi   Senior native iOS Developer@BJSS with experience in the Retail, Finance, Banking, Energy and Media industries.He is the creator of Swift - Sprinter an open - source library to work with Swift on AWS Lambda and Trackyzer an app for Cyclists.  8pm : The Combine Framework',
+            category: 'Swift',
+            price: 0,
+            date: '2020-02-30',
+            time: '19:00',
+            industry: 'Tech',
+            images: 'https://cdn.worldvectorlogo.com/logos/swift-logo-with-text.svg',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'Swift - intro to building an iOS App',
+            location: 'Central Station, 37 Wharfdale Road, Kings Cross, London, N1 9UA',
+            description: 'We return to more technical matters with a look at the programming language Swift and how Apple are pushing the language and it’s developers as, maybe, iPhone and iPad sales slow.',
+            category: 'Swift',
+            price: 5,
+            date: '2020-10-30',
+            time: '19:00',
+            industry: 'Tech',
+            images: 'https://cdn.worldvectorlogo.com/logos/swift-logo-with-text.svg',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'Swift Monthly #69, October Meetup',
+            location: 'Central Station, 37 Wharfdale Road, Kings Cross, London, N1 9UA',
+            description: '18:15 - Doors open. Pizza and drinks are served     19: 00 - Building a Serverless API with GraphQL API and Microservicest Christoffer Noring (Microsoft)  This talk introduces technologies such as Serverless, GraphQL and Docker   19: 30 - The time and place for...Implementation Details // Johnny Magrippis (Funding Circle)    `Boolean(v)`, or`!!v` ? React\'s `.setState` or hooks? Interface directly with a Rest API, or through a GraphQL layer? Johnny explores when and where you should be focusing on implementation details such as these... Spoiler alert: it\'s not in your tests.   20: 00 - A Thousand Words: How I\'m still not using GUIs in 2019 // Lucas da Costa (Converge)',
+            category: 'Swift',
+            price: 0,
+            date: '2021-01-30',
+            time: '19:00',
+            industry: 'Tech',
+            images: 'https://cdn.worldvectorlogo.com/logos/swift-logo-with-text.svg',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'Swift - intro to building an iOS App',
+            location: 'Central Station, 37 Wharfdale Road, Kings Cross, London, N1 9UA',
+            description: 'We return to more technical matters with a look at the programming language Swift and how Apple are pushing the language and it’s developers as, maybe, iPhone and iPad sales slow.',
+            category: 'Swift',
+            price: 5,
+            date: '2020-10-30',
+            time: '19:00',
+            industry: 'Tech',
+            images: 'https://cdn.worldvectorlogo.com/logos/swift-logo-with-text.svg',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'Swift - intro to building an iOS App',
+            location: 'Central Station, 37 Wharfdale Road, Kings Cross, London, N1 9UA',
+            description: 'We return to more technical matters with a look at the programming language Swift and how Apple are pushing the language and it’s developers as, maybe, iPhone and iPad sales slow.',
+            category: 'Swift',
+            price: 5,
+            date: '2020-10-30',
+            time: '19:00',
+            industry: 'Tech',
+            images: 'https://cdn.worldvectorlogo.com/logos/swift-logo-with-text.svg',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'Swift - intro to building an iOS App',
+            location: 'Central Station, 37 Wharfdale Road, Kings Cross, London, N1 9UA',
+            description: 'We return to more technical matters with a look at the programming language Swift and how Apple are pushing the language and it’s developers as, maybe, iPhone and iPad sales slow.',
+            category: 'Swift',
+            price: 5,
+            date: '2020-10-30',
+            time: '19:00',
+            industry: 'Tech',
+            images: 'https://cdn.worldvectorlogo.com/logos/swift-logo-with-text.svg',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'Swift - intro to building an iOS App',
+            location: 'Central Station, 37 Wharfdale Road, Kings Cross, London, N1 9UA',
+            description: 'We return to more technical matters with a look at the programming language Swift and how Apple are pushing the language and it’s developers as, maybe, iPhone and iPad sales slow.',
+            category: 'Swift',
+            price: 5,
+            date: '2020-10-30',
+            time: '19:00',
+            industry: 'Tech',
+            images: 'https://cdn.worldvectorlogo.com/logos/swift-logo-with-text.svg',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'Swift - intro to building an iOS App',
+            location: 'Central Station, 37 Wharfdale Road, Kings Cross, London, N1 9UA',
+            description: 'We return to more technical matters with a look at the programming language Swift and how Apple are pushing the language and it’s developers as, maybe, iPhone and iPad sales slow.',
+            category: 'Swift',
+            price: 5,
+            date: '2020-10-30',
+            time: '19:00',
+            industry: 'Tech',
+            images: 'https://cdn.worldvectorlogo.com/logos/swift-logo-with-text.svg',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
+            name: 'Swift - intro to building an iOS App',
+            location: 'Central Station, 37 Wharfdale Road, Kings Cross, London, N1 9UA',
+            description: 'We return to more technical matters with a look at the programming language Swift and how Apple are pushing the language and it’s developers as, maybe, iPhone and iPad sales slow.',
+            category: 'Swift',
+            price: 5,
+            date: '2020-10-30',
+            time: '19:00',
+            industry: 'Tech',
+            images: 'https://cdn.worldvectorlogo.com/logos/swift-logo-with-text.svg',
             hostUser: users[0],
             attendees: [users[0], users[1], users[2]]
           }

@@ -1,0 +1,75 @@
+// Register Page
+.register-page {
+  background-color: aqua;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  background-color: yellow;
+  width: 52vw;
+  height: auto;
+}
+
+.field {
+  background-color: blue;
+  width: 50vw;
+  height: 4vw;
+  display: flex;
+  margin: 1vw;
+
+}
+
+.label {
+  background-color: blueviolet;
+  width: 20vw;
+  height: 4vw;
+  text-align: right;
+  padding: 1vw;
+}
+
+.control {
+  background-color: crimson;
+  width: 30vw;
+}
+
+input {
+  width: 30vw;
+  height: 4vw;
+}
+
+.category-container {
+  background-color: darkmagenta;
+  width: 50vw;
+  margin: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+}
+
+.row1 {
+  background-color: deepskyblue;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50vw;
+}
+
+.row2 {
+  background-color: gainsboro;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50vw;
+}
+
+.category-box {
+  background-color: darkturquoise;
+  display: flex;
+  flex-direction: column;
+  width: 10vw;
+  height: 10vw;
+  margin: 1vw;
+}
