@@ -37,13 +37,16 @@ class EventIndex extends React.Component {
           <div className="event-list">
             {
               events.map(event => (
-                <Link to={`/events/${event._id}`} key={event._id}>
+                <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
                   <div className="event-wrapper" >
-                    <div className="event-name">
-                      <h4>{event.name}</h4>
-                    </div>
-                    <div className="event-description">
-                      <p>{event.description}</p>
+                    <div className="event-text">
+                      <div className="event-name">
+                        <h4 className="event-name-text">{event.name}</h4>
+                      </div>
+                      <div className="event-description">
+                        <p>{event.description}</p>
+                      </div>
+
                     </div>
                     <div className="event-thumbnail-image">imge</div>
                   </div>
