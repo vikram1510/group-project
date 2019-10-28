@@ -9,20 +9,56 @@
     display: flex;
     flex-direction: column;
     background: blue;
-    height: 80px;
+    height: 100px;
     width: 100%;
     margin: 0 0 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .lang-filter {
+      display: flex;
+      align-items: center;
+
+      p {
+        margin-right: 10px;
+      }
+
+      .category-select {
+        width: 1000px;
+      }
+
+    }
+    
     
     h2 {
       margin: 5px;
     }
-
-    .filters {
+    
+    .secondary-filters {
       display: flex;
       justify-content: space-around;
       width: 80%;
       margin-top: 5px;
       // justify-content: center;
+      align-items: center;
+
+      .secondary-filter-wrappers {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+          margin-right: 10px;
+        }
+        .date-select {
+          width: 250px;
+        }
+        .location-select {
+          width: 250px;
+        }
+      }
+      
+
     }
   }
   
@@ -38,17 +74,34 @@
       background: red;
       width: 350px;
       height: 600px;
+      overflow-y: scroll;
     
       .event-wrapper {
         border: 1px black solid;
+        height: 60px;
   
         display: flex;
         justify-content: space-between;
+        align-items: center;
+
+        color: black;
+        .event-text {
+          .event-name {
+            border: 1px dashed gold;
+            margin: 5px;
+          }
+          
+          .event-description {
+            border: 1px dashed green;
+            margin: 5px;
+          }
+        }
   
         .event-thumbnail-image {
           background: gold;
           width: 50px;
           height: 50px;
+          margin-right: 20px;
         }
       }
     }
@@ -58,8 +111,30 @@
       height: 600px;
       width: 600px;
       margin-left: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
 
+.event-linktag {
+  text-decoration: none;
+}
 
+.checkbox-input {
+  height: 30px;
+  width: 200px;
+  border-radius: 5px;
+  background: grey;
+  cursor: pointer;
+}
+
+.on {
+  background: green;
+  color: white;
+}
+
+.marker-link {
+  text-decoration: none;
+}

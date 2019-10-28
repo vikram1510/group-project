@@ -143,7 +143,8 @@ mongoose.connect(
             description: 'How to excel in Python',
             price: '10',
             hostUser: users[0],
-            attendees: [ users[0], users [1], users[2] ]
+            attendees: [ users[0], users [1], users[2] ],
+            time: '19:00'
           },
           {
             name: 'The Future of AI',
