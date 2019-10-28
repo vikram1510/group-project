@@ -1,7 +1,10 @@
 import React from 'react'
 import axios from 'axios'
+import moment from 'moment'
 
 import Auth from '../../lib/auth'
+
+import ShowInput from '../common/showInput'
 
 class EventShow extends React.Component{
   constructor(){
@@ -55,26 +58,51 @@ class EventShow extends React.Component{
   }
 
   render(){
-    console.log(this.state)
+    console.log('show', this.state)
     const { event } = this.state
     if (!event) return null
+    console.log(moment(event.date).format('MMM Do YY'))
     return (
-      <div className="show-page">
-        <h1>{event.name}</h1>
-        <h3>People Attending</h3>
-        <input 
-          className={`text ${Auth.isAuthenticated() ? 'enabled' : ''}`}
-          name="description"
-          value={event.description}
-          disabled={!Auth.isAuthenticated()}>
-        </input>
-        <ul>
-          {event.attendees.map(attendee => {
-            return <li key={attendee._id}>{attendee.username}</li>
-          })}
-        </ul>
-        <label>Attend</label>
-        <input type="checkbox" onChange={this.handleChange} checked={this.isAttending()}></input>
+      <div className="show-page-wrapper">
+        <div className="show-page">
+          <h1>{event.name}</h1>
+          <div className="date-time">
+            <p className="date">{moment(event.date).format('MMM Do YYYY')}</p> 
+            <p className="time">{moment(event.time,'HH:mm').format('h:mm A')}</p>
+          </div>
+          <section>
+            <div className="attend-price">
+              <div className="attend">
+                <input type="checkbox" onChange={this.handleChange} checked={this.isAttending()}></input>
+                <label>Attend</label>
+              </div>
+              <div className="price">
+                <p>Price</p>
+                <span>£{event.price}</span>
+              </div>
+            </div>
+            <br></br>
+            <p>{event.description}</p>
+            <br></br>
+            <br></br>
+            <br></br>
+            {/* <ShowInput name="description" value={event.description}></ShowInput> */}
+          </section>
+          <section>
+            <h3>Host</h3>
+            <p>{event.hostUser.username}</p>
+            <br></br>
+            <h3>People Attending</h3>
+            <ul>
+              {event.attendees.map(attendee => {
+                return <li key={attendee._id}>{attendee.username}</li>
+              })}
+            </ul>
+            <p>Location: {event.location}</p>
+          </section>
+        </div>
+
+
       </div>
 
     )

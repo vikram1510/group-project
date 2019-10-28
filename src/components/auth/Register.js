@@ -112,7 +112,7 @@ class Register extends React.Component {
               />
             </div>
           </div> */}
-          <h3>Please select your language</h3>
+          <h3>Please select your language below: </h3>
           <div className="category-container">
             <div className="row1">
               <div className="category-box">Java</div>

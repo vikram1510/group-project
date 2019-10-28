@@ -141,43 +141,73 @@ mongoose.connect(
             name: 'Python Masterclass',
             location: 'Shoreditch',
             description: 'How to excel in Python',
-            price: '10'
+            price: '10',
+            hostUser: users[0],
+            attendees: [ users[0], users [1], users[2] ],
+            time: '19:00'
           },
           {
             name: 'The Future of AI',
             location: 'Google',
             description: 'For the historians out there',
-            price: '5'
+            price: '5',
+            hostUser: users[0],
+            attendees: [ users[0], users [1], users[2] ]
           },
           {
             name: 'Women in Tech',
             location: 'Liverpool Street',
             description: 'For the historians out there',
-            price: '0'
+            price: '0',
+            hostUser: users[0],
+            attendees: [ users[0], users [1], users[2] ]
           },
           {
             name: 'Coding for Beginners',
             location: 'GA',
             description: 'For the historians out there',
-            price: '5'
+            price: '5',
+            hostUser: users[0],
+            attendees: [ users[0], users [1], users[2] ]
           },
           {
             name: 'React for Pizza lovers',
             location: 'Liverpool Street',
             description: 'For the historians out there',
-            price: '10'
+            price: '10',
+            hostUser: users[0],
+            attendees: [ users[0], users [1], users[2] ]
           },
           {
             name: 'Innovations in Voice Design at Amazon',
             location: 'Principal Place, 1 Principal Place, London, EC2A 2BA, gb',
             description: 'Schedule',
-            price: '0'
+            price: '0',
+            hostUser: users[0],
+            attendees: [ users[0], users [1], users[2] ]
+          },
+          {
+            name: 'Introducing C++',
+            location: 'Monument',
+            description: 'C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes". The language has expanded significantly over time, and modern C++ has object-oriented, generic, and functional features in addition to facilities for low-level memory manipulation. It is almost always implemented as a compiled language, and many vendors provide C++ compilers, including the Free Software Foundation, LLVM, Microsoft, Intel, Oracle, and IBM, so it is available on many platforms',
+            category: 'C++',
+            price: 5,
+            date: '2019-11-29',
+            time: '19:00',
+            industry: 'Education',
+            images: ['https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+              'https://images.pexels.com/photos/879109/pexels-photo-879109.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+            ],
+            hostUser: users[2],
+            attendees: [ users[0], users [1] ]
           },
           {
             name: 'Future of Blockchain',
             location: 'Soho',
             description: 'For the historians out there',
-            price: '7'
+            price: '7',
+            hostUser: users[0],
+            attendees: [ users[0], users [1], users[2] ]
           }
           
         ])
