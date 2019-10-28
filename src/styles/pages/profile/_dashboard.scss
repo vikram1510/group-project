@@ -1,0 +1,26 @@
+// PROFILE - DASHBOARD PAGE
+
+
+.dashboard-wrapper { // the wrapper for the whole dashboard section
+  background-color: lightblue;
+  width: 100%;
+  padding: 20px 30px;
+  height: 100%;
+
+  .dashboard-content { // where the boxes/content will go
+    display: flex;
+  }
+}
+
+
+.events-attending-wrapper { // individual section for events attending
+  background-color: lightpink;
+  flex-grow: 1;
+}
+
+
+.your-info-wrapper { // individual section for user's info
+  background-color: lightgreen;
+  flex-grow: 1.5;
+}
+

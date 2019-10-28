@@ -9,6 +9,8 @@ import EventShow from './components/events/EventShow'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Profile from './components/common/Profile'
+import UpcomingEvents from './components/profile/UpcomingEvents'
+import PastEvents from './components/profile/PastEvents'
 
 import Auth from './lib/auth'
 
@@ -59,7 +61,10 @@ class App extends React.Component{
               <Route path='/events' component={EventIndex} />
               <Route path='/register' component={Register} />
               <Route path='/login' component={Login} />
+              <Route path='/users/:id/past-events' component={PastEvents} />
+              <Route path='/users/:id/upcoming-events' component={UpcomingEvents} />
               <Route path='/users/:id' component={Profile} />
+              
             </Switch>
           </div> 
         </main>
