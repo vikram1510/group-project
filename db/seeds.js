@@ -141,7 +141,8 @@ mongoose.connect(
             name: 'Python Masterclass',
             location: 'Shoreditch',
             description: 'How to excel in Python',
-            price: '10'
+            price: '10',
+            time: '19:00'
           },
           {
             name: 'The Future of AI',

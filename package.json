@@ -48,7 +48,7 @@
     "react-dom": "^16.7.0",
     "react-map-gl": "^5.0.12",
     "react-router-dom": "^5.1.2",
+    "react-select": "^3.0.8",
     "supertest": "^4.0.2"
-    
   }
 }
