@@ -95,7 +95,10 @@ class EventShow extends React.Component{
             <h3>People Attending</h3>
             <ul>
               {event.attendees.map(attendee => {
-                return <li key={attendee._id}>{attendee.username}</li>
+                console.log(attendee)
+                return <div key={attendee._id}>
+                  <img src={attendee.profilePic}></img>
+                </div>
               })}
             </ul>
             <p>Location: {event.location}</p>
