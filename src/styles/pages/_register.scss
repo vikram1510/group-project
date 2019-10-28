@@ -6,9 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-form {
+  form {
   background-color: yellow;
   width: 52vw;
   height: auto;
@@ -72,4 +70,19 @@ input {
   width: 10vw;
   height: 10vw;
   margin: 1vw;
+  
 }
+
+.category-box:hover {
+  background-color: gold;
+}
+
+button {
+  width: 48vw;
+  margin: 1vw 2vw;
+  height: 4vw;
+}
+
+
+}
+
