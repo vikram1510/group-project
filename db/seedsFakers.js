@@ -2,7 +2,28 @@ const mongoose = require('mongoose')
 const { dbURI } = require('../config/environment')
 const Event = require('../models/Event')
 const User = require('../models/User')
-// const faker = require('faker')
+const faker = require('faker')
+
+
+// empty array for users
+const users = []
+
+
+// make a new user and push to users array 20 times
+for (let i = 0; i < 20; i++) {
+  
+  const user = {
+    username: faker.name.findName(),
+    email: faker.internet.email(),
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    profilePic: faker.image.avatar()
+  }
+
+  users.push(user)
+}
+
+console.log(users)
 
 mongoose.connect(
   dbURI,
@@ -13,116 +34,36 @@ mongoose.connect(
 
     // ADD USERS
       .then(() => {
-        return User.create([
+        return User.create(users.concat([
           {
             username: 'Soph',
             email: 'soph@email',
             password: 'pass',
-            passwordConfirmation: 'pass'
+            passwordConfirmation: 'pass',
+            profilePic: 'https://s3.amazonaws.com/uifaces/faces/twitter/tgormtx/128.jpg'
           },
           {
             username: 'Reema',
             email: 'reema@email',
             password: 'pass',
-            passwordConfirmation: 'pass'
+            passwordConfirmation: 'pass',
+            profilePic: 'https://s3.amazonaws.com/uifaces/faces/twitter/amanruzaini/128.jpg'
           },
           {
             username: 'Tom',
             email: 'tom@email',
             password: 'pass',
-            passwordConfirmation: 'pass'
+            passwordConfirmation: 'pass',
+            profilePic: 'https://s3.amazonaws.com/uifaces/faces/twitter/puzik/128.jpg'
           },
           {
             username: 'Vikram',
             email: 'vikram@email',
             password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Andy',
-            email: 'andy@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Louise',
-            email: 'louise@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Al',
-            email: 'al@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Wend',
-            email: 'wend@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Pete',
-            email: 'pete@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Rich',
-            email: 'rich@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Bhav',
-            email: 'bhav@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Frank',
-            email: 'frank@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Lib',
-            email: 'lib@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Debs',
-            email: 'debs@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'JP',
-            email: 'jp@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Els',
-            email: 'els@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Millie',
-            email: 'millie@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
-          },
-          {
-            username: 'Lottie',
-            email: 'Lottie@email',
-            password: 'pass',
-            passwordConfirmation: 'pass'
+            passwordConfirmation: 'pass',
+            profilePic: 'https://s3.amazonaws.com/uifaces/faces/twitter/RussellBishop/128.jpg'
           }
-        ])
+        ]))
       })
 
     // ADD EVENTS
