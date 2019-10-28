@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated'
+import moment from 'moment'
 
 import Map from '../common/Map'
 
@@ -79,10 +80,10 @@ class EventIndex extends React.Component {
             />
           </div>
           <div className="secondary-filters">
-            <div className="secondary-filter-wrappers">
+            {/* <div className="secondary-filter-wrappers">
               <p>Location</p>
               <Select className="location-select" options={this.date} placeholder="Location" />
-            </div>
+            </div> */}
             <div className="secondary-filter-wrappers">
               <p>Date</p>
               <Select className="date-select" options={this.date} placeholder="Date" />
@@ -103,7 +104,8 @@ class EventIndex extends React.Component {
                         <h4 className="event-name-text">{event.name}</h4>
                       </div>
                       <div className="event-description">
-                        <p>{event.time}</p>
+                        <p>{moment(event.date).format('h:mm A')}</p>
+                        <p>{moment(event.time, 'HH:mm').format('MMM do YYYY')}</p>
                       </div>
                     </div>
                     <div className="event-thumbnail-image">imge</div>

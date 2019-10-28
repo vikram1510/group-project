@@ -31,7 +31,6 @@ class Map extends React.Component {
         })
         .catch(err => console.log(err))
     })
-
   }
 
 
@@ -59,7 +58,7 @@ class Map extends React.Component {
                 latitude={point.lat}
                 longitude={point.long}
               >
-                <Link className="marker-link" to={`/events/${point._id}`}><div className="marker">📍</div></Link>
+                <Link className="marker-link" to={`/events/${point._id}`}><div className="marker">🔵</div></Link>
               </Marker>
             ))
           }

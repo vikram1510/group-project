@@ -8,7 +8,8 @@
   .filter-list-wrapper {
     display: flex;
     flex-direction: column;
-    background: blue;
+    // background: #A54040;
+    background: rgba(0,0,0, 0.5);
     height: 100px;
     width: 100%;
     margin: 0 0 25px;
@@ -63,7 +64,7 @@
   }
   
   .list-map-wrapper {
-    background: yellow;
+    // background: yellow;
     flex-grow: 1;
     
     display: flex;
@@ -71,43 +72,58 @@
     align-items: center;
   
     .event-list {
-      background: red;
-      width: 350px;
+      // background: red;
+      width: 400px;
       height: 600px;
       overflow-y: scroll;
+      border: 1px black solid;
+
+      h4 {
+        width: 250px;
+      }
     
       .event-wrapper {
         border: 1px black solid;
-        height: 60px;
+        height: 70px;
+        // margin: 5px;
+        margin-bottom: 5px;
   
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         color: black;
+        
         .event-text {
           .event-name {
-            border: 1px dashed gold;
+            // border: 1px dashed gold;
             margin: 5px;
           }
           
           .event-description {
-            border: 1px dashed green;
+            // border: 1px dashed green;
             margin: 5px;
+            display: flex;
+
+            p {
+              margin-right: 20px;
+            }
           }
         }
   
         .event-thumbnail-image {
-          background: gold;
+          border: 1px black solid;
           width: 50px;
           height: 50px;
           margin-right: 20px;
         }
       }
+      // .event-wrapper:last-of-type {
+      //   margin-bottom: 0;
+      // }
     }
 
     .map-wrapper {
-      background: green;
+      background: black;
       height: 600px;
       width: 600px;
       margin-left: 60px;
