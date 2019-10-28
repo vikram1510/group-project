@@ -15,6 +15,7 @@ function show(req, res) {
   Event
     .findById(req.params.id)
     .populate('attendees')
+    .populate('hostUser')
     .then(event => {
       if (!event) return res.status(404).json({ message: 'Not Found' })
       res.status(200).json(event)
