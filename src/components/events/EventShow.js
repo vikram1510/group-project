@@ -90,17 +90,18 @@ class EventShow extends React.Component{
           </section>
           <section>
             <h3>Host</h3>
+            <img src={event.hostUser.profilePic}></img>
             <p>{event.hostUser.username}</p>
             <br></br>
             <h3>People Attending</h3>
-            <ul>
+            <div className="attendees-images">
               {event.attendees.map(attendee => {
                 console.log(attendee)
                 return <div key={attendee._id}>
                   <img src={attendee.profilePic}></img>
                 </div>
               })}
-            </ul>
+            </div>
             <p>Location: {event.location}</p>
           </section>
         </div>

@@ -16,37 +16,42 @@
   grid-column-gap: 50px;
   grid-template-rows: 1fr 7fr;
   grid-row-gap: 50px;
-}
 
-.date-time {
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 20px;
-  justify-self: start;
-  .date {
-    font-size: 30px;
-    padding-bottom: 5px;
+  .date-time {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    justify-self: start;
+    
+    .date {
+      font-size: 30px;
+      padding-bottom: 5px;
+    }
+    .time {
+      text-align: center;
+    }
   }
-  .time {
-    text-align: center;
-  }
-}
 
-section:first-of-type{
-  .attend-price{
-    display: flex;
-    justify-content: space-around;
-    .price {
+  section:first-of-type{
+    .attend-price{
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      span {
-        font-weight: bold;
-        font-size: 20px;
+      justify-content: space-around;
+      .price {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span {
+          font-weight: bold;
+          font-size: 20px;
+        }
       }
     }
   }
 }
+
+
+
+
 
 
 
