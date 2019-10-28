@@ -26,35 +26,46 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     axios.post('/api/login', this.state.data)
-      .then((res) => Auth.setToken(res.data.token))
+      .then((res) => {
+        this.props.history.push('/profile')
+        Auth.setToken(res.data.token)
+      })
   }
 
   render() {
     console.log(this.state)
     return (
-      <div>
+      <div className="login-page">
         <h1>Login Page</h1>
+
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>Email</label>
-            <input
-              name="email"
-              placeholder="email"
-              onChange={this.handleChange}
-            />
+
+          <div className="field">
+            <label className="label">Email:</label>
+            <div className="control">
+              <input
+                name="email"
+                placeholder="Email"
+                onChange={this.handleChange}
+              />
+            </div>
           </div>
 
-          <div>
-            <label>Password</label>
-            <input
-              name="password"
-              type="password"
-              placeholder="password"
-              onChange={this.handleChange}
-            />
+          <div className="field">
+            <label className="label">Password:</label>
+            <div className="control">
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                onChange={this.handleChange}
+              />
+            </div>
           </div>
+
           <button type="submit">Submit</button>
         </form>
+
       </div>
       
     )

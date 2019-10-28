@@ -11,49 +11,19 @@ import Login from './components/auth/Login'
 import Profile from './components/common/Profile'
 import UpcomingEvents from './components/profile/UpcomingEvents'
 import PastEvents from './components/profile/PastEvents'
+import Navbar from './components/common/Navbar'
 
 import Auth from './lib/auth'
 
 
 class App extends React.Component{
-  handleLogout(){
-    Auth.logout()
-  }
+
 
   render() {
     return (
       <BrowserRouter>
         <main>
-          <div className="nav-sidebar" style={{ userSelect: 'none' }}>
-            {/* <div className="burger-menu">
-              <div></div>
-              <div></div>
-              <div></div>
-            </div> */}
-
-            <nav>
-              <div className="nav-top">
-                <Link to='/' className="logo">
-                  <i className="far fa-handshake"></i>
-                  <p><span>tech</span><span>Meet</span></p>
-                </Link>
-                <Link to='/'>
-                  <i className="fas fa-home"></i>
-                </Link>
-                <Link to='/events'>
-                  <i className="fa fa-search"></i>
-                </Link>
-              </div>         
-              <div className="nav-bottom">
-                <Link to='/register'>Register</Link>
-                <Link to='/login'>Login</Link>
-                <Link to={`/users/${Auth.getPayload().sub}`}>Profile</Link>
-                <Link to='/'>Settings</Link>
-                <Link to='/' onClick={this.handleLogout}>Logout</Link>
-              </div>       
-              {/* <Link>Settings</Link> */}
-            </nav>
-          </div>
+          <Navbar></Navbar>
           <div className="page-structure ">
             <Switch>
               <Route exact path='/' component={Home} />
@@ -61,10 +31,14 @@ class App extends React.Component{
               <Route path='/events' component={EventIndex} />
               <Route path='/register' component={Register} />
               <Route path='/login' component={Login} />
+<<<<<<< HEAD
               <Route path='/users/:id/past-events' component={PastEvents} />
               <Route path='/users/:id/upcoming-events' component={UpcomingEvents} />
               <Route path='/users/:id' component={Profile} />
               
+=======
+              <Route path='/profile' component={Profile} />
+>>>>>>> development
             </Switch>
           </div> 
         </main>
