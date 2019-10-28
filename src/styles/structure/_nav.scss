@@ -1,10 +1,20 @@
 // NAVIGATION SIDEBAR AND NAV MENU
+@mixin column-flex {
+  display: flex;
+  flex-direction: column;
+}
 
+@mixin column-center-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 // navigation sidebar
 .nav-sidebar {
-  width: 15%;
-  background-color: rgb(228, 124, 6);
+  width: 200px;
+  background-color: rgb(39, 39, 39);
+  // background-color: rgb(0, 0, 0);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,12 +48,40 @@
 
 // navigation menu
 nav {
-  display: flex;
-  flex-direction: column;
+  @include column-flex;
+  justify-content: space-between;
+  height: 100%;
+  > div {
+    @include column-flex;
+  }
+  a {
+    text-decoration: none;
+    margin-bottom: 15px;
+    text-align: center;
+  }
 
-  a{
-    font-size: 23px;
+  i{
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
+  p {
+    font-size: 25px;
+    font-family: monospace;
     color: white;
     text-decoration: none;
+    span:first-of-type{
+      color: rgb(108, 165, 255);
+      // margin-right: 1px;
+    }
+    span:last-of-type{
+      color: rgb(255, 213, 76);
+    }
+  }
+  .logo {
+    @include column-center-flex();
+    margin-top: 30px;
+    margin-bottom: 50px;
+    i {font-size: 70px;}
   }
 }
