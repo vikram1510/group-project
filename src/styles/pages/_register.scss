@@ -79,17 +79,24 @@
   }
   
   .category-box {
-    background-color: darkturquoise;
+    background-color: skyblue;
+    // background-image: url('https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg');
     display: flex;
     flex-direction: column;
     width: 10vw;
     height: 10vw;
     margin: 1vw;
+    color: white;
   }
 
   .category-box:hover {
-    background-color: gold;
+    background-color: rgba(0,0,255,0.3);
   }
 
+  button {
+      width: 50vw;
+      margin: 1vw 1vw;
+      height: 4vw;
+    }
 }
 

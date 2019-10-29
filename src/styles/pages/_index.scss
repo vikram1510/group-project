@@ -1,69 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Lato:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+
+//COLOR PALET
+$color-one: #071013;
+$color-two: #0B3954;
+$color-three: #F2F4F3;
+$color-four: #E5E5E5;
+$color-five: 1;
+
+
 .index-page {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-grow: 1;
+  background: #F2F4F3;
+
+  // font-family: 'Varela Round', sans-serif;
+  // font-family: 'Lato', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
 
   .filter-list-wrapper {
     display: flex;
-    flex-direction: column;
-    background: blue;
+    // flex-direction: column;
+    // color: #F2F4F3;
+    // background: #071013;
+    background: $color-two;
     height: 100px;
     width: 100%;
     margin: 0 0 25px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 
-    .lang-filter {
-      display: flex;
-      align-items: center;
+    .category-select {
+      // width: 1000px;
+      width: 700px;
+    }
+    .date-select {
+      // width: 250px;
+      width: 180px;
+    }
 
-      p {
-        margin-right: 10px;
-      }
-
-      .category-select {
-        width: 1000px;
-      }
-
+    .checkbox-input {
+      font-family: 'Titillium Web', sans-serif;
+      height: 36px;
+      width: 150px;
+      border-radius: 5px;
+      background: white;
+      color: grey;
+      cursor: pointer;
+      border: 0;
+      font-size: 14px;
+      box-shadow: 0px 0px 10px 0px $color-one;
     }
     
-    
-    h2 {
-      margin: 5px;
+    .on {
+      background: #069E2D;
+      color: $color-three;
     }
+
     
-    .secondary-filters {
-      display: flex;
-      justify-content: space-around;
-      width: 80%;
-      margin-top: 5px;
-      // justify-content: center;
-      align-items: center;
-
-      .secondary-filter-wrappers {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        p {
-          margin-right: 10px;
-        }
-        .date-select {
-          width: 250px;
-        }
-        .location-select {
-          width: 250px;
-        }
-      }
-      
-
-    }
   }
   
   .list-map-wrapper {
-    background: yellow;
+    // background: yellow;
     flex-grow: 1;
     
     display: flex;
@@ -71,43 +74,78 @@
     align-items: center;
   
     .event-list {
-      background: red;
-      width: 350px;
-      height: 600px;
+      // background: grey;
+      width: 440px;
+      height: 620px;
       overflow-y: scroll;
-    
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      // border: 1px black solid;
+
+      h4 {
+        width: 250px;
+      }
+      
       .event-wrapper {
-        border: 1px black solid;
-        height: 60px;
+        box-shadow: 2px 2px 10px 0px black;
+        // border: 1px black solid;
+        width: 400px;
+        height: 70px;
+        // margin: 5px;
+        margin: 10px;
+        background: $color-four;
+        border-radius: 3px;
   
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         color: black;
+
         .event-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
           .event-name {
-            border: 1px dashed gold;
+            // border: 1px dashed gold;
             margin: 5px;
           }
           
           .event-description {
-            border: 1px dashed green;
+            // border: 1px dashed green;
             margin: 5px;
+            display: flex;
+            font-size: 12px;
+
+            p {
+              margin-right: 20px;
+            }
           }
         }
   
         .event-thumbnail-image {
-          background: gold;
+          // border: 1px $color-one solid;
           width: 50px;
           height: 50px;
           margin-right: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+          .fa-js-square {
+            color: $color-two;
+            font-size: 50px;
+          }
         }
       }
+      // .event-wrapper:last-of-type {
+      //   margin-bottom: 0;
+      // }
     }
 
     .map-wrapper {
-      background: green;
+      background: $color-one;
       height: 600px;
       width: 600px;
       margin-left: 60px;
@@ -122,18 +160,7 @@
   text-decoration: none;
 }
 
-.checkbox-input {
-  height: 30px;
-  width: 200px;
-  border-radius: 5px;
-  background: grey;
-  cursor: pointer;
-}
 
-.on {
-  background: green;
-  color: white;
-}
 
 .marker-link {
   text-decoration: none;
