@@ -8,18 +8,27 @@ class Map extends React.Component {
   constructor() {
     super()
 
-    this.state = { 
+    this.state = {
       latLongs: []
     }
     
   }
-    
+  
+  componentDidUpdate(prevProps) {
+    if (prevProps.events !== this.props.events) {
+      this.setState({ latLongs: [] })
+      this.latlongCalc()
+    } 
+  }
 
   componentDidMount() {
-    console.log('mounting')
+    // console.log('mounting')
     console.log('props', this.props.events)
+    this.latlongCalc()
     
+  }
 
+  latlongCalc() {
     this.props.events.map(event => {
       axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${event.location}.json?access_token=${process.env.MAPBOX_ACCESS_TOKEN}`)
         .then(res => {
@@ -35,8 +44,8 @@ class Map extends React.Component {
 
 
   render() {
-    console.log('rendering')
-    console.log(this.state)
+    // console.log('rendering')
+    // console.log(this.state)
     return (
       <div>
         < MapGL

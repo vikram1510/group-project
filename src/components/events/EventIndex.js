@@ -15,6 +15,7 @@ class EventIndex extends React.Component {
 
     this.state = {
       events: null,
+      showEvents: null,
       filter: {
         category: '',
         location: '',
@@ -46,26 +47,49 @@ class EventIndex extends React.Component {
     ]
 
     this.handleFreeEventClick = this.handleFreeEventClick.bind(this)
+    this.handleMultiSelect = this.handleMultiSelect.bind(this)
     
   }
 
   componentDidMount() {
     axios.get('/api/events')
-      .then(res => this.setState({ events: res.data }))
+      .then(res => this.setState({ events: res.data, showEvents: res.data }))
   }
 
-  handleFreeEventClick() {
+  handleFreeEventClick(e) {
     this.setState({ checkbox: !this.state.checkbox })
+    e.target.blur()
+  }
+  
+  handleMultiSelect(selected) {
+    const originalEvents = this.state.events
+    console.log(originalEvents)
+    if (!selected) return this.setState({ showEvents: originalEvents })
+    console.log(selected)
+    const catSelected = selected ? selected.map(cat => cat.value) : []
+    console.log(catSelected)
+    const filteredEvents = originalEvents.filter(event => {
+      if (!event.category) return null
+      return catSelected.includes(event.category.toLowerCase())
+    })
+    console.log(filteredEvents)
+    this.setState({ showEvents: filteredEvents })
+
   }
 
   render() {
     console.log(this.state)
-    const { events } = this.state
+    const { events, showEvents } = this.state
     if (!events) return null
     return (
       <div className="index-page">
         <div className="filter-list-wrapper">
-          <Select className="category-select" options={this.categories} placeholder="Categories" isMulti components={animatedComponents} 
+          <Select className="category-select" 
+            options={this.categories} 
+            placeholder="Categories" 
+            isMulti 
+            components={animatedComponents}
+            onChange={this.handleMultiSelect}
             theme={theme => ({
               ...theme,
               // borderRadius: 0,
@@ -82,7 +106,7 @@ class EventIndex extends React.Component {
         <div className="list-map-wrapper">
           <div className="event-list">
             {
-              events.map(event => (
+              showEvents.map(event => (
                 <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
                   <div className="event-wrapper" >
                     <div className="event-text">
@@ -90,8 +114,8 @@ class EventIndex extends React.Component {
                         <h4 className="event-name-text">{event.name}</h4>
                       </div>
                       <div className="event-description">
-                        <p>{moment(event.date).format('h:mm A')}</p>
-                        <p>{moment(event.time, 'HH:mm').format('MMM do YYYY')}</p>
+                        <p>{moment(event.date).format('MMM do YYYY')}</p>
+                        <p>{moment(event.time, 'HH:mm').format('h:mm A')}</p>
                       </div>
                     </div>
                     <div className="event-thumbnail-image">
@@ -103,7 +127,7 @@ class EventIndex extends React.Component {
             }
           </div>
           <div className="map-wrapper">
-            <Map events={events}/>
+            <Map events={showEvents}/>
           </div>
         </div>
       </div>

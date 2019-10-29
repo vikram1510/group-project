@@ -52,7 +52,6 @@ class EventShow extends React.Component{
   }
 
   isAttending(){
-    // console.log('hello', this.state.event.attendees)
     const currentUserId = Auth.getPayload().sub
     return this.state.event.attendees.some( user => user._id === currentUserId)
   }
@@ -69,8 +68,11 @@ class EventShow extends React.Component{
             <h1>{event.name}</h1>
             <div className="attend-price">
               <div className="attend">
-                <input type="checkbox" onChange={this.handleChange} checked={this.isAttending()}></input>
-                <label>Attend</label>
+                <input id="attend-checkbox" type="checkbox" onChange={this.handleChange} checked={this.isAttending()}></input>
+                <label htmlFor="attend-checkbox">
+                  <div></div>
+                  <span>{this.isAttending() ? 'Attending' : 'Attend'}</span>
+                </label>
               </div>
               <div className="price">
                 <p>Price</p>

@@ -87,6 +87,7 @@ mongoose.connect(
             name: 'Javascript History',
             location: 'Liverpool Street',
             description: 'For the historians out there',
+            category: 'Javascript',
             price: '5',
             images: '',
             hostUser: users[0],
@@ -96,6 +97,7 @@ mongoose.connect(
             name: 'Python Masterclass',
             location: 'Shoreditch',
             description: 'How to excel in Python',
+            category: 'Python',
             price: '10',
             hostUser: users[0],
             attendees: [ users[0], users [1], users[2] ],
@@ -105,6 +107,7 @@ mongoose.connect(
             name: 'The Future of AI',
             location: 'Google',
             description: 'For the historians out there',
+            category: 'Javascript',
             price: '5',
             hostUser: users[0],
             attendees: [ users[0], users [1], users[2] ]
