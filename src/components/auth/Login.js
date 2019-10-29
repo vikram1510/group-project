@@ -27,8 +27,8 @@ class Login extends React.Component {
     e.preventDefault()
     axios.post('/api/login', this.state.data)
       .then((res) => {
-        this.props.history.push('/profile')
         Auth.setToken(res.data.token)
+        this.props.history.push('/profile')
       })
   }
 
