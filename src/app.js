@@ -21,7 +21,7 @@ class App extends React.Component{
     return (
       <BrowserRouter>
         <main>
-          <Navbar></Navbar>
+          <Navbar />
           <div className="page-structure ">
             <Switch>
               <Route exact path='/' component={Home} />

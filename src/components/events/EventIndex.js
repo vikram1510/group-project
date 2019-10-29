@@ -65,33 +65,19 @@ class EventIndex extends React.Component {
     return (
       <div className="index-page">
         <div className="filter-list-wrapper">
-          <div className="lang-filter">
-            {/* <p>Categories</p> */}
-            <Select className="category-select" options={this.categories} placeholder="Categories" isMulti components={animatedComponents} 
-              theme={theme => ({
-                ...theme,
-                // borderRadius: 0,
-                colors: {
-                  ...theme.colors,
-                  primary25: 'green',
-                  primary: 'black'
-                }
-              })}
-            />
-          </div>
-          <div className="secondary-filters">
-            {/* <div className="secondary-filter-wrappers">
-              <p>Location</p>
-              <Select className="location-select" options={this.date} placeholder="Location" />
-            </div> */}
-            <div className="secondary-filter-wrappers">
-              {/* <p>Date</p> */}
-              <Select className="date-select" options={this.date} placeholder="Date" />
-            </div>
-            <div className="secondary-filter-wrappers">
-              <button onClick={this.handleFreeEventClick} className={`checkbox-input ${!this.state.checkbox ? 'off' : 'on' }`}>Free Events Only</button>
-            </div>
-          </div>
+          <Select className="category-select" options={this.categories} placeholder="Categories" isMulti components={animatedComponents} 
+            theme={theme => ({
+              ...theme,
+              // borderRadius: 0,
+              colors: {
+                ...theme.colors,
+                primary25: '#0B3954',
+                primary: 'black'
+              }
+            })}
+          />
+          <Select className="date-select" options={this.date} placeholder="Date" />
+          <button onClick={this.handleFreeEventClick} className={`checkbox-input ${!this.state.checkbox ? 'off' : 'on' }`}>Free Events Only</button>
         </div>
         <div className="list-map-wrapper">
           <div className="event-list">
@@ -108,7 +94,9 @@ class EventIndex extends React.Component {
                         <p>{moment(event.time, 'HH:mm').format('MMM do YYYY')}</p>
                       </div>
                     </div>
-                    <div className="event-thumbnail-image">imge</div>
+                    <div className="event-thumbnail-image">
+                      <i className="fab fa-js-square"></i>
+                    </div>
                   </div>
                 </Link>
               ))
