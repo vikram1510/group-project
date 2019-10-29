@@ -1,0 +1,16 @@
+// PROFILE NAVIGATION MENU
+
+.profile-nav-wrapper { // the top section for profile nav
+  background-color: gold;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  
+    .profile-nav { // the profile nav
+      display: flex;
+      width: 400px;
+      justify-content: space-between;
+      margin-left: 30px;
+    }
+  }

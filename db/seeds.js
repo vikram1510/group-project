@@ -71,6 +71,19 @@ mongoose.connect(
         console.log(`${users.length} users created`)
         return Event.create([
           {
+            name: 'Project - learn by building in Amazon Web services!',
+            location: 'Infinity Works, 27 Bush Ln, London EC4R 0AA',
+            description: 'So you\'re new? Great come along, if we get a few new people they can start individual exercises together - or get stuck into a group one! This is the one part of a project which you could build out into a large portfolio piece. The project overall will be broken down into:   1) Simple Frontend Website and deployment pipeline.   2) Backend API with Serverless infrastructure   3) More complex frontend that uses backend API   ....Metrics, monitoring, Alerting, Microservices, Security....And much much more!',
+            category: 'Java',
+            price: 0,
+            date: '2020-11-27',
+            time: '19:00',
+            industry: 'Retail',
+            images: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/AmazonWebservices_Logo.svg',
+            hostUser: users[0],
+            attendees: [users[0], users[1], users[2]]
+          },
+          {
             name: 'Javascript History',
             location: 'Liverpool Street',
             description: 'For the historians out there',

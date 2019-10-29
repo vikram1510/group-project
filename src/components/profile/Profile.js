@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/auth'
+import { Link } from 'react-router-dom'
 
 class Profile extends React.Component {
   constructor() {
@@ -24,11 +25,11 @@ class Profile extends React.Component {
     if (!user) return null
     return (
       <div className="profile-page">
-        <div className="mini-nav-wrapper">
-          <div className="mini-nav">
-            <h5>Dashboard</h5>
-            <h5>Upcoming Events</h5>
-            <h5>Past Events</h5>
+        <div className="profile-nav-wrapper">
+          <div className="profile-nav">
+            <Link to='/profile/'>Dashboard</Link>
+            <Link to='/profile/upcoming-events'>Upcoming Events</Link>
+            <Link to='/profile/past-events'>Past Events</Link>
           </div>
         </div>
 

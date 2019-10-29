@@ -1,0 +1,12 @@
+// PROFILE - UPCOMING EVENTS PAGE
+
+.upcoming-events-wrapper { // the wrapper for the whole dashboard section
+  background-color: lightblue;
+  width: 100%;
+  padding: 20px 30px;
+  height: 100%;
+
+  .upcoming-events-content { // where the boxes/content will go
+    display: flex;
+  }
+}
