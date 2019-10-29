@@ -69,7 +69,7 @@ class EventShow extends React.Component{
 
   getEvent(){
     axios.get(`/api/events/${this.props.match.params.id}`)
-      .then(res => this.setState({ event: res.data }))
+      .then(res => this.setState({ event: res.data, commentText: '' }))
       .catch(err => console.log(err))
   }
 
