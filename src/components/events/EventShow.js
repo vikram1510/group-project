@@ -164,8 +164,10 @@ class EventShow extends React.Component{
             <br></br>
             <div className="location">
               <h3>Location</h3>
-              <MapShow event={event}></MapShow>
-              <p>{event.location}</p>
+              <div className="map-location">
+                <MapShow event={event}></MapShow>
+                <p><i className="fas fa-map-marker-alt"></i>{event.location}</p>
+              </div>
             </div>
           </section>
         </div>
