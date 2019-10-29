@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Auth from '../../lib/auth'
 
 class UpcomingEvents extends React.Component {
   render() {
@@ -8,9 +7,9 @@ class UpcomingEvents extends React.Component {
       <div className="profile-page">
         <div className="profile-nav-wrapper">
           <div className="profile-nav">
-            <Link to={`/users/${Auth.getPayload().sub}`}>Dashboard</Link>
-            <Link to={`/users/${Auth.getPayload().sub}/upcoming-events`}>Upcoming Events</Link>
-            <Link to={`/users/${Auth.getPayload().sub}/past-events`}>Past Events</Link>
+            <Link to='/profile/'>Dashboard</Link>
+            <Link to='/profile/upcoming-events'>Upcoming Events</Link>
+            <Link to='/profile/past-events'>Past Events</Link>
           </div>
         </div>
 
