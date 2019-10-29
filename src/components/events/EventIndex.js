@@ -66,7 +66,7 @@ class EventIndex extends React.Component {
       <div className="index-page">
         <div className="filter-list-wrapper">
           <div className="lang-filter">
-            <p>Categories</p>
+            {/* <p>Categories</p> */}
             <Select className="category-select" options={this.categories} placeholder="Categories" isMulti components={animatedComponents} 
               theme={theme => ({
                 ...theme,
@@ -85,7 +85,7 @@ class EventIndex extends React.Component {
               <Select className="location-select" options={this.date} placeholder="Location" />
             </div> */}
             <div className="secondary-filter-wrappers">
-              <p>Date</p>
+              {/* <p>Date</p> */}
               <Select className="date-select" options={this.date} placeholder="Date" />
             </div>
             <div className="secondary-filter-wrappers">
