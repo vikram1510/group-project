@@ -51,16 +51,15 @@ class Register extends React.Component {
   render() {
     return (
       <div className="register-page">
-        <h1>Register Page</h1>
-
+        
         <form onSubmit={this.handleSubmit}>
+          <h1>Register</h1>
 
           <div className="field">
             <label className="label">Username:</label>
             <div className="control">
               <input
                 name="username"
-                placeholder="Username"
                 onChange={this.handleChange}
               />
             </div>
@@ -71,7 +70,6 @@ class Register extends React.Component {
             <div className="control">
               <input
                 name="email"
-                placeholder="Email"
                 onChange={this.handleChange}
               />
             </div>
@@ -83,7 +81,6 @@ class Register extends React.Component {
               <input
                 name="password"
                 type="password"
-                placeholder="Password"
                 onChange={this.handleChange}
               />
             </div>
@@ -95,23 +92,10 @@ class Register extends React.Component {
               <input
                 name="passwordConfirmation"
                 type="password"
-                placeholder="Password Confirmation"
                 onChange={this.handleChange}
               />
             </div>
           </div>
-
-          {/* <div className="field">
-            <label className="label">Category:</label>
-            <div className="control">
-              <Select
-                options={this.options}
-                isMulti
-                onChange={this.handleMultiSelect}
-                components={animatedComponents}
-              />
-            </div>
-          </div> */}
          
           <div className="category-container">
             <p>Please select your language below: </p>

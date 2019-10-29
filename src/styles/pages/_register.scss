@@ -1,61 +1,62 @@
 // Register Page
 .register-page {
-  background-color: aqua;
+  background-image: linear-gradient(to right, rgb(40, 41, 41), black);
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
+  h1 {
+    margin: 2vw;
+    text-align: center;
+  }
+  p {
+    margin: 1vw;
+  }
   form {
-  background-color: yellow;
-  width: 52vw;
-  height: auto;
-}
-
-.field {
-  background-color: blue;
-  width: 50vw;
-  height: 4vw;
-  display: flex;
-  margin: 1vw;
-
-}
-
-  form {
-    background-color: yellow;
+    background-color: Rgba(75,75,75,0.5);
     width: 52vw;
     height: auto;
+    border-radius: 2vw;
   }
   
   .field {
-    background-color: blue;
+    // background-color: blue;
     width: 50vw;
     height: 4vw;
     display: flex;
     margin: 1vw;
+    border-radius: 4vw;
   
   }
   
   .label {
-    background-color: blueviolet;
+    background-color: rgba(0, 0, 0, 0.658);
     width: 20vw;
     height: 4vw;
     text-align: right;
     padding: 1vw;
+    border-radius: 4vw 0 0 4vw;
+    
   }
   
   .control {
     background-color: crimson;
     width: 30vw;
+    border-radius: 0 4vw 4vw 0;
+    
   }
   
   input {
     width: 30vw;
     height: 4vw;
+    border-radius: 0 4vw 4vw 0;
+    align-items: center;
   }
   
   .category-container {
-    background-color: darkmagenta;
+    // background-color: darkmagenta;
     width: 50vw;
     margin: 1vw;
     display: flex;
@@ -65,22 +66,24 @@
   }
   
   .row1 {
-    background-color: deepskyblue;
+    // background-color: deepskyblue;
     display: flex;
     justify-content: space-evenly;
     width: 50vw;
   }
   
   .row2 {
-    background-color: gainsboro;
+    // background-color: gainsboro;
     display: flex;
     justify-content: space-evenly;
     width: 50vw;
   }
   
   .category-box {
-    background-color: skyblue;
-    // background-image: url('https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg');
+    // background-color: skyblue;
+    background-image: url('../assets/javaT.png');
+    background-size: 10vw;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     width: 10vw;
@@ -90,13 +93,18 @@
   }
 
   .category-box:hover {
-    background-color: rgba(0,0,255,0.3);
+    // background-color: gold;
+    background-image: url('../assets/blueSwitches.jpg')
   }
 
   button {
       width: 50vw;
       margin: 1vw 1vw;
       height: 4vw;
+      border-radius: 4vw;
+      border-color: darkgray;
+      border-width: 3px;
+      background-color:rgb(40, 40, 40);
     }
 }
 
