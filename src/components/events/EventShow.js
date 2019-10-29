@@ -65,12 +65,8 @@ class EventShow extends React.Component{
     return (
       <div className="show-page-wrapper">
         <div className="show-page">
-          <h1>{event.name}</h1>
-          <div className="date-time">
-            <p className="date">{moment(event.date).format('MMM Do YYYY')}</p> 
-            <p className="time">{moment(event.time,'HH:mm').format('h:mm A')}</p>
-          </div>
-          <section>
+          <div>
+            <h1>{event.name}</h1>
             <div className="attend-price">
               <div className="attend">
                 <input type="checkbox" onChange={this.handleChange} checked={this.isAttending()}></input>
@@ -78,9 +74,16 @@ class EventShow extends React.Component{
               </div>
               <div className="price">
                 <p>Price</p>
-                <span>£{event.price}</span>
+                <span>{event.price === 0 ? 'Free' : `£${event.price}`}</span>
               </div>
             </div>
+          </div>
+          <div className="date-time">
+            <p className="date">{moment(event.date).format('MMM Do YYYY')}</p> 
+            <p className="time">{moment(event.time,'HH:mm').format('h:mm A')}</p>
+          </div>
+          <section>
+
             <br></br>
             <p>{event.description}</p>
             <br></br>
@@ -90,16 +93,22 @@ class EventShow extends React.Component{
           </section>
           <section>
             <h3>Host</h3>
-            <img src={event.hostUser.profilePic}></img>
-            <p>{event.hostUser.username}</p>
+            <div className="host-profile">
+              <div className=" profile">
+                <img className="profile" src={event.hostUser.profilePic}></img>
+              </div>
+              <p>{event.hostUser.username}</p>
+            </div>
             <br></br>
             <h3>People Attending</h3>
-            <div className="attendees-images">
+            <div className="profile attendees-images">
               {event.attendees.map(attendee => {
                 console.log(attendee)
-                return <div key={attendee._id}>
-                  <img src={attendee.profilePic}></img>
-                </div>
+                return (
+                  <div className="profile" key={attendee._id}>
+                    <img className="profile" src={attendee.profilePic}></img>
+                  </div>
+                )
               })}
             </div>
             <p>Location: {event.location}</p>
