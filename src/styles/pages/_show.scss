@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  // height: 100vh;
   width: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -16,37 +17,79 @@
   grid-column-gap: 50px;
   grid-template-rows: 1fr 7fr;
   grid-row-gap: 50px;
-}
 
-.date-time {
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 20px;
-  justify-self: start;
-  .date {
-    font-size: 30px;
-    padding-bottom: 5px;
+  .date-time {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    justify-self: start;
+    align-self: auto;
+    .date {
+      font-size: 30px;
+      padding-bottom: 5px;
+    }
+    .time {
+      text-align: center;
+    }
+    
   }
-  .time {
-    text-align: center;
-  }
-}
 
-section:first-of-type{
   .attend-price{
+    margin-top: 30px;
     display: flex;
     justify-content: space-around;
     .price {
       display: flex;
       flex-direction: column;
       align-items: center;
-      span {
+      p {
         font-weight: bold;
-        font-size: 20px;
+        font-size: 18px;
       }
     }
+
+    .attend {
+      input {
+        display: none;
+      }
+    }
+
   }
+
+  div.host-profile {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    > .profile {
+      height: 80px;
+      width: 80px;
+      margin-right: 30px;
+    }
+  }
+
+  img.profile {
+    border-radius: 100%;
+    height: 100%;
+    width: auto;
+  }
+
+  .attendees-images {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-auto-rows: 80px;
+    grid-gap: 20px;
+    justify-content: start;
+    padding-top: 10px;
+  }
+
+
+
+
 }
+
+
+
+
 
 
 

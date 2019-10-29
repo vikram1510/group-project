@@ -1,13 +1,16 @@
 // basic structure of website and navigation sidebar
 @import 'structure/basic-structure';
 @import 'structure/nav';
+@import 'structure/profile-nav';
 
 // page styling
 @import 'pages/home';
 @import 'pages/index';
 @import 'pages/show';
+@import 'profile/profile';
+@import 'profile/dashboard';
+@import 'profile/upcoming-events';
 @import 'pages/register';
-@import 'pages/profile';
 @import 'pages/login'
 
 
