@@ -38,18 +38,23 @@ class Profile extends React.Component {
 
           <div className="dashboard-content">
             <div className="events-attending-wrapper">
-              <h4>Events Attending</h4>
-              <ul>
-                {user.eventsAttend.map((event, i) =>(
-                  <li key={i}>{event.name}</li>
-                ))}
-              </ul>
+              <h2>Events Attending</h2>
+              {user.eventsAttend.map((event, i) =>(
+                <div className="event-wrapper" key={i}>
+                  <div className="event-icon">Category icon</div>
+                  <div className="event-summary">
+                    <h4>{event.name}</h4>
+                    <p>{event.date} at {event.time}</p>
+                    <p>{event.location}</p>
+                  </div>
+                </div>
+              ))}
             </div>
             
             <div className="your-info-wrapper">
-              <h3>Your Info</h3>
-              <h4>Username: {user.username}</h4>
-              <h4>Email: {user.email}</h4>
+              <h2>Your Info</h2>
+              <p>Username: {user.username}</p>
+              <p>Email: {user.email}</p>
             </div>
 
           </div>
