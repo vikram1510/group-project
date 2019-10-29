@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/auth'
-import { Link } from 'react-router-dom'
+
 
 class Profile extends React.Component {
   constructor() {
@@ -27,11 +27,9 @@ class Profile extends React.Component {
       <div className="profile-page">
         <div className="profile-bar-wrapper">
           <div className="profile-bar">
-            <p>Username: {user.username}</p>
-            <p>Email: {user.email}</p>
-          </div>
-          <div className="profile-bar-image">
-            Image
+            <h2>Welcome back to your profile, {user.username}!</h2>
+            {/* <img className="profile-bar-image" src={user.profilePic}></img> */}
+            <p>Image</p>
           </div>
 
         </div>

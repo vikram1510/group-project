@@ -8,39 +8,40 @@
 
   .dashboard-content { // where the boxes/content will go
     display: flex;
-  }
-}
 
-.events-wrapper { // wrappers for both event sections - upcoming and past
-  background-color: lightpink;
-  flex-grow: 1;
-  padding: 5px 10px;
-  margin: 0 20px;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  // justify-content: center;
-  align-items: center;
+    .events-wrapper { // wrappers for both event sections - upcoming and past
+      background-color: lightpink;
+      flex-grow: 1;
+      padding: 5px 10px;
+      margin: 0 20px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      align-items: center;
+    
+      h2 {
+        margin: 20px 0;
+      }
 
-  h2 {
-    margin: 20px 0;
-  }
-}
-
-.event-wrapper { // styling for events on profile page
-  display: flex;
-  width: 480px;
-  margin-bottom: 10px;
-  border: 3px solid black;
-
-  .event-icon {
-    background-color: dodgerblue;
-    width: 80px;
-    height: 80px;
-  }
-  .event-summary {
-    background-color: honeydew;
-    width: 100%;
-    padding: 10px 0 0 20px;
+      .event-wrapper { // styling for events on profile page
+        display: flex;
+        justify-content: center;
+        width: 480px;
+        margin-bottom: 10px;
+        border: 3px solid black;
+      
+        .event-icon {
+          background-color: dodgerblue;
+          width: 90px;
+          height: 90px;
+        }
+        .event-summary {
+          background-color: honeydew;
+          width: 100%;
+          padding: 10px 0 0 20px;
+        }
+      }
+    }
   }
 }
