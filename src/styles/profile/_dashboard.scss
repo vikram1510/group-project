@@ -3,41 +3,48 @@
 .dashboard-wrapper { // the wrapper for the whole dashboard section
   background-color: lightblue;
   width: 100%;
-  padding: 20px 30px;
+  padding: 40px 30px;
   height: 100%;
 
   .dashboard-content { // where the boxes/content will go
     display: flex;
+
+    .events-wrapper { // wrappers for both event sections - upcoming and past
+      background-color: lightpink;
+      flex-grow: 1;
+      padding: 5px 10px;
+      margin: 0 20px;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      align-items: center;
+    
+      h2 {
+        margin: 20px 0;
+      }
+      
+
+      .event-wrapper { // styling for events on profile page
+        display: flex;
+        width: 480px;
+        margin-bottom: 10px;
+        border: 3px solid black;
+
+        .event-icon {
+          background-color: dodgerblue;
+          width: 80px;
+          height: 80px;
+        }
+        .event-summary {
+          background-color: honeydew;
+          width: 100%;
+          padding: 10px 0 0 20px;
+        }
+      }
+
+    }
   }
 }
 
-.events-attending-wrapper { // individual section for events attending
-  background-color: lightpink;
-  flex-grow: 1;
-  margin-right: 20px;
-  padding: 5px 10px;
-
-  .event-wrapper {
-    display: flex;
-    margin-bottom: 10px;
-    border: 3px solid black;
-
-    .event-icon {
-      background-color: dodgerblue;
-      width: 80px;
-      height: 80px;
-    }
-    .event-summary {
-      background-color: honeydew;
-      width: 100%;
-    }
-  }
-  
-}
-
-
-.your-info-wrapper { // individual section for user's info
-  background-color: lightgreen;
-  flex-grow: 1.5;
-}
 
