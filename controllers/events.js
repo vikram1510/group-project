@@ -14,6 +14,7 @@ function index(req, res) {
 function show(req, res) {
   Event
     .findById(req.params.id)
+    .populate('comments.user')
     .populate('attendees')
     .populate('hostUser')
     .then(event => {
