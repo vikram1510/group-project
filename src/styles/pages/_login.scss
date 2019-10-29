@@ -1,0 +1,50 @@
+// Login Page
+.login-page {
+  background-color: aqua;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    background-color: yellow;
+    width: 52vw;
+    height: auto;
+  }
+
+    .field {
+      background-color: blue;
+      width: 50vw;
+      height: 4vw;
+      display: flex;
+      margin: 1vw;
+    
+    }
+
+      .label {
+        background-color: blueviolet;
+        width: 20vw;
+        height: 4vw;
+        text-align: right;
+        padding: 1vw;
+      }
+
+        .control {
+          background-color: crimson;
+          width: 30vw;
+        }
+      
+        input {
+          width: 30vw;
+          height: 4vw;
+        }
+
+    button {
+      width: 50vw;
+      margin: 1vw 1vw;
+      height: 4vw;
+    }
+
+
+}
+

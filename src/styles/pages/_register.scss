@@ -6,6 +6,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  form {
+  background-color: yellow;
+  width: 52vw;
+  height: auto;
+}
+
+.field {
+  background-color: blue;
+  width: 50vw;
+  height: 4vw;
+  display: flex;
+  margin: 1vw;
+
+}
 
   form {
     background-color: yellow;
@@ -72,6 +86,10 @@
     height: 10vw;
     margin: 1vw;
   }
-  
+
+  .category-box:hover {
+    background-color: gold;
+  }
+
 }
 
