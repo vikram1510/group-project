@@ -88,6 +88,7 @@ mongoose.connect(
             location: 'Liverpool Street',
             description: 'For the historians out there',
             category: 'Javascript',
+            date: '2019-10-30',
             price: '5',
             images: '',
             hostUser: users[0],
@@ -98,6 +99,7 @@ mongoose.connect(
             location: 'Shoreditch',
             description: 'How to excel in Python',
             category: 'Python',
+            date: '2019-10-30',
             price: '10',
             hostUser: users[0],
             attendees: [ users[0], users [1], users[2] ],
@@ -108,6 +110,7 @@ mongoose.connect(
             location: 'Google',
             description: 'For the historians out there',
             category: 'Javascript',
+            date: '2019-10-30',
             price: '5',
             hostUser: users[0],
             attendees: [ users[0], users [1], users[2] ]
@@ -116,6 +119,8 @@ mongoose.connect(
             name: 'Women in Tech',
             location: 'Liverpool Street',
             description: 'For the historians out there',
+            category: 'Javascript',
+            date: '2019-10-30',
             price: '0',
             hostUser: users[0],
             attendees: [ users[0], users [1], users[2] ]
@@ -124,6 +129,8 @@ mongoose.connect(
             name: 'Coding for Beginners',
             location: 'GA',
             description: 'For the historians out there',
+            category: 'Javascript',
+            date: '2019-10-30',
             price: '5',
             hostUser: users[0],
             attendees: [ users[0], users [1], users[2] ]
@@ -132,6 +139,8 @@ mongoose.connect(
             name: 'React for Pizza lovers',
             location: 'Liverpool Street',
             description: 'For the historians out there',
+            category: 'Javascript',
+            date: '2019-10-30',
             price: '10',
             hostUser: users[0],
             attendees: [ users[0], users [1], users[2] ]
@@ -140,6 +149,8 @@ mongoose.connect(
             name: 'Innovations in Voice Design at Amazon',
             location: 'Principal Place, 1 Principal Place, London, EC2A 2BA, gb',
             description: 'Schedule',
+            category: 'Javascript',
+            date: '2019-10-30',
             price: '0',
             hostUser: users[0],
             attendees: [ users[0], users [1], users[2] ]
@@ -148,6 +159,7 @@ mongoose.connect(
             name: 'Introducing C++',
             location: 'Monument',
             description: 'C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes". The language has expanded significantly over time, and modern C++ has object-oriented, generic, and functional features in addition to facilities for low-level memory manipulation. It is almost always implemented as a compiled language, and many vendors provide C++ compilers, including the Free Software Foundation, LLVM, Microsoft, Intel, Oracle, and IBM, so it is available on many platforms',
+            date: '2019-10-30',
             category: 'C++',
             price: 5,
             date: '2019-11-29',
@@ -163,6 +175,8 @@ mongoose.connect(
             name: 'Future of Blockchain',
             location: 'Soho',
             description: 'For the historians out there',
+            category: 'Javascript',
+            date: '2019-10-30',
             price: '7',
             hostUser: users[0],
             attendees: [ users[0], users [1], users[2] ]
