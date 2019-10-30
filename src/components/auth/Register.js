@@ -115,16 +115,30 @@ class Register extends React.Component {
 
               <div className="category-box">
                 <div className="box">
-                  {/* WHITE LOGO */}
                   <img className="box-initial-image" src="../assets/swift-white-button.png"></img>
                   <div className="box-overlay">
-                    {/* TO COLOUR LOGO */}
-                    <img className="box-after-image" src="../assets/swiftT.png"></img>
+                    <img className="box-after-image" src="../assets/swift-colour-button.png"></img>
                   </div>
                 </div>
               </div>
-              <div className="category-box">JavaScript</div>
-              <div className="category-box">PHP</div>
+
+              <div className="category-box">
+                <div className="box">
+                  <img className="box-initial-image" src="../assets/js-white-button.png"></img>
+                  <div className="box-overlay">
+                    <img className="box-after-image" src="../assets/js-colour-button.png"></img>
+                  </div>
+                </div>
+              </div>
+
+              <div className="category-box">
+                <div className="box">
+                  <img className="box-initial-image" src="../assets/php-white-button.png"></img>
+                  <div className="box-overlay">
+                    <img className="box-after-image" src="../assets/php-colour-button.png"></img>
+                  </div>
+                </div>
+              </div>
 
             </div>
 
@@ -138,10 +152,42 @@ class Register extends React.Component {
 
             {/* ROW 3 */}
             <div className="row3">
-              <div className="category-box">c++</div>
-              <div className="category-box">SQL</div>
-              <div className="category-box">Python</div>
-              <div className="category-box">Ruby</div>
+              <div className="category-box">
+                <div className="box">
+                  <img className="box-initial-image" src="../assets/c-white-button.png"></img>
+                  <div className="box-overlay">
+                    <img className="box-after-image" src="../assets/c-colour-button.png"></img>
+                  </div>
+                </div>
+              </div>
+
+              <div className="category-box">
+                <div className="box">
+                  <img className="box-initial-image" src="../assets/sql-white-button.png"></img>
+                  <div className="box-overlay">
+                    <img className="box-after-image" src="../assets/sql-colour-button.png"></img>
+                  </div>
+                </div>
+              </div>
+
+              <div className="category-box">
+                <div className="box">
+                  <img className="box-initial-image" src="../assets/python-white-button.png"></img>
+                  <div className="box-overlay">
+                    <img className="box-after-image" src="../assets/python-colour-button.png"></img>
+                  </div>
+                </div>
+              </div>
+
+              <div className="category-box">
+                <div className="box">
+                  <img className="box-initial-image" src="../assets/ruby-white-button.png"></img>
+                  <div className="box-overlay">
+                    <img className="box-after-image" src="../assets/ruby-colour-button.png"></img>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
             {/* ROW 4 */}
