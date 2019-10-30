@@ -70,6 +70,7 @@ class Navbar extends React.Component {
                 <div className="profile-wrapper left">
                   <div className="profile">
                     <img src={this.state.profilePic}></img>
+                    {/* <i className="fas fa-user-circle"></i> */}
                   </div> 
                 </div>
                 <span>PROFILE</span>

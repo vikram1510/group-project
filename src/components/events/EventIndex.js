@@ -135,7 +135,7 @@ class EventIndex extends React.Component {
             }
           </div>
           <div className="map-wrapper">
-            <Map events={this.filteredEvents()}/>
+            <Map className="map-element" events={this.filteredEvents()}/>
           </div>
         </div>
       </div>

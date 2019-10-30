@@ -4,8 +4,11 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-page">
-        <h2>{'{ techMeet }'}</h2>
-        <p>A website about meetings on tech</p>
+        <div className="home-image">
+          <h2>{'{ techMeet }'}</h2>
+          <div className="home-page-line"></div>
+          <p>A website about meetings on tech</p>
+        </div>
       </div>
     )
   }

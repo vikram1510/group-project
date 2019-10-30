@@ -9,7 +9,7 @@
   align-items: center;
   flex-direction: column;
   flex-grow: 1;
-  background: $color-three;
+  background: $color-white;
 
   // font-family: 'Varela Round', sans-serif;
   // font-family: 'Lato', sans-serif;
@@ -72,7 +72,7 @@
     
     .on {
       background: #069E2D;
-      color: $color-three;
+      color: $color-white;
     }
 
   }
@@ -120,7 +120,7 @@
           flex-direction: column;
           justify-content: space-between;
           margin-left: 10px;
-          background: $color-three;
+          background: $color-white;
           border-radius: 2px;
           width: 300px;
           height: 90px;
@@ -153,7 +153,7 @@
           
           .fa-js-square {
             // color: $color-two;
-            // color: $color-three;
+            // color: $color-white;
             color: black;
             font-size: 50px;
           }
@@ -167,11 +167,15 @@
     .map-wrapper {
       background: $color-one;
       height: 600px;
-      width: 600px;
+      width: 700px;
       margin-left: 60px;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
+
+      .map-element {
+        margin-left: 5px;
+      }
     }
   }
 }
