@@ -57,7 +57,22 @@
 nav {
   @include column-flex;
   justify-content: space-between;
+  align-items: center;
   height: 100vh;
+
+  div.profile-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  div.profile {
+    height: 60px;
+    width: 60px;
+    img {
+      width: auto;
+      height: 100%;
+      border-radius: 100%;
+    }
+  }
   > div {
     @include column-flex;
   }
@@ -66,10 +81,17 @@ nav {
     margin-bottom: 15px;
     text-align: center;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    // i{ margin-right: 20px;}
+    &:focus{
+      border-left: 2px gold solid;
+    }
   }
 
   i{
-    font-size: 40px;
+    font-size: 30px;
     color: white;
     text-align: center;
   }
@@ -91,5 +113,11 @@ nav {
     margin-top: 30px;
     margin-bottom: 50px;
     i {font-size: 70px;}
+  }
+  .auth-button {
+    color: white;
+    width: 100px;
+    display: flex;
+    justify-content: center;
   }
 }
