@@ -47,32 +47,37 @@ class Navbar extends React.Component {
         <div className="nav-wrapper">
           <nav>
             <div className="nav-top">
-              <Link to='/' className="logo">
-                {/* <i className="far fa-handshake"></i> */}
-                <p><span>tech</span><span>Meet</span></p>
-              </Link>
+              <div className="nav-divide">
+                <Link to='/' className="logo">
+                  {/* <i className="far fa-handshake"></i> */}
+                  {/* <p><span>tech</span><span>Meet</span></p> */}
+                  <p>techMeet</p>
+                </Link>
+              </div>
               <Link to='/'>
-                <i className="fas fa-home"></i>
-                <span>Home</span>
+                <i className="fas fa-home left"></i>
+                <span>HOME</span>
               </Link>
               <Link to='/events'>
-                <i className="fa fa-search"></i>
-                <span>Events</span>
+                <i className="fa fa-search left"></i>
+                <span>EVENTS</span>
               </Link>
             </div>         
             <div className="nav-bottom">
               {Auth.isAuthenticated() ?
             <>
               <Link to='/profile'>
-                <div className="profile-wrapper">
+                <div className="profile-wrapper left">
                   <div className="profile">
                     <img src={this.state.profilePic}></img>
                   </div> 
                 </div>
+                <span>PROFILE</span>
               </Link>
-              <Link to='/settings'><i className="fas fa-cogs"></i></Link>
+              <Link to='/settings'><i className="fas fa-cogs left"></i>
+                <span>SETTINGS</span></Link>
               <Link to='/' onClick={this.handleLogout}><button className="button-warning auth-button">
-                <span>Logout</span>
+                <span>LOGOUT</span>
               </button></Link>
             </> :
             <>
