@@ -24,15 +24,14 @@ class Profile extends React.Component {
     console.log(this.state)
     const { user } = this.state
     if (!user) return null
-    console.log(moment(event.time).format('h:mm A'))
-
+    console.log('upcoming', moment().isBefore(this.state.user.eventsAttend[7].date))
+    console.log('attended', moment().isAfter(this.state.user.eventsAttend[7].date - 1))
     return (
       <div className="profile-page">
         <div className="profile-bar-wrapper">
           <div className="profile-bar">
             <h2>Welcome back to your profile, {user.username}!</h2>
-            {/* <img className="profile-bar-image" src={user.profilePic}></img> */}
-            <p>Image</p>
+            <img className="profile-bar-image" src={user.profilePic}></img>
           </div>
         </div>
 
@@ -45,17 +44,18 @@ class Profile extends React.Component {
                   <th>Event</th>
                   <th>Date</th>
                   <th>Time</th>
-                  <th>Location</th>
+                  <th>Event Status</th>
                 </tr>
               </thead>
               <tbody>
                 {user.eventsAttend.map((event, i) =>(
                   <tr key={i}>
-                    <td className="event-icon">Category icon</td>
+                    {/* <td className="event-icon">Category icon</td> */}
+                    <td className="event-icon">{event.category}</td>
                     <td>{event.name}</td>
                     <td>{moment(event.date).format('MMM Do YYYY')}</td>
                     <td>{moment(event.time,'HH:mm').format('h:mm A')}</td>
-                    <td>{event.location}</td>
+                    <td>{moment().isBefore(event.date) ? 'Upcoming Event' : moment().isAfter(event.date) ? 'Attended' : 'Event Today'}</td>
                   </tr>
                 ))}
               </tbody>
@@ -70,3 +70,5 @@ class Profile extends React.Component {
 }
 
 export default Profile
+
+// to={`/events/${event._id}`} - LINK TO RELEVANT SHOW PAGE - when Link is added in the table, it messes everything up. not sure why???
