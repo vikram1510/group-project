@@ -60,6 +60,7 @@ class Register extends React.Component {
             <div className="control">
               <input
                 name="username"
+                type="text"
                 onChange={this.handleChange}
               />
             </div>
@@ -70,6 +71,7 @@ class Register extends React.Component {
             <div className="control">
               <input
                 name="email"
+                type="text"
                 onChange={this.handleChange}
               />
             </div>
@@ -98,7 +100,7 @@ class Register extends React.Component {
           </div>
          
           <div className="category-container">
-            <p>Please select your language below: </p>
+            <h3>Please select your language below: </h3>
             {/* ROW 1 */}
             <div className="row1">
 
