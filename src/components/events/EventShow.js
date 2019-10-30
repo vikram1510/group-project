@@ -90,27 +90,41 @@ class EventShow extends React.Component{
     return (
       <div className="show-page-wrapper">
         <div className="show-page">
-          <div>
-            <h1>{event.name}</h1>
-            <div className="attend-price">
-              <div className="attend">
-                <input id="attend-checkbox" type="checkbox" onChange={this.handleChange} checked={this.isAttending()}></input>
-                <label htmlFor="attend-checkbox">
-                  <div></div>
-                  <span>{this.isAttending() ? 'ATTENDING' : 'ATTEND'}</span>
-                </label>
+          <section className="main">
+            <div>
+              <div className="title-attend">
+                <h1>{event.name}</h1>
+                <div className="event-logo">
+                  <img src="../assets/java-white-button.png"></img>
+                </div>
+
               </div>
-              <div className="price">
-                <h3>Price</h3>
-                <p>{event.price === 0 ? 'Free' : `£${event.price}`}</p>
+              <div className="details">
+                <div className="attend">
+                  <input id="attend-checkbox" type="checkbox" onChange={this.handleChange} checked={this.isAttending()}></input>
+                  <label htmlFor="attend-checkbox">
+                    <div></div>
+                    <span>{this.isAttending() ? 'ATTENDING' : 'ATTEND'}</span>
+                  </label>
+                </div>
+
+                <div className="info date">
+                  <h3>Date</h3>
+                  <p>{moment(event.date).format('MMM Do YYYY')}</p>
+                </div>
+                <div className="info time">
+                  <h3>Time</h3>
+                  <p>{moment(event.time,'HH:mm').format('h:mm A')}</p>
+                </div>
+                <div className="info price">
+                  <h3>Price</h3>
+                  <p>{event.price === 0 ? 'Free' : `£${event.price}`}</p>
+                </div>
+
+
               </div>
             </div>
-          </div>
-          <div className="date-time">
-            <p className="date">{moment(event.date).format('MMM Do YYYY')}</p> 
-            <p className="time">{moment(event.time,'HH:mm').format('h:mm A')}</p>
-          </div>
-          <section className="main">
+
             <div className="description">
               <h3>Description</h3>
               <p>{event.description}</p>
@@ -149,7 +163,8 @@ class EventShow extends React.Component{
             </div>
             {/* <ShowInput name="description" value={event.description}></ShowInput> */}
           </section>
-          <section>
+          <section className="side">
+
             <h3>Host</h3>
             <div className="host-profile">
               <div className=" profile">
@@ -178,6 +193,8 @@ class EventShow extends React.Component{
               </div>
             </div>
           </section>
+
+
         </div>
       </div>
 
