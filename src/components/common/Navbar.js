@@ -20,10 +20,13 @@ class Navbar extends React.Component {
         <div className="nav-wrapper">
           <nav>
             <div className="nav-top">
-              <Link to='/' className="logo">
-                {/* <i className="far fa-handshake"></i> */}
-                <p><span>tech</span><span>Meet</span></p>
-              </Link>
+              <div className="nav-divide">
+                <Link to='/' className="logo">
+                  {/* <i className="far fa-handshake"></i> */}
+                  {/* <p><span>tech</span><span>Meet</span></p> */}
+                  <p>techMeet</p>
+                </Link>
+              </div>
               <Link to='/'>
                 <i className="fas fa-home"></i>
               </Link>
