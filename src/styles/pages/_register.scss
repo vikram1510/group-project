@@ -1,61 +1,62 @@
 // Register Page
 .register-page {
-  background-color: aqua;
+  background-image: linear-gradient(to right, rgb(40, 41, 41), black);
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
+  h1 {
+    margin: 2vw;
+    text-align: center;
+  }
+  p {
+    margin: 1vw 1vw 0 1vw ;
+  }
   form {
-  background-color: yellow;
-  width: 52vw;
-  height: auto;
-}
-
-.field {
-  background-color: blue;
-  width: 50vw;
-  height: 4vw;
-  display: flex;
-  margin: 1vw;
-
-}
-
-  form {
-    background-color: yellow;
+    background-color: Rgba(75,75,75,0.5);
     width: 52vw;
-    height: auto;
+    max-height: 95vh;
+    border-radius: 2vw;
   }
   
   .field {
-    background-color: blue;
+    // background-color: blue;
     width: 50vw;
-    height: 4vw;
+    height: 2vw;
     display: flex;
     margin: 1vw;
+    border-radius: 4vw;
   
   }
   
   .label {
-    background-color: blueviolet;
+    background-color: rgba(0, 0, 0, 0.658);
     width: 20vw;
-    height: 4vw;
+    height: 2vw;
     text-align: right;
-    padding: 1vw;
+    padding: 0 1vw;
+    border-radius: 4vw 0 0 4vw;
+    
   }
   
   .control {
-    background-color: crimson;
+    // background-color: crimson;
     width: 30vw;
+    height: 2vw;
+    border-radius: 0 4vw 4vw 0;
   }
   
   input {
     width: 30vw;
-    height: 4vw;
+    height: 2vw;
+    border-radius: 0 4vw 4vw 0;
+    align-items: center;
   }
   
   .category-container {
-    background-color: darkmagenta;
+    // background-color: darkmagenta;
     width: 50vw;
     margin: 1vw;
     display: flex;
@@ -65,38 +66,114 @@
   }
   
   .row1 {
-    background-color: deepskyblue;
+    // background-color: deepskyblue;
     display: flex;
     justify-content: space-evenly;
     width: 50vw;
   }
-  
+
   .row2 {
-    background-color: gainsboro;
     display: flex;
     justify-content: space-evenly;
     width: 50vw;
+    height: 2vw;
+  }
+  
+  .row3 {
+    // background-color: gainsboro;
+    display: flex;
+    justify-content: space-evenly;
+    width: 50vw;
+  }
+
+  .row4 {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50vw;
+    height: 2vw;
   }
   
   .category-box {
-    background-color: skyblue;
-    // background-image: url('https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg');
+    // background-color: skyblue;
+    // background-image: url('../assets/javaT.png');
+    background-size: 10vw;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     width: 10vw;
     height: 10vw;
     margin: 1vw;
     color: white;
+    // position: absolute;
+    border-radius: 2vw;
   }
 
-  .category-box:hover {
-    background-color: rgba(0,0,255,0.3);
+  .category-name {
+    // background-color: coral;
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height: 2vw;
+    padding: .25vw;
+    color: white;
+    text-align: center;
+    margin: 0 auto 2vw;
+  }
+
+  .box {
+  position: absolute;
+  border-radius: 2vw;
+}
+
+  .box-initial-image {
+    display: block;
+    width: 10vw;
+    height: auto;
+    border-radius: 2vw;
+  }
+
+  .box-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: 1s ease;
+    border-radius: 2vw;
+  }
+
+  .box:hover .box-overlay {
+    opacity: 1;
+  }
+
+  .box-after-image {
+    position: absolute;
+    width:10vw;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 2vw;
   }
 
   button {
       width: 50vw;
       margin: 1vw 1vw;
       height: 4vw;
+      border-radius: 4vw;
+      border-color: darkgray;
+      border-width: 3px;
+      background-color:rgb(40, 40, 40);
     }
+
+
+
+
+    
+ 
 }
+
 

@@ -17,10 +17,11 @@ class EventIndex extends React.Component {
       events: null,
       showEvents: null,
       filter: {
-        category: '',
-        location: '',
-        date: '',
-        price: ''
+        category: [],
+        date: {
+          value: 'all'
+        },
+        price: []
       },
       checkbox: false
     }
@@ -37,8 +38,8 @@ class EventIndex extends React.Component {
     ]
     
     this.date = [
-      { value: 'current', label: 'Current Week' },
-      { value: 'month', label: 'This Month' },
+      { value: 7, label: 'Next 7 Days' },
+      { value: 30, label: 'Next 30 Days' },
       { value: 'all', label: 'All Events' }
     ]
 
@@ -47,49 +48,55 @@ class EventIndex extends React.Component {
     ]
 
     this.handleFreeEventClick = this.handleFreeEventClick.bind(this)
-    this.handleMultiSelect = this.handleMultiSelect.bind(this)
+    this.handleMultiCatergorySelect = this.handleMultiCatergorySelect.bind(this)
+    // this.handleDateSelect = this.handleDateSelect.bind(this)
     
   }
 
   componentDidMount() {
     axios.get('/api/events')
-      .then(res => this.setState({ events: res.data, showEvents: res.data }))
+      .then(res => this.setState({ events: res.data }))
   }
 
   handleFreeEventClick(e) {
     this.setState({ checkbox: !this.state.checkbox })
     e.target.blur()
   }
-  
-  handleMultiSelect(selected) {
-    const originalEvents = this.state.events
-    console.log(originalEvents)
-    if (!selected) return this.setState({ showEvents: originalEvents })
-    console.log(selected)
-    const catSelected = selected ? selected.map(cat => cat.value) : []
-    console.log(catSelected)
-    const filteredEvents = originalEvents.filter(event => {
-      if (!event.category) return null
-      return catSelected.includes(event.category.toLowerCase())
-    })
-    console.log(filteredEvents)
-    this.setState({ showEvents: filteredEvents })
 
+  filteredEvents() {
+    const selectedCategory = this.state.filter.category ? this.state.filter.category.map(cat => cat.value) : []
+    const selectedPeriod = this.state.filter.date.value
+    return this.state.events.filter(event => {
+      //would not render the current day as it between does not seem to include the start date - therefore I have minused on the start and plused on the end date
+      const startDate = moment().add(-1, 'days')
+      const endDate = moment().add(selectedPeriod + 1, 'days')
+      if (selectedCategory.length === 0 && selectedPeriod === 'all')  return true
+      if (selectedCategory.length === 0) return moment(event.date).isBetween(startDate, endDate)
+      if (selectedPeriod === 'all') return selectedCategory.includes(event.category.toLowerCase())
+      const catFilter = selectedCategory.includes(event.category.toLowerCase())
+      const dateFilter = moment(event.date).isBetween(startDate, endDate)
+      return catFilter && dateFilter
+    })
   }
+  
+  handleMultiCatergorySelect(selected, action) {
+    this.setState({ filter: { ...this.state.filter, [action.name]: selected } }) 
+  }
+
 
   render() {
     console.log(this.state)
-    const { events, showEvents } = this.state
+    const { events } = this.state
     if (!events) return null
     return (
       <div className="index-page">
         <div className="filter-list-wrapper">
-          <Select className="category-select" 
+          <Select className="category-select"
             options={this.categories} 
             placeholder="Categories" 
             isMulti 
             components={animatedComponents}
-            onChange={this.handleMultiSelect}
+            onChange={this.handleMultiCatergorySelect}
             theme={theme => ({
               ...theme,
               // borderRadius: 0,
@@ -99,14 +106,15 @@ class EventIndex extends React.Component {
                 primary: 'black'
               }
             })}
+            name="category" 
           />
-          <Select className="date-select" options={this.date} placeholder="Date" />
+          <Select className="date-select" name="date" options={this.date} placeholder="Date" deafultValue={this.date[2]} onChange={this.handleMultiCatergorySelect} />
           <button onClick={this.handleFreeEventClick} className={`checkbox-input ${!this.state.checkbox ? 'off' : 'on' }`}>Free Events Only</button>
         </div>
         <div className="list-map-wrapper">
           <div className="event-list">
             {
-              showEvents.map(event => (
+              this.filteredEvents().map(event => (
                 <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
                   <div className="event-wrapper" >
                     <div className="event-text">
@@ -114,7 +122,7 @@ class EventIndex extends React.Component {
                         <h4 className="event-name-text">{event.name}</h4>
                       </div>
                       <div className="event-description">
-                        <p>{moment(event.date).format('MMM do YYYY')}</p>
+                        <p>{moment(event.date).format('MMM DD YYYY')}</p>
                         <p>{moment(event.time, 'HH:mm').format('h:mm A')}</p>
                       </div>
                     </div>
@@ -127,7 +135,7 @@ class EventIndex extends React.Component {
             }
           </div>
           <div className="map-wrapper">
-            <Map events={showEvents}/>
+            <Map events={this.filteredEvents()}/>
           </div>
         </div>
       </div>
