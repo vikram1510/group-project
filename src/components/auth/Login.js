@@ -36,16 +36,17 @@ class Login extends React.Component {
     console.log(this.state)
     return (
       <div className="login-page">
-        <h1>Login Page</h1>
+        
 
         <form onSubmit={this.handleSubmit}>
-
+          <h1>Login Page</h1>
+          
           <div className="field">
             <label className="label">Email:</label>
             <div className="control">
               <input
                 name="email"
-                placeholder="Email"
+                placeholder="test@mailbox.com"
                 onChange={this.handleChange}
               />
             </div>
@@ -57,13 +58,33 @@ class Login extends React.Component {
               <input
                 name="password"
                 type="password"
-                placeholder="Password"
+                placeholder="Please enter your password here"
                 onChange={this.handleChange}
               />
             </div>
           </div>
 
           <button type="submit">Submit</button>
+        </form>
+
+
+
+
+        <form>
+          <h1>Login Page</h1>
+          <div className="row">
+
+            <div>
+              <label htmlFor="exampleEmailInput">Email:</label>
+              <input className="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput"/>
+
+              <label htmlFor="exampleEmailInput">Password:</label>
+              <input className="u-full-width" type="email" placeholder="Please enter your password here" id="exampleEmailInput" />
+            </div>
+
+          </div>
+
+          <input className="button-primary" type="submit" value="Submit"/> 
         </form>
 
       </div>
