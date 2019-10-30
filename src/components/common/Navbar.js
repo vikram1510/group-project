@@ -35,7 +35,7 @@ class Navbar extends React.Component {
               {Auth.isAuthenticated() ?
             <>
               <Link to='/profile'>Profile</Link>
-              <Link to='/'>Settings</Link>
+              <Link to='/settings'>Settings</Link>
               <Link to='/' onClick={this.handleLogout}>Logout</Link>
             </> :
             <>

@@ -29,4 +29,13 @@ function profile(req, res){
   res.status(200).json(req.currentUser)
 }
 
-module.exports = { register, login, profile }
+function updateProfile(req, res) {
+  User
+    .findById(req.currentUser._id)
+    .then(user => user.set(req.body))
+    .then(user => user.save())
+    .then(user => res.status(202).json(user))
+    .catch(err => res.json(err))
+}
+
+module.exports = { register, login, profile, updateProfile }
