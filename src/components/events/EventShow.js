@@ -127,7 +127,7 @@ class EventShow extends React.Component{
                     <div className="comment-profile"><img src={comment.user.profilePic}></img></div>
                     <div className="box">
                       <div className="text-user">
-                        <p className="username">{comment.user.username}</p>
+                        <strong className="username strong">{comment.user.username}</strong>
                         <p>{comment.text}</p>
                       </div>
                       <div className="delete-timestamp">
