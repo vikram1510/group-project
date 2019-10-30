@@ -17,23 +17,24 @@
   form {
     background-color: Rgba(75,75,75,0.5);
     width: 52vw;
-    max-height: 95vh;
+    max-height: 90vh;
     border-radius: 2vw;
+    margin: 0;
   }
   
   .field {
     // background-color: blue;
-    width: 50vw;
+    width: 40vw;
     height: 2vw;
     display: flex;
-    margin: 1vw;
+    margin: 0 11% 2%;
     border-radius: 4vw;
   
   }
   
   .label {
     background-color: rgba(0, 0, 0, 0.658);
-    width: 20vw;
+    width: 15vw;
     height: 2vw;
     text-align: right;
     padding: 0 1vw;
@@ -43,22 +44,26 @@
   
   .control {
     // background-color: crimson;
-    width: 30vw;
+    width: 25vw;
     height: 2vw;
     border-radius: 0 4vw 4vw 0;
   }
   
   input {
-    width: 30vw;
+    width: 25vw;
     height: 2vw;
     border-radius: 0 4vw 4vw 0;
     align-items: center;
+    background-color: rgb(43,45,66);
+    border-style: none;
   }
   
+
   .category-container {
     // background-color: darkmagenta;
     width: 50vw;
-    margin: 1vw;
+    max-height:25vw;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -95,13 +100,12 @@
   
   .category-box {
     // background-color: skyblue;
-    // background-image: url('../assets/javaT.png');
-    background-size: 10vw;
+    background-size: 7vw;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    width: 10vw;
-    height: 10vw;
+    width: 7vw;
+    height: 7vw;
     margin: 1vw;
     color: white;
     // position: absolute;
@@ -112,12 +116,12 @@
     // background-color: coral;
     display: flex;
     flex-direction: column;
-    width: 10vw;
+    width: 7vw;
     height: 2vw;
-    padding: .25vw;
+    // padding: .25vw;
     color: white;
     text-align: center;
-    margin: 0 auto 2vw;
+    margin: 0 0 0.5vw;
   }
 
   .box {
@@ -127,7 +131,7 @@
 
   .box-initial-image {
     display: block;
-    width: 10vw;
+    width: 7vw;
     height: auto;
     border-radius: 2vw;
   }
@@ -149,7 +153,7 @@
 
   .box-after-image {
     position: absolute;
-    width:10vw;
+    width: 7vw;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
