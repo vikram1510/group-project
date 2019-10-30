@@ -36,10 +36,11 @@ class Login extends React.Component {
     console.log(this.state)
     return (
       <div className="login-page">
-        <h1>Login Page</h1>
+        
 
         <form onSubmit={this.handleSubmit}>
-
+          <h1>Login Page</h1>
+          
           <div className="field">
             <label className="label">Email:</label>
             <div className="control">
