@@ -17,22 +17,22 @@ class Navbar extends React.Component {
         <div></div>
         <div></div>
       </div> */}
-
-        <nav>
-          <div className="nav-top">
-            <Link to='/' className="logo">
-              {/* <i className="far fa-handshake"></i> */}
-              <p><span>tech</span><span>Meet</span></p>
-            </Link>
-            <Link to='/'>
-              <i className="fas fa-home"></i>
-            </Link>
-            <Link to='/events'>
-              <i className="fa fa-search"></i>
-            </Link>
-          </div>         
-          <div className="nav-bottom">
-            {Auth.isAuthenticated() ?
+        <div className="nav-wrapper">
+          <nav>
+            <div className="nav-top">
+              <Link to='/' className="logo">
+                {/* <i className="far fa-handshake"></i> */}
+                <p><span>tech</span><span>Meet</span></p>
+              </Link>
+              <Link to='/'>
+                <i className="fas fa-home"></i>
+              </Link>
+              <Link to='/events'>
+                <i className="fa fa-search"></i>
+              </Link>
+            </div>         
+            <div className="nav-bottom">
+              {Auth.isAuthenticated() ?
             <>
               <Link to='/profile'>Profile</Link>
               <Link to='/'>Settings</Link>
@@ -42,10 +42,12 @@ class Navbar extends React.Component {
             <Link to='/register'>Register</Link>
             <Link to='/login'>Login</Link>
             </>
-            }
-          </div>       
-          {/* <Link>Settings</Link> */}
-        </nav>
+              }
+            </div>       
+            {/* <Link>Settings</Link> */}
+          </nav>
+        </div>
+
       </div>
 
     )

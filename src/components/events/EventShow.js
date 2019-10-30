@@ -118,8 +118,13 @@ class EventShow extends React.Component{
             <div className="comments-section">
               <h3>Comments</h3>
               <form onSubmit={(e) => this.submitComment(e)}>
-                <input type="text" className="comment-input" value={this.state.commentText} onChange={(e) => this.commentInput(e)}></input>
-                <button type="submit">Send</button>
+                <input type="text" 
+                  className="comment-input"
+                  value={this.state.commentText}
+                  onChange={(e) => this.commentInput(e)}
+                  
+                ></input>
+                <button className={this.state.commentText ? 'active' : ''} type="submit">Send</button>
               </form>
               <div className="comments">
                 {event.comments.map(comment => (
@@ -127,7 +132,7 @@ class EventShow extends React.Component{
                     <div className="comment-profile"><img src={comment.user.profilePic}></img></div>
                     <div className="box">
                       <div className="text-user">
-                        <strong className="username strong">{comment.user.username}</strong>
+                        <strong className="username">{comment.user.username}</strong>
                         <p>{comment.text}</p>
                       </div>
                       <div className="delete-timestamp">

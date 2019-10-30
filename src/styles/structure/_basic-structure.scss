@@ -3,10 +3,17 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
 
 //COLOR PALET
-$color-one: #071013;
-$color-two: #0B3954;
-$color-three: #F2F4F3;
-$color-four: #E5E5E5;
+//1
+// $color-one: #ED6A5A;
+// $color-two: #E6EBE0;
+// $color-three: #5CA4A9;
+// $color-four: #E6EBE0;
+// $color-five: 1;
+//2
+$color-one: #2B2D42;
+$color-two: #929CAA;
+$color-three: #EDF2F4;
+$color-four: #929CAA;
 $color-five: 1;
 
 * {
@@ -17,6 +24,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Titillium Web', sans-serif;
+  overscroll-behavior: none;
   h1, h2, h3, h4, h5, p, a {margin: 0}
 
   main {
