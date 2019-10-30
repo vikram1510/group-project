@@ -4,7 +4,6 @@ import moment from 'moment'
 
 import Auth from '../../lib/auth'
 
-import ShowInput from '../common/showInput'
 
 class EventShow extends React.Component{
   constructor(){
