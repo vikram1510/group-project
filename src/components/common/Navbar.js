@@ -1,13 +1,40 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
+import axios from 'axios'
 
 import Auth from '../../lib/auth'
 
 class Navbar extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      profilePic: ''
+    }
+  }
 
   handleLogout(){
     Auth.logout()
   }
+
+  componentDidUpdate(prevProps){
+    if (this.props !== prevProps){
+      this.getProfilePic()
+    }
+  }
+
+  componentDidMount(){
+    this.getProfilePic()
+  }
+
+  getProfilePic(){
+    if (Auth.isAuthenticated()) {
+      axios.get('/api/profile', {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+        .then(res => this.setState({ profilePic: res.data.profilePic }))
+    }
+  }
+
 
   render() {
     return (
@@ -20,27 +47,48 @@ class Navbar extends React.Component {
         <div className="nav-wrapper">
           <nav>
             <div className="nav-top">
-              <Link to='/' className="logo">
-                {/* <i className="far fa-handshake"></i> */}
-                <p><span>tech</span><span>Meet</span></p>
-              </Link>
+              <div className="nav-divide">
+                <Link to='/' className="logo">
+                  {/* <i className="far fa-handshake"></i> */}
+                  {/* <p><span>tech</span><span>Meet</span></p> */}
+                  <p>techMeet</p>
+                </Link>
+              </div>
               <Link to='/'>
-                <i className="fas fa-home"></i>
+                <i className="fas fa-home left"></i>
+                <span>HOME</span>
               </Link>
               <Link to='/events'>
-                <i className="fa fa-search"></i>
+                <i className="fa fa-search left"></i>
+                <span>EVENTS</span>
               </Link>
             </div>         
             <div className="nav-bottom">
               {Auth.isAuthenticated() ?
             <>
-              <Link to='/profile'>Profile</Link>
-              <Link to='/settings'>Settings</Link>
-              <Link to='/' onClick={this.handleLogout}>Logout</Link>
+              <Link to='/profile'>
+                <div className="profile-wrapper left">
+                  <div className="profile">
+                    <img src={this.state.profilePic}></img>
+                  </div> 
+                </div>
+                <span>PROFILE</span>
+              </Link>
+              <Link to='/settings'><i className="fas fa-cogs left"></i>
+                <span>SETTINGS</span></Link>
+              <Link to='/' onClick={this.handleLogout}><button className="button-warning auth-button">
+                <span>LOGOUT</span>
+              </button></Link>
             </> :
             <>
-            <Link to='/register'>Register</Link>
-            <Link to='/login'>Login</Link>
+            <Link to='/register'>
+              <button className="button-secondary auth-button">
+                <span>Register</span>
+              </button></Link>
+            <Link to='/login'>
+              <button className="button-secondary auth-button">
+                <span>Login</span>
+              </button></Link>
             </>
               }
             </div>       

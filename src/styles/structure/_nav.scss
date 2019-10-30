@@ -13,19 +13,35 @@
 // navigation sidebar
 .nav-wrapper {
   position: fixed;
+
+  .nav-top {
+    display: flex;
+    width: 100%;
+
+    .nav-divide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $color-black;
+      height: 200px;
+      // width: 164.391px;
+      width: 177px;
+      margin: 0 0 60px 0;
+    }
+  }
 }
 
 .nav-sidebar {
   width: 200px;
   // background-color: rgb(39, 39, 39);
   // tom: trying coolers palete
-  background: $color-one;
+  background: $color-white;
   // background-color: rgb(0, 0, 0);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 1px black solid;
+  border-right: 1px grey solid;
 }
 
 
@@ -57,26 +73,52 @@
 nav {
   @include column-flex;
   justify-content: space-between;
+  align-items: center;
   height: 100vh;
+
+  div.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div.profile {
+    height: 60px;
+    width: 60px;
+    img {
+      width: auto;
+      height: 100%;
+      border-radius: 100%;
+      border: 1px solid $color-black;
+    }
+  }
   > div {
     @include column-flex;
   }
   a {
     text-decoration: none;
     margin-bottom: 15px;
-    text-align: center;
-    color: white;
+    // text-align: center;
+    color: $color-black;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    // i{ margin-right: 20px;}
+    &:focus{
+      border-left: 2px gold solid;
+    }
   }
 
   i{
-    font-size: 40px;
-    color: white;
+    font-size: 30px;
+    color: $color-black;
     text-align: center;
   }
+
   p {
     font-size: 25px;
     font-family: monospace;
-    color: white;
+    color: $color-white;
     text-decoration: none;
     span:first-of-type{
       color: rgb(108, 165, 255);
@@ -91,5 +133,22 @@ nav {
     margin-top: 30px;
     margin-bottom: 50px;
     i {font-size: 70px;}
+  }
+  .auth-button {
+    color: $color-black;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+nav {
+  a {
+    display: flex;
+    justify-content: center;
+    .left {
+      margin-right: 20px;
+    }
   }
 }
