@@ -70,7 +70,7 @@ class Login extends React.Component {
 
 
 
-        <form>
+        {/* <form>
           <h1>Login Page</h1>
           <div className="row">
 
@@ -85,7 +85,7 @@ class Login extends React.Component {
           </div>
 
           <input className="button-primary" type="submit" value="Submit"/> 
-        </form>
+        </form> */}
 
       </div>
       
