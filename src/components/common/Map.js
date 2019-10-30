@@ -51,8 +51,8 @@ class Map extends React.Component {
         < MapGL
           className="event-map"
           mapboxApiAccessToken={process.env.MAPBOX_ACCESS_TOKEN}
-          height={'590px'}
-          width={'590px'}
+          height={'598px'}
+          width={'598px'}
           mapStyle="mapbox://styles/mapbox/streets-v11"
           zoom={12}
           latitude={51.515}
