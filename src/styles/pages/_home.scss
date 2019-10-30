@@ -1,7 +1,6 @@
 // HOME PAGE
 
-
-
+@import url('https://fonts.googleapis.com/css?family=Jomolhari&display=swap" rel="stylesheet');
 
 .home-page { // the home page wrapper
   display: flex;
@@ -10,13 +9,59 @@
   justify-content: center;
   align-items: center;
   padding-top: 20px;
-  background: $color-three;
+  background: $color-white;
 
+  //this is for a picture for the whole page
+  // background-image: url('https://images.unsplash.com/photo-1546900703-cf06143d1239?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2791&q=80');
+  background-image: url('../assets/techMeet-home-background.jpg');
+  background-size: 118%;
+  background-position: center;
+  // background-position: right;
+  background-repeat: no-repeat;
+  // filter: url('https://images.unsplash.com/photo-1546900703-cf06143d1239?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2791&q=80');
+  filter: url('../assets/techMeet-home-background.jpg');
+  filter: grayscale(20%);
+  // filter: blur(2px);
+  filter: sepia(50%);
+  
+  
+  .home-image {
+    width: 95%;
+    height: 100%;
+    // this is for picture within page
+    // background-image: url('https://images.unsplash.com/photo-1546900703-cf06143d1239?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2791&q=80');
+    // background-size: 110%;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    
+    color: $color-white;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // justify-content: center;
+    align-items: flex-start;
+
+  }
   h2 {
-    font-size: 500%;
+    filter: sepia(0%);
+    font-family: 'Jomolhari', serif;
+    color: $color-white;
+    // font-size: 700%;
+    font-size: 750%;
+    margin-left: 100px;
+    // font-weight: 800;
+  }
+  .home-page-line {
+    height: 3px;
+    width: 200px;
+    margin-left: 450px;
+    background: $color-white;
   }
 
   p {
     margin-top: 20px;
+    margin-left: 450px;
+    font-size: 120%;
   }
 }

@@ -26,9 +26,10 @@ class App extends React.Component{
               <Route exact path='/' component={Home} />
               <Route path='/events/:id' component={EventShow} />
               <Route path='/events' component={EventIndex} />
+              <Route path='/profile' component={Profile} />
               <Route path='/register' component={Register} />
               <Route path='/login' component={Login} />
-              <Route path='/profile' component={Profile} />
+              
               <Route path='/settings' component={ProfileSettings} />
             </Switch>
           </div> 
