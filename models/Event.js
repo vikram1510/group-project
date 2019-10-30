@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const moment = require('moment')
 
 const commentSchema = new mongoose.Schema({
   text: { type: String, required: true },
@@ -13,7 +14,7 @@ const eventSchema = new mongoose.Schema({
   description: { type: String, required: true },
   price: { type: Number, required: true },
   category: { type: String, required: false }, //programming language
-  date: { type: Date, required: false },
+  date: { type: String, required: false },
   time: { type: String, required: false },
   images: { type: [String], required: false },
   industry: { type: String },
@@ -26,5 +27,10 @@ const eventSchema = new mongoose.Schema({
 })
 
 eventSchema.plugin(require('mongoose-unique-validator'))
+
+// eventSchema.pre('save', function(next) {
+//   this.date = moment(this.date).format('MMM Do YYYY')
+//   next()
+// })
 
 module.exports = mongoose.model('Event', eventSchema)

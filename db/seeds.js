@@ -132,7 +132,7 @@ mongoose.connect(
             category: 'Javascript',
             date: '2019-10-30',
             price: '5',
-            hostUser: users[0],
+            hostUser: users[22],
             attendees: [ users[0], users [1], users[2] ]
           },
           {

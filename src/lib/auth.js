@@ -18,7 +18,7 @@ class Auth {
     if (parts.length !== 3) return false
     return JSON.parse(atob(parts[1]))
   }
-
+  
   static isAuthenticated(){
     const payload = this.getPayload()
     if (!payload) return false

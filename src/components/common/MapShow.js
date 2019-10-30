@@ -16,12 +16,11 @@ class MapShow extends React.Component {
     
   }
   
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.events !== this.props.events) {
-  //     this.setState({ latLongs: [] })
-  //     this.latlongCalc()
-  //   } 
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.event !== this.props.event) {
+      this.latlongCalc()
+    } 
+  }
 
   componentDidMount() {
     // console.log('mounting')

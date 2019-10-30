@@ -4,7 +4,7 @@ import moment from 'moment'
 
 import Auth from '../../lib/auth'
 
-import ShowInput from '../common/showInput'
+import ShowInput from '../common/ShowInput'
 import MapShow from '../common/MapShow'
 
 class EventShow extends React.Component{
@@ -13,9 +13,14 @@ class EventShow extends React.Component{
 
     this.state = {
       event: null,
-      commentText: ''
+      commentText: '',
+      editEvent: null
     }
+
+    
     this.handleChange = this.handleChange.bind(this)
+    this.handleInput = this.handleInput.bind(this)
+    this.submitChange = this.submitChange.bind(this)
   }
 
   commentInput(e){
@@ -46,7 +51,19 @@ class EventShow extends React.Component{
     const attending = e.target.checked
     if (attending) this.attendEvent()
     else this.unAttendEvent()
+  }
 
+  handleInput(e){
+    this.setState({ editEvent: { ...this.state.editEvent, [e.target.name]: e.target.value } })
+  }
+
+  submitChange(e){
+    console.log('hello', this.state.editEvent)
+    axios.put(`/api/events/${this.props.match.params.id}`, this.state.editEvent, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    })
+      .then(() => this.getEvent())
+      .catch(err => console.log(err.response.data))
   }
 
   attendEvent(){
@@ -69,7 +86,7 @@ class EventShow extends React.Component{
 
   getEvent(){
     axios.get(`/api/events/${this.props.match.params.id}`)
-      .then(res => this.setState({ event: res.data, commentText: '' }))
+      .then(res => this.setState({ editEvent: res.data, event: res.data, commentText: '' }))
       .catch(err => console.log(err))
   }
 
@@ -84,7 +101,7 @@ class EventShow extends React.Component{
 
   render(){
     console.log('show', this.state)
-    const { event } = this.state
+    const { event, editEvent } = this.state
     if (!event) return null
     console.log(moment(event.date).format('MMM Do YY'))
     return (
@@ -93,7 +110,12 @@ class EventShow extends React.Component{
           <section className="main">
             <div>
               <div className="title-attend">
-                <h1>{event.name}</h1>
+                <ShowInput className="text name" 
+                  name="name" 
+                  value={editEvent.name}
+                  handleInput={this.handleInput}
+                  submitChange={this.submitChange}
+                ></ShowInput>
                 <div className="event-logo">
                   <img src="../assets/java-white-button.png"></img>
                 </div>
@@ -110,15 +132,33 @@ class EventShow extends React.Component{
 
                 <div className="info date">
                   <h3>Date</h3>
-                  <p>{moment(event.date).format('MMM Do YYYY')}</p>
+                  <ShowInput className="text info" 
+                    name="date" 
+                    value={editEvent.date}
+                    handleInput={this.handleInput}
+                    submitChange={this.submitChange}
+                  ></ShowInput>
+                  {/* <p>{moment(event.date).format('MMM Do YYYY')}</p> */}
                 </div>
                 <div className="info time">
                   <h3>Time</h3>
-                  <p>{moment(event.time,'HH:mm').format('h:mm A')}</p>
+                  <ShowInput className="text info" 
+                    name="time" 
+                    value={editEvent.time}
+                    handleInput={this.handleInput}
+                    submitChange={this.submitChange}
+                  ></ShowInput>
+                  {/* <p>{moment(event.time,'HH:mm').format('h:mm A')}</p> */}
                 </div>
                 <div className="info price">
                   <h3>Price</h3>
-                  <p>{event.price === 0 ? 'Free' : `£${event.price}`}</p>
+                  <ShowInput className="text info" 
+                    name="price" 
+                    value={editEvent.price}
+                    handleInput={this.handleInput}
+                    submitChange={this.submitChange}
+                  ></ShowInput>
+                  {/* <p>{event.price === 0 ? 'Free' : `£${event.price}`}</p> */}
                 </div>
 
 
@@ -127,7 +167,12 @@ class EventShow extends React.Component{
 
             <div className="description">
               <h3>Description</h3>
-              <p>{event.description}</p>
+              <ShowInput className="text description" 
+                name="description" 
+                value={editEvent.description}
+                handleInput={this.handleInput}
+                submitChange={this.submitChange}
+              ></ShowInput>
             </div>
             <div className="comments-section">
               <h3>Comments</h3>
@@ -189,7 +234,14 @@ class EventShow extends React.Component{
               <h3>Location</h3>
               <div className="map-location">
                 <MapShow event={event}></MapShow>
-                <p><i className="fas fa-map-marker-alt"></i>{event.location}</p>
+                <p><i className="fas fa-map-marker-alt"></i>
+                  <ShowInput className="text location" 
+                    name="location" 
+                    value={editEvent.location}
+                    handleInput={this.handleInput}
+                    submitChange={this.submitChange}
+                  ></ShowInput>
+                </p>
               </div>
             </div>
           </section>
