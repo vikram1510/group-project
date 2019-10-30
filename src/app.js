@@ -9,6 +9,7 @@ import EventShow from './components/events/EventShow'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Profile from './components/common/Profile'
+import ProfileSettings from './components/auth/ProfileSettings'
 import Navbar from './components/common/Navbar'
 
 
@@ -28,7 +29,7 @@ class App extends React.Component{
               <Route path='/register' component={Register} />
               <Route path='/login' component={Login} />
               <Route path='/profile' component={Profile} />
-                          
+              <Route path='/settings' component={ProfileSettings} />
             </Switch>
           </div> 
         </main>
