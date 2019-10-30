@@ -1,6 +1,7 @@
 $primaryColour: rgb(255, 213, 76);
 $borderGrey: rgb(122, 122, 122);
 $backgroundGrey: rgb(41, 41, 41);
+// $backgroundGrey: $color-black;
 $colorText: white;
 
 
@@ -263,22 +264,47 @@ $colorText: white;
 
 
 
+div.show-input{
+  display: flex;
+  width: 100%;
+}
+textarea.text {
+  resize: none;
+  border: 0;
+  background-color: $backgroundGrey;
+  margin-bottom: 0;
+  &:disabled{
+    color: $colorText;
+  }
+  &.enabled {
+    // border: rgb(143, 143, 143) 1px solid;
+    &:hover{
+      border: $borderGrey 1px solid;
+    }
+    &:focus {
+      background-color: $borderGrey;
+      color: $backgroundGrey;
+      outline: none;
+      // padding-right: 5px;
+    }
+  }
+}
 
-// input.text {
-//   border: 0;
-//   width: 200px;
-//   height: 200px;
-//   background-color: dodgerblue;
-//   &:disabled{
-//     color: black;
-//   }
-//   &.enabled {
-//     border: rgb(143, 143, 143) 1px solid;
-//     &:hover{
-//       border: black 1px solid;
-//     }
-//     &:focus {
-//       background-color: rgb(107, 181, 255);
-//     }
-//   }
-// }
+textarea.name {
+  max-width: 550px;
+  flex-grow: 1;
+  font-size: 40px;
+}
+
+textarea.description {
+  max-width: 650px;
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+textarea.info {
+  max-width: 80px;
+  max-height: 10px;
+  text-align: center;
+  // height: 10px;
+}

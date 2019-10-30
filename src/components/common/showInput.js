@@ -1,20 +1,26 @@
 import React from 'react'
 import Auth from '../../lib/auth'
+import TextAreaAutoSize from 'react-autosize-textarea'
 
-// class showInput extends 
+const ShowInput = ({ name, value, className, handleInput, submitChange }) => {
 
-
-const showInput = ({ name, value }) => {
 
   return (
-    <input 
-      className={`text ${Auth.isAuthenticated() ? 'enabled' : ''}`}
-      name={name}
-      value={value}
-      disabled={!Auth.isAuthenticated()}>
-    </input>
+    <div className="show-input">
+      <TextAreaAutoSize 
+        className={`text ${className} ${Auth.isAuthenticated() ? 'enabled' : ''}`}
+        name={name}
+        value={value}
+        onChange={handleInput}
+        onBlur={submitChange}
+        disabled={!Auth.isAuthenticated()}
+      >
+        
+      </TextAreaAutoSize>
+    </div>
+
   )
 
 }
 
-export default showInput
+export default ShowInput
