@@ -71,9 +71,22 @@
     justify-content: space-evenly;
     width: 50vw;
   }
-  
+
   .row2 {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50vw;
+    // height: 20px;
+  }
+  
+  .row3 {
     // background-color: gainsboro;
+    display: flex;
+    justify-content: space-evenly;
+    width: 50vw;
+  }
+
+  .row4 {
     display: flex;
     justify-content: space-evenly;
     width: 50vw;
@@ -90,11 +103,59 @@
     height: 10vw;
     margin: 1vw;
     color: white;
+    // position: absolute;
+    border-radius: 2vw;
   }
 
-  .category-box:hover {
-    // background-color: gold;
-    background-image: url('../assets/blueSwitches.jpg')
+  .category-name {
+    // background-color: coral;
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height: 2vw;
+    padding: .25vw;
+    color: white;
+    text-align: center;
+    margin: 0 auto 2vw;
+  }
+
+  .box {
+  position: absolute;
+  border-radius: 2vw;
+}
+
+  .box-initial-image {
+    display: block;
+    width: 10vw;
+    height: auto;
+    border-radius: 2vw;
+  }
+
+  .box-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: 1s ease;
+    border-radius: 2vw;
+  }
+
+  .box:hover .box-overlay {
+    opacity: 1;
+  }
+
+  .box-after-image {
+    position: absolute;
+    width:10vw;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 2vw;
   }
 
   button {
@@ -106,5 +167,12 @@
       border-width: 3px;
       background-color:rgb(40, 40, 40);
     }
+
+
+
+
+    
+ 
 }
+
 

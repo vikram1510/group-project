@@ -99,19 +99,61 @@ class Register extends React.Component {
          
           <div className="category-container">
             <p>Please select your language below: </p>
+            {/* ROW 1 */}
             <div className="row1">
-              <div className="category-box">Java</div>
-              <div className="category-box">Swift</div>
+
+              <div className="category-box">
+                <div className="box">
+                  {/* WHITE LOGO */}
+                  <img className="box-initial-image" src="../assets/java-white-button.png"></img>
+                  <div className="box-overlay">
+                    {/* TO COLOUR LOGO */}
+                    <img className="box-after-image" src="../assets/javaT.png"></img>
+                  </div>
+                </div>
+              </div>
+
+              <div className="category-box">
+                <div className="box">
+                  {/* WHITE LOGO */}
+                  <img className="box-initial-image" src="../assets/swift-white-button.png"></img>
+                  <div className="box-overlay">
+                    {/* TO COLOUR LOGO */}
+                    <img className="box-after-image" src="../assets/swiftT.png"></img>
+                  </div>
+                </div>
+              </div>
               <div className="category-box">JavaScript</div>
               <div className="category-box">PHP</div>
+
             </div>
+
+            {/* ROW 2 */}
             <div className="row2">
+              <p className="category-name">Java</p>
+              <p className="category-name">Swift</p>
+              <p className="category-name">JavaScript</p>
+              <p className="category-name">PHP</p>
+            </div>
+
+            {/* ROW 3 */}
+            <div className="row3">
               <div className="category-box">c++</div>
               <div className="category-box">SQL</div>
               <div className="category-box">Python</div>
               <div className="category-box">Ruby</div>
             </div>
+
+            {/* ROW 4 */}
+            <div className="row4">
+              <p className="category-name">C++</p>
+              <p className="category-name">SQL</p>
+              <p className="category-name">Python</p>
+              <p className="category-name">Ruby</p>
+            </div>
+
           </div>
+
 
           <button type="submit">Submit</button>
         </form>
