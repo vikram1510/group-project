@@ -24,8 +24,8 @@ class Profile extends React.Component {
     console.log(this.state)
     const { user } = this.state
     if (!user) return null
-    console.log('upcoming', moment().isBefore(this.state.user.eventsAttend[7].date))
-    console.log('attended', moment().isAfter(this.state.user.eventsAttend[7].date - 1))
+    // console.log('upcoming', moment().isBefore(this.state.user.eventsAttend[7].date))
+    // console.log('attended', moment().isAfter(this.state.user.eventsAttend[7].date))
     return (
       <div className="profile-page">
         <div className="profile-bar-wrapper">
@@ -42,8 +42,7 @@ class Profile extends React.Component {
                 <tr>
                   <th>Language</th>
                   <th>Event</th>
-                  <th>Date</th>
-                  <th>Time</th>
+                  <th>Date and Time</th>
                   <th>Event Status</th>
                 </tr>
               </thead>
@@ -53,8 +52,7 @@ class Profile extends React.Component {
                     {/* <td className="event-icon">Category icon</td> */}
                     <td className="event-icon">{event.category}</td>
                     <td>{event.name}</td>
-                    <td>{moment(event.date).format('MMM Do YYYY')}</td>
-                    <td>{moment(event.time,'HH:mm').format('h:mm A')}</td>
+                    <td>{moment(event.date).format('MMM Do YYYY')} @ {moment(event.time,'HH:mm').format('h:mm A')}</td>
                     <td>{moment().isBefore(event.date) ? 'Upcoming Event' : moment().isAfter(event.date) ? 'Attended' : 'Event Today'}</td>
                   </tr>
                 ))}
