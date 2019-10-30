@@ -65,48 +65,22 @@ class EventIndex extends React.Component {
 
   filteredEvents() {
     const selectedCategory = this.state.filter.category ? this.state.filter.category.map(cat => cat.value) : []
-    console.log(selectedCategory)
     const selectedPeriod = this.state.filter.date.value
-    console.log(selectedPeriod)
     return this.state.events.filter(event => {
-      const endDate = moment().add(selectedPeriod, 'days')
+      //would not render the current day as it between does not seem to include the start date - therefore I have minused on the start and plused on the end date
+      const startDate = moment().add(-1, 'days')
+      const endDate = moment().add(selectedPeriod + 1, 'days')
       if (selectedCategory.length === 0 && selectedPeriod === 'all')  return true
-      if (selectedCategory.length === 0) return moment(event.date).isBetween(moment(), endDate)
-      console.log('hit')
+      if (selectedCategory.length === 0) return moment(event.date).isBetween(startDate, endDate)
       if (selectedPeriod === 'all') return selectedCategory.includes(event.category.toLowerCase())
       const catFilter = selectedCategory.includes(event.category.toLowerCase())
-      const dateFilter = moment(event.date).isBetween(moment(), endDate)
-      console.log('im here', catFilter, dateFilter, moment(event.date).format('DD - MM - YYYY'))
-      // if (!event.category || !event.date) return true
+      const dateFilter = moment(event.date).isBetween(startDate, endDate)
       return catFilter && dateFilter
     })
   }
   
   handleMultiCatergorySelect(selected, action) {
-    console.log('action name', action.name)
     this.setState({ filter: { ...this.state.filter, [action.name]: selected } }) 
-    console.log('selected', selected)
-    // const originalEvents = this.state.events
-    // console.log(originalEvents)
-    // if (!selected) return this.setState({ showEvents: originalEvents })
-    // if (selected.length === 0) return this.setState({ showEvents: originalEvents })
-    // const catSelected = this.state.filter.category ? selected.map(cat => cat.value) : []
-    // console.log('catSelected', catSelected)
-    // const filteredEvents = originalEvents.filter(event => {
-    //   if (!event.category) return null
-    //   if (catSelected.length === 0 && !Number(this.state.filter.date)) {
-    //     console.log('none')
-    //   }
-    //   if (catSelected.length > 0 && Number(this.state.filter.date)) {
-    //     console.log('cat + num')
-    //     // return catSelected.includes(event.category.toLowerCase()) && 
-    //   } else {
-    //     console.log('')
-    //   }
-    // })
-
-    // console.log('filt', filteredEvents)
-    // this.setState({ showEvents: filteredEvents })
   }
 
 
@@ -170,42 +144,3 @@ class EventIndex extends React.Component {
 }
 
 export default EventIndex
-
-
-// handleMultiCatergorySelect(selected) {
-//   const originalEvents = this.state.events
-//   console.log(originalEvents)
-//   console.log('selected:', selected)
-//   if (!selected) return this.setState({ showEvents: originalEvents })
-//   if (selected.length === 0) return this.setState({ showEvents: originalEvents })
-//   const catSelected = selected ? selected.map(cat => cat.value) : []
-//   console.log(catSelected)
-//   const filteredEvents = originalEvents.filter(event => {
-//     if (!event.category) return null
-//     return catSelected.includes(event.category.toLowerCase())
-//   })
-//   console.log('filt', filteredEvents)
-//   this.setState({ showEvents: filteredEvents })
-// }
-
-// handleDateSelect(date) {
-//   const originalEvents = this.state.events
-//   const dateSelected = date ? date : 'All Events'
-//   const seven = moment().add(7, 'days')
-//   const example = '2019-10-31'
-//   console.log(dateSelected)
-
-//   console.log(moment(example).isBetween(moment(), seven))
-//   if (dateSelected.value === 'week') {
-//     const filteredEvents = this.state.showEvents.filter(event => {
-//       console.log(event.date)
-//       if (!event.date) return null
-//       console.log(moment(event.date).isBetween(moment(), seven))
-//       return moment(event.date).isBetween(moment(), seven)
-//     })
-//     console.log(filteredEvents)
-//     this.setState({ showEvents: filteredEvents })
-//   } else {
-//     this.setState({ showEvents: originalEvents })
-//   }
-// }
