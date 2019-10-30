@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/auth'
+import moment from 'moment'
 
 
 class Profile extends React.Component {
@@ -44,7 +45,7 @@ class Profile extends React.Component {
                   <div className="event-icon">Category icon</div>
                   <div className="event-summary">
                     <h4>{event.name}</h4>
-                    <p>{event.date} at {event.time}</p>
+                    <p>{moment(event.date).format('MMM do YYYY')} at {moment(event.time, 'HH:mm').format('h:mm A')}</p>
                     <p>{event.location}</p>
                   </div>
                 </div>
