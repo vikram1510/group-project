@@ -2,10 +2,7 @@ $primaryColour: rgb(255, 213, 76);
 $borderGrey: rgb(122, 122, 122);
 $backgroundGrey: rgb(41, 41, 41);
 $colorText: white;
-// $primaryColour: rgb(0, 0, 0);
-// $borderGrey: rgb(0, 0, 0);
-// $backgroundGrey: rgb(255, 255, 255);
-// $colorText: rgb(0, 0, 0);
+
 
 .show-page-wrapper {
   display: flex;
@@ -18,13 +15,12 @@ $colorText: white;
 
 .show-page {
   margin: 0 100px;
-  padding-top: 100px;
+  padding-top: 50px;
   height: 100%;
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 7fr;
-  grid-gap: 50px;
+  grid-column-gap: 50px;
 
   h3 { 
     font-size: 20px;
@@ -33,6 +29,7 @@ $colorText: white;
   }
 
   section.main {
+    // grid-row-start: span 2;
     display: flex;
     flex-direction: column;
     > div.description {
@@ -40,81 +37,85 @@ $colorText: white;
     }
   }
 
-  .date-time {
-    border: 2px solid $borderGrey;
-    border-radius: 10px;
-    padding: 20px;
-    justify-self: start;
-    align-self: start;
-    .date {
-      font-size: 30px;
-      padding-bottom: 5px;
+  .event-logo {
+    display: flex;
+    // justify-content: flex-end;
+    height: 50px;
+    width: 50px;
+    img {
+      border-radius: 10px;;
+      width: auto;
+      height: 100%;
     }
-    .time {
-      text-align: center;
-    }
+
     
   }
 
-  .attend-price{
-    margin-top: 30px;
+  .title-attend {
     display: flex;
-    justify-content: space-around;
-    .price {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .attend {
+    display: flex;
+    align-items: center;
+
+    input {
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      width: 100px;
+      height: 40px;
+      padding: 10px;
+      background-color: #da0202;
+      color: $colorText;
+      border-radius: 10px;
+      margin: 0;
+      
+      // transition: 0.3s;
+      
+
+      &:hover{
+        color: white;
+      }
+      
+      div {
+        background-color:$borderGrey;
+        height: 10px;
+        width: 10px;
+        margin-right: 10px;
+      }
+    }
+    input:checked + label {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background-color: $backgroundGrey;
+      width: 140px;
+      color: $borderGrey;
+      box-shadow: 0 0 5px 2px rgb(143, 143, 143);
+      font-weight: bold;
+      div{
+        background-color: $primaryColour;
+        box-shadow: 0 0 4px 1px $primaryColour;
+      }
+    }
+  }
+
+  .details{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    .info {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
-    .attend {
-      display: flex;
-      align-items: center;
-
-      input {
-        display: none;
-      }
-
-      label {
-        cursor: pointer;
-        user-select: none;
-        display: flex;
-        align-items: center;
-        width: 100px;
-        padding: 10px;
-        background-color: #da0202;
-        color: $colorText;
-        border-radius: 10px;
-        
-        // transition: 0.3s;
-        
-
-        &:hover{
-          color: white;
-        }
-        
-        div {
-          background-color:$borderGrey;
-          height: 10px;
-          width: 10px;
-          margin-right: 10px;
-        }
-      }
-      input:checked + label {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        background-color: $backgroundGrey;
-        width: 140px;
-        color: $borderGrey;
-        box-shadow: 0 0 5px 2px rgb(143, 143, 143);
-        font-weight: bold;
-        div{
-          background-color: $primaryColour;
-          box-shadow: 0 0 4px 1px $primaryColour;
-        }
-      }
-    }
-
-
-
   }
 
   .comments-section{
