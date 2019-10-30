@@ -97,12 +97,12 @@ class EventShow extends React.Component{
                 <input id="attend-checkbox" type="checkbox" onChange={this.handleChange} checked={this.isAttending()}></input>
                 <label htmlFor="attend-checkbox">
                   <div></div>
-                  <span>{this.isAttending() ? 'ATTENDING' : 'ATTEND'}</span>
+                  <span>{this.isAttending() ? 'Attending' : 'Attend'}</span>
                 </label>
               </div>
               <div className="price">
                 <h3>Price</h3>
-                <p>{event.price === 0 ? 'Free' : `£${event.price}`}</p>
+                <span>{event.price === 0 ? 'Free' : `£${event.price}`}</span>
               </div>
             </div>
           </div>
@@ -111,10 +111,7 @@ class EventShow extends React.Component{
             <p className="time">{moment(event.time,'HH:mm').format('h:mm A')}</p>
           </div>
           <section className="main">
-            <div className="description">
-              <h3>Description</h3>
-              <p>{event.description}</p>
-            </div>
+            <p>{event.description}</p>
             <div className="comments-section">
               <h3>Comments</h3>
               <form onSubmit={(e) => this.submitComment(e)}>

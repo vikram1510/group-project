@@ -1,0 +1,23 @@
+// PROFILE NAVIGATION MENU
+
+.profile-bar-wrapper { // the top section for profile bar
+  background-color: gold;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+  
+    .profile-bar { // the profile bar
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      justify-content: space-between;
+      margin-left: 50px;
+    }
+
+    .profile-bar-image { // the user's profile image in the profile bar
+      margin-right: 50px;
+    }
+
+  }
