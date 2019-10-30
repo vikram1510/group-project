@@ -1,7 +1,8 @@
 // Register Page
 .register-page {
   background-image: linear-gradient(to right, rgb(40, 41, 41), black);
-  width: 100vw;
+  width: 100%;
+  height:100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,54 +12,68 @@
     margin: 2vw;
     text-align: center;
   }
+  h3 {
+    margin: 0, 11%;
+  }
   p {
     margin: 1vw 1vw 0 1vw ;
   }
+  // p.indent {
+  //   margin: 8vw;
+  // }
   form {
-    background-color: Rgba(75,75,75,0.5);
+    background-image: linear-gradient(to right, rgba(40, 41, 41, 0.75), rgba(30, 30, 30, 0.5));
     width: 52vw;
     max-height: 95vh;
     border-radius: 2vw;
+    margin: 0;
   }
   
   .field {
     // background-color: blue;
-    width: 50vw;
-    height: 2vw;
+    width: 40vw;
+    height: 40px;
     display: flex;
-    margin: 1vw;
+    margin: 0 11% 2%;
     border-radius: 4vw;
   
   }
   
   .label {
     background-color: rgba(0, 0, 0, 0.658);
-    width: 20vw;
-    height: 2vw;
+    width: 15vw;
+    height: 40px;
     text-align: right;
-    padding: 0 1vw;
+    padding: 7px 1vw;
     border-radius: 4vw 0 0 4vw;
+    color: darkgray;
     
   }
   
   .control {
     // background-color: crimson;
-    width: 30vw;
-    height: 2vw;
+    width: 25vw;
+    height: 40px;
     border-radius: 0 4vw 4vw 0;
   }
   
   input {
-    width: 30vw;
-    height: 2vw;
+    width: 25vw;
+    height: 40px;
     border-radius: 0 4vw 4vw 0;
     align-items: center;
+    background-color: rgb(43,45,66);
+    border-style: none;
   }
-  
+
+
+
+
   .category-container {
     // background-color: darkmagenta;
     width: 50vw;
-    margin: 1vw;
+    max-height:25vw;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -68,40 +83,43 @@
   .row1 {
     // background-color: deepskyblue;
     display: flex;
-    justify-content: space-evenly;
-    width: 50vw;
+    justify-content: space-between;
+    width: 40vw;
+    margin: 0 11%;
   }
 
   .row2 {
     display: flex;
-    justify-content: space-evenly;
-    width: 50vw;
+    justify-content: space-between;
+    width: 40vw;
     height: 2vw;
+    margin: 0 11%;
   }
   
   .row3 {
     // background-color: gainsboro;
     display: flex;
-    justify-content: space-evenly;
-    width: 50vw;
+    justify-content: space-between;
+    width: 40vw;
+    margin: 0 11%;
   }
 
   .row4 {
     display: flex;
-    justify-content: space-evenly;
-    width: 50vw;
+    justify-content: space-between;
+    width: 40vw;
     height: 2vw;
+    margin: 0 11%;
   }
   
   .category-box {
     // background-color: skyblue;
-    // background-image: url('../assets/javaT.png');
-    background-size: 10vw;
+    background-size: 7vw;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    width: 10vw;
-    height: 10vw;
+    width: 7vw;
+    height: 7vw;
     margin: 1vw;
     color: white;
     // position: absolute;
@@ -112,12 +130,12 @@
     // background-color: coral;
     display: flex;
     flex-direction: column;
-    width: 10vw;
+    width: 7vw;
     height: 2vw;
-    padding: .25vw;
+    // padding: .25vw;
     color: white;
     text-align: center;
-    margin: 0 auto 2vw;
+    margin: 0 0 0.5vw;
   }
 
   .box {
@@ -127,7 +145,7 @@
 
   .box-initial-image {
     display: block;
-    width: 10vw;
+    width: 7vw;
     height: auto;
     border-radius: 2vw;
   }
@@ -149,7 +167,7 @@
 
   .box-after-image {
     position: absolute;
-    width:10vw;
+    width: 7vw;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -160,13 +178,14 @@
   }
 
   button {
-      width: 50vw;
-      margin: 1vw 1vw;
+      width: 40vw;
+      margin: 1vw 11%;
       height: 4vw;
       border-radius: 4vw;
       border-color: darkgray;
       border-width: 3px;
       background-color:rgb(40, 40, 40);
+      color: darkgray;
     }
 
 

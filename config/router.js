@@ -20,6 +20,7 @@ router.route('/login')
 
 router.route('/profile')
   .get(secureRoute, users.profile)
+  .post(secureRoute, users.updateProfile)
 
 router.route('/events/:id/comments')
   .post(secureRoute, events.commentCreate)
