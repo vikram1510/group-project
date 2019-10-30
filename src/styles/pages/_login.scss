@@ -49,10 +49,13 @@
         }
       
         input {
+          background-color: rgb(43,45,66);
           width: 30vw;
           height: 2vw;
           border-radius: 0 4vw 4vw 0;
+          border-style: none;
           align-items: center;
+          padding: 0 1vw;
         }
 
     button {
