@@ -1,12 +1,16 @@
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
 const { secret } = require('../config/environment')
+const faker = require('faker')
 
 // register function
 function register(req, res, next) {
+  if (req.body) req.body.profilePic = faker.image.avatar()
   User
     .create(req.body)
-    .then(user => res.status(200).json({ message: `Welcome to the website techmaster ${user.username}!` }))
+    .then(user => {
+      res.status(200).json({ message: `Welcome to the website techmaster ${user.username}!` })
+    })
     .catch(next)
 }
 
