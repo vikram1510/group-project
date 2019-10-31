@@ -1,8 +1,5 @@
 import React from 'react'
-import Select from 'react-select'
-import makeAnimated from 'react-select/animated'
-
-const animatedComponents = makeAnimated()
+import axios from 'axios'
 
 class Register extends React.Component {
   constructor() {
@@ -13,42 +10,36 @@ class Register extends React.Component {
         username: '',
         email: '',
         password: '',
-        passwordConfirmation: ''
-        // category: ''
-      }
+        passwordConfirmation: '',
+        category: ''
+      },
+      errors: {}
     }
-
-    this.options = [
-      { value: 'java', label: 'Java' },
-      { value: 'swift', label: 'Swift' },
-      { value: 'javascript', label: 'JavaScript' },
-      { value: 'php', label: 'PHP' },
-      { value: 'c++', label: 'C++' },
-      { value: 'sql', label: 'SQL' },
-      { value: 'python', label: 'Python' },
-      { value: 'java', label: 'Java' }
-    ]
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    // this.handleMultiSelect = this.handleMultiSelect.bind(this)
   }
 
   handleChange(e) {
-    const data = { ...this.state.data, [e.target.name]: e.target.value }
-    this.setState({ data })
+    const data = { ...this.state.data, [e.target.name]: e.target.value } //adds inputted data to initially empty keys
+    const errors = { ...this.state.data, [e.target.name]: '' }
+    this.setState({ data, errors }) //each key stroke causes re-render
+
   }
   handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault()  //stops page auto reload
+    axios.post('/api/register', this.state.data)  //posts inputted data to the api
+      .then(res => console.log(res.data))
+      .then(() => this.props.history.push('/login')) // redirects user to login page
+      .catch(err => this.setState({ errors: err.response.data.errors }))
+    console.log('submitted', this.state.data)
   }
 
-  // handleMultiSelect(selected) {
-  //   const category = selected ? selected.map(item => item.value) : [] //if selected maps categories, else-empty box
-  //   const data = { ...this.state.data, category }
-  //   this.setState({ data })
-  // }
+  
+  
 
   render() {
+    console.log('rendered', this.state)
     return (
       <div className="register-page">
         
@@ -61,6 +52,7 @@ class Register extends React.Component {
               <input
                 name="username"
                 type="text"
+                placeholder="e.g. Joe Blogs"
                 onChange={this.handleChange}
               />
             </div>
@@ -72,6 +64,7 @@ class Register extends React.Component {
               <input
                 name="email"
                 type="text"
+                placeholder="e.g. jblogs@mailbox.com"
                 onChange={this.handleChange}
               />
             </div>
@@ -83,6 +76,7 @@ class Register extends React.Component {
               <input
                 name="password"
                 type="password"
+                placeholder="Add password here"
                 onChange={this.handleChange}
               />
             </div>
@@ -94,13 +88,14 @@ class Register extends React.Component {
               <input
                 name="passwordConfirmation"
                 type="password"
+                placeholder="Please repeat password here"
                 onChange={this.handleChange}
               />
             </div>
           </div>
          
           <div className="category-container">
-            <h3>Please select your language below: </h3>
+            <h5>Please select your language below: </h5>
             {/* ROW 1 */}
             <div className="row1">
 
