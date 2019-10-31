@@ -4,6 +4,8 @@ import MapGL, { Marker } from 'react-map-gl'
 import axios from 'axios'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
+import EventLogo from '../events/EventLogo'
+
 class Map extends React.Component {
   constructor() {
     super()
@@ -35,8 +37,9 @@ class Map extends React.Component {
           const lat = res.data.features[0].geometry.coordinates[1]
           const long = res.data.features[0].geometry.coordinates[0]
           const _id = event._id
+          const category = event.category
 
-          this.setState({ latLongs: [...this.state.latLongs, { _id, lat, long }] })
+          this.setState({ latLongs: [...this.state.latLongs, { _id, lat, long, category }] })
         })
         .catch(err => console.log(err))
     })
@@ -57,7 +60,8 @@ class Map extends React.Component {
           width={'87.7vw'}
           // mapStyle="mapbox://styles/mapbox/streets-v11"
           // mapStyle="mapbox://styles/mapbox/streets-v11"
-          mapStyle="mapbox://styles/mapbox/light-v10"
+          // mapStyle="mapbox://styles/mapbox/light-v10"
+          mapStyle="mapbox://styles/mapbox/dark-v9"
           zoom={12}
           latitude={51.515877}
           longitude={-0.142888}
@@ -71,7 +75,8 @@ class Map extends React.Component {
                 latitude={point.lat}
                 longitude={point.long}
               >
-                <Link className="marker-link" to={`/events/${point._id}`}><div className="marker">🔵</div></Link>
+                {/* <Link className="marker-link" to={`/events/${point._id}`}><div className="marker">🔵</div></Link> */}
+                <Link className="marker-link" to={`/events/${point._id}`}><div className="marker"><EventLogo colorCategory={point.category} /></div></Link>
               </Marker>
             ))
           }

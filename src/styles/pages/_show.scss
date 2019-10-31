@@ -1,8 +1,16 @@
-$primaryColour: rgb(255, 213, 76);
-$borderGrey: rgb(122, 122, 122);
-$backgroundGrey: rgb(41, 41, 41);
+// $primaryColour: rgb(255, 213, 76);
+// $borderGrey: rgb(122, 122, 122);
+// $backgroundGrey: rgb(41, 41, 41);
+// // $backgroundGrey: $color-black;
+// $colorText: white;
+//2
+// $primaryColour: rgb(245, 188, 2);
+// $primaryColour: rgb(233, 179, 2);
+$primaryColour: #172C33;
+$borderGrey: #bbb;
+$backgroundGrey: $color-white;
 // $backgroundGrey: $color-black;
-$colorText: white;
+$colorText: $color-black;
 
 
 .show-page-wrapper {
@@ -33,8 +41,19 @@ $colorText: white;
     // grid-row-start: span 2;
     display: flex;
     flex-direction: column;
+
+    // border-right: 1px $borderGrey solid;
+    // box-shadow: 2px 2px 2px 2px $borderGrey;
+
+    > div {
+      // padding-right: 20px;
+      
+    }
+
     > div.description {
-      margin-bottom: 40px;
+      // margin-top: 20px;
+      margin-bottom: 30px;
+      // margin-bottom: 40px;
     }
   }
 
@@ -75,7 +94,7 @@ $colorText: white;
       height: 40px;
       padding: 10px;
       background-color: #da0202;
-      color: $colorText;
+      color: $backgroundGrey;
       border-radius: 10px;
       margin: 0;
       
@@ -83,7 +102,8 @@ $colorText: white;
       
 
       &:hover{
-        color: white;
+        // color: white;
+        color: $borderGrey;
       }
       
       div {
@@ -125,7 +145,7 @@ $colorText: white;
       height: 30px;
       display: flex;
       input {
-        color: $backgroundGrey;
+        color: $colorText;
         user-select: none;
         border-radius: 10px;
         flex: 4;
@@ -188,7 +208,7 @@ $colorText: white;
           display: flex;
           background-color: $backgroundGrey;
           border: solid 1px $borderGrey;
-          color: white;
+          color: $colorText;
           border-radius: 5px;
           padding: 3px 5px;
           margin: 0;
@@ -315,4 +335,10 @@ textarea.location {
 }
 textarea.info.date {
   max-width: 100px;
+}
+
+section.side {
+  padding-left: 40px;
+  border-left: 1px $borderGrey solid;
+  height: 530px;
 }
