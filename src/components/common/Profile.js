@@ -21,6 +21,10 @@ class Profile extends React.Component {
       .then(res => this.setState({ user: res.data }))
   }
 
+  sortEventDates(array) {
+    return array.sort((a,b) => b.event.date - a.event.date)
+  }
+
   render(){
     console.log(this.state)
     const { user } = this.state
@@ -82,7 +86,7 @@ class Profile extends React.Component {
                       <td>{moment(event.date).format('MMM Do YYYY')} @ {moment(event.time,'HH:mm').format('h:mm A')}</td>
                       <td>
                         <div>
-                          <Link>Edit Event</Link>
+                          <Link to={`/events/${event._id}`}>Edit Event</Link>
                           <button>
                             <i className="far fa-trash-alt"></i>
                           </button>
@@ -105,4 +109,4 @@ class Profile extends React.Component {
 
 export default Profile
 
-// to={`/events/${event._id}/edit`}
+// to={`/events/${event._id}}

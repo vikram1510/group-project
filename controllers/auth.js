@@ -26,7 +26,11 @@ function login(req, res){
 }
 
 function profile(req, res){
-  res.status(200).json(req.currentUser)
+  User
+    .findById(req.currentUser._id) //get user id
+    .populate('hostedEvents') //show full details of hosted event
+    .then((user) => res.status(200).json(user)) //add hosted event to user
+  
 }
 
 function updateProfile(req, res) {
