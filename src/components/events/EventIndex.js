@@ -65,6 +65,7 @@ class EventIndex extends React.Component {
   }
 
   filteredEvents() {
+    console.log(this.state.checkbox)
     const selectedCategory = this.state.filter.category ? this.state.filter.category.map(cat => cat.value) : []
     const selectedPeriod = this.state.filter.date.value
     return this.state.events.filter(event => {
@@ -80,6 +81,13 @@ class EventIndex extends React.Component {
     })
   }
   
+  priceFilter(events){
+    return events.filter(event => {
+      if (this.state.checkbox) return event.price === 0
+      return true
+    })
+  }
+
   handleMultiCatergorySelect(selected, action) {
     this.setState({ filter: { ...this.state.filter, [action.name]: selected } }) 
   }
@@ -92,7 +100,7 @@ class EventIndex extends React.Component {
     return (
       <div className="index-page">
         <div className="map-wrapper">
-          <Map className="map-element" events={this.filteredEvents()}/>
+          <Map className="map-element" events={this.priceFilter(this.filteredEvents())}/>
         </div>
         <div className="index-foreground">
           <div className="flex-foreground">
@@ -107,7 +115,9 @@ class EventIndex extends React.Component {
                   name="category" 
                 />
                 <Select className="date-select" name="date" options={this.date} placeholder="Date" deafultValue={this.date[2]} onChange={this.handleMultiCatergorySelect} />
-                <button onClick={this.handleFreeEventClick} className={`checkbox-input ${!this.state.checkbox ? 'off' : 'on' }`}>Free Events Only</button>
+                <button onClick={this.handleFreeEventClick} 
+                  className={`checkbox-input ${!this.state.checkbox ? 'off' : 'on' }`}
+                >Free Events Only</button>
               </div>
             </div>
             <div className="foreground-bottom">
@@ -117,7 +127,7 @@ class EventIndex extends React.Component {
                 </div>
                 <div className="event-list">
                   {
-                    this.filteredEvents().map(event => (
+                    this.priceFilter(this.filteredEvents()).map(event => (
                       <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
                         <div className="event-wrapper" >
                           <div className="event-text">
