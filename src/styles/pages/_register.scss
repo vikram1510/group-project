@@ -51,6 +51,7 @@
     border-radius: 4vw 0 0 4vw;
     color: darkgray;
     
+    
   }
   
   .control {
@@ -67,7 +68,10 @@
     align-items: center;
     background-color: rgb(43,45,66);
     border-style: none;
+    // display: none; //removes radio buttons
   }
+
+  input[type="radio"]{ display: none;}
 
 
 
@@ -178,7 +182,21 @@
     transform: translate(-50%, -50%);
     text-align: center;
     border-radius: 2vw;
+    &.selected{ //these have more priority
+      -webkit-transform: translate(0);
+      -ms-transform: translate(0);
+      transform: translate(0);
+      border: rgb(233, 233, 233) 2px solid;
+    }
   }
+
+  // .box-after-image.selected {
+  //   -webkit-transform: translate(0);
+  //   -ms-transform: translate(0);
+  //   transform: translate(0);
+  //   border: darkorange 4px solid;
+
+  // }
 
   button {
       width: 40vw;
