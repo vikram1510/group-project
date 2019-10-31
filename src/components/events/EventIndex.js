@@ -90,52 +90,54 @@ class EventIndex extends React.Component {
     if (!events) return null
     return (
       <div className="index-page">
-        <div className="filter-list-wrapper">
-          <Select className="category-select"
-            options={this.categories} 
-            placeholder="Categories" 
-            isMulti 
-            components={animatedComponents}
-            onChange={this.handleMultiCatergorySelect}
-            theme={theme => ({
-              ...theme,
-              // borderRadius: 0,
-              colors: {
-                ...theme.colors,
-                primary25: '#0B3954',
-                primary: 'black'
-              }
-            })}
-            name="category" 
-          />
-          <Select className="date-select" name="date" options={this.date} placeholder="Date" deafultValue={this.date[2]} onChange={this.handleMultiCatergorySelect} />
-          <button onClick={this.handleFreeEventClick} className={`checkbox-input ${!this.state.checkbox ? 'off' : 'on' }`}>Free Events Only</button>
+        <div className="map-wrapper">
+          <Map className="map-element" events={this.filteredEvents()}/>
         </div>
-        <div className="list-map-wrapper">
-          <div className="event-list">
-            {
-              this.filteredEvents().map(event => (
-                <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
-                  <div className="event-wrapper" >
-                    <div className="event-text">
-                      <div className="event-name">
-                        <h4 className="event-name-text">{event.name}</h4>
-                      </div>
-                      <div className="event-description">
-                        <p>{moment(event.date).format('MMM DD YYYY')}</p>
-                        <p>{moment(event.time, 'HH:mm').format('h:mm A')}</p>
-                      </div>
-                    </div>
-                    <div className="event-thumbnail-image">
-                      <i className="fab fa-js-square"></i>
-                    </div>
+        <div className="index-foreground">
+          <div className="flex-foreground">
+            <div className="foreground-top">
+              <div className="filter-list-wrapper">
+                <Select className="category-select"
+                  options={this.categories} 
+                  placeholder="Categories" 
+                  isMulti 
+                  components={animatedComponents}
+                  onChange={this.handleMultiCatergorySelect}
+                  name="category" 
+                />
+                <Select className="date-select" name="date" options={this.date} placeholder="Date" deafultValue={this.date[2]} onChange={this.handleMultiCatergorySelect} />
+                <button onClick={this.handleFreeEventClick} className={`checkbox-input ${!this.state.checkbox ? 'off' : 'on' }`}>Free Events Only</button>
+              </div>
+            </div>
+            <div className="foreground-bottom">
+              <div className="list-map-wrapper">
+                <div className="event-list">
+                  <div className="map-events-title">
+                    <h4>Events</h4>
                   </div>
-                </Link>
-              ))
-            }
-          </div>
-          <div className="map-wrapper">
-            <Map className="map-element" events={this.filteredEvents()}/>
+                  {
+                    this.filteredEvents().map(event => (
+                      <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
+                        <div className="event-wrapper" >
+                          <div className="event-text">
+                            <div className="event-name">
+                              <h4 className="event-name-text">{event.name}</h4>
+                            </div>
+                            <div className="event-description">
+                              <p>{moment(event.date).format('MMM DD YYYY')}</p>
+                              <p>{moment(event.time, 'HH:mm').format('h:mm A')}</p>
+                            </div>
+                          </div>
+                          <div className="event-thumbnail-image">
+                            <i className="fab fa-js-square"></i>
+                          </div>
+                        </div>
+                      </Link>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

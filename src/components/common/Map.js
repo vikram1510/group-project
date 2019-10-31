@@ -51,12 +51,16 @@ class Map extends React.Component {
         < MapGL
           className="event-map"
           mapboxApiAccessToken={process.env.MAPBOX_ACCESS_TOKEN}
-          height={'598px'}
-          width={'598px'}
-          mapStyle="mapbox://styles/mapbox/streets-v11"
+          // height={'598px'}
+          height={'100vh'}
+          // width={'598px'}
+          width={'87.7vw'}
+          // mapStyle="mapbox://styles/mapbox/streets-v11"
+          // mapStyle="mapbox://styles/mapbox/streets-v11"
+          mapStyle="mapbox://styles/mapbox/light-v10"
           zoom={12}
-          latitude={51.515}
-          longitude={- 0.078}
+          latitude={51.515877}
+          longitude={-0.142888}
           {...this.state.viewport}
           onViewportChange={(viewport) => this.setState({ viewport })}
         >
