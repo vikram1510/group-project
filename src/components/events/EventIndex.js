@@ -112,6 +112,9 @@ class EventIndex extends React.Component {
             <div className="foreground-bottom">
               <div className="list-map-wrapper">
                 <div className="event-list">
+                  <div className="map-events-title">
+                    <h4>Events</h4>
+                  </div>
                   {
                     this.filteredEvents().map(event => (
                       <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
