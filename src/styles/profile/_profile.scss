@@ -51,9 +51,19 @@
         th:nth-of-type(2) {
           width: 300px;
         }
+
+        a {
+          color: $color-one;
+          font-weight: bold;
+          text-decoration: none;
+        }
     }
 
     .your-hosted-events {
+      .hosted-title {
+        width: 75%;
+      }
+
       table {
         width: 75%;
 
@@ -65,8 +75,6 @@
           justify-content: space-around;        
           a {
             padding: 0 8px;
-            text-decoration: none;
-            color: $color-black;
             border: solid 1px $borderGrey;
             border-radius: 5px;
             }

@@ -13,12 +13,14 @@ class Profile extends React.Component {
       user: null
     }
 
-    this.handleDelete() {
-      
-    }
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount(){
+    this.getProfile() 
+  }
+
+  getProfile() {
     axios.get('/api/profile', {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
@@ -29,19 +31,25 @@ class Profile extends React.Component {
     return array.sort((a,b) => b.event.date - a.event.date)
   }
 
+  handleDelete(id) {
+    axios.delete(`/api/events/${id}`, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    })
+      .then(() => this.getProfile())
+      .catch(err => console.log(err))
+  }
+
   render(){
     console.log(this.state)
     const { user } = this.state
     if (!user) return null
     console.log(this.state.user.hostedEvents)
-    // console.log('upcoming', moment().isBefore(this.state.user.eventsAttend[7].date))
-    // console.log('attended', moment().isAfter(this.state.user.eventsAttend[7].date))
     return (
       <div className="profile-page">
         
         <div className="profile-bar-wrapper">
           <div className="profile-bar">
-            <h2>Welcome back to your profile, {user.username}!</h2>
+            <h2>Welcome to your profile, {user.username}!</h2>
             <img className="profile-bar-image" src={user.profilePic}></img>
           </div>
         </div>
@@ -64,7 +72,9 @@ class Profile extends React.Component {
                   {user.eventsAttend.map((event, i) =>(
                     <tr key={i}>
                       <td className="event-icon">{event.category}</td>
-                      <td>{event.name}</td>
+                      <td>
+                        <Link to={`/events/${event._id}`}>{event.name}</Link>
+                      </td>
                       <td>{moment(event.date).format('MMM Do YYYY')} @ {moment(event.time,'HH:mm').format('h:mm A')}</td>
                       <td>{moment().isBefore(event.date) ? 'Upcoming Event' : moment().isSame(event.date) ? 'Event Today' : 'Attended'}</td>
                     </tr>
@@ -74,7 +84,7 @@ class Profile extends React.Component {
             </div>
 
             <div className="your-hosted-events">
-              <h4>Events hosted by you:</h4>
+              <h4 className="hosted-title">Events hosted by you:</h4>
               <table className="u-full-width">
                 <thead>
                   <tr>
@@ -86,12 +96,14 @@ class Profile extends React.Component {
                 <tbody>
                   {user.hostedEvents.map((event, i) =>(
                     <tr key={i}>
-                      <td>{event.name}</td>
+                      <td>
+                        <Link to={`/events/${event._id}`}>{event.name}</Link>
+                      </td>
                       <td>{moment(event.date).format('MMM Do YYYY')} @ {moment(event.time,'HH:mm').format('h:mm A')}</td>
                       <td>
                         <div>
                           <Link to={`/events/${event._id}`}>Edit Event</Link>
-                          <button onClick={this.handleDelete}>
+                          <button onClick={() => this.handleDelete(event._id)}>
                             <i className="far fa-trash-alt"></i>
                           </button>
                         </div>
