@@ -18,6 +18,12 @@ class Auth {
     if (parts.length !== 3) return false
     return JSON.parse(atob(parts[1]))
   }
+
+  static isCurrentUser(userId){
+    const payload = this.getPayload()
+    if (!payload) return false
+    return payload.sub === userId
+  }
   
   static isAuthenticated(){
     const payload = this.getPayload()
