@@ -25,6 +25,7 @@ class Profile extends React.Component {
     console.log(this.state)
     const { user } = this.state
     if (!user) return null
+    console.log(this.state.user)
     // console.log('upcoming', moment().isBefore(this.state.user.eventsAttend[7].date))
     // console.log('attended', moment().isAfter(this.state.user.eventsAttend[7].date))
     return (
@@ -79,11 +80,13 @@ class Profile extends React.Component {
                     <tr key={i}>
                       <td>{event.name}</td>
                       <td>{moment(event.date).format('MMM Do YYYY')} @ {moment(event.time,'HH:mm').format('h:mm A')}</td>
-                      <td className="profile-buttons">
-                        <Link>Edit Event</Link>
-                        <Link>
-                          <i className="far fa-trash-alt"></i>
-                        </Link>
+                      <td>
+                        <div>
+                          <Link>Edit Event</Link>
+                          <button>
+                            <i className="far fa-trash-alt"></i>
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
