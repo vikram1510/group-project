@@ -234,7 +234,8 @@ $colorText: white;
     > div {
       display: flex;
       border: $borderGrey solid 2px;
-      > div {border-right: $borderGrey solid 4px;}
+
+      > div.map {border-right: $borderGrey solid 4px;}
     }
     p {
       padding: 10px;
@@ -277,9 +278,10 @@ textarea.text {
     color: $colorText;
   }
   &.enabled {
-    // border: rgb(143, 143, 143) 1px solid;
+    border: $borderGrey 1px solid;
     &:hover{
       border: $borderGrey 1px solid;
+      background-color: $borderGrey;
     }
     &:focus {
       background-color: $borderGrey;
@@ -306,5 +308,11 @@ textarea.info {
   max-width: 80px;
   max-height: 10px;
   text-align: center;
-  // height: 10px;
+}
+textarea.location {
+  max-width: 120px;
+  margin: 0 5px;
+}
+textarea.info.date {
+  max-width: 100px;
 }

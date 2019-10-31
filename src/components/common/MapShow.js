@@ -47,7 +47,7 @@ class MapShow extends React.Component {
     // console.log(this.state)
     if (!this.state.lat) return null
     return (
-      <div>
+      <div className="map">
         < MapGL
           className="event-map"
           mapboxApiAccessToken={process.env.MAPBOX_ACCESS_TOKEN}
