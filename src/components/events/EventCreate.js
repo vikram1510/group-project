@@ -67,14 +67,14 @@ class EventCreate extends React.Component {
               <label>Language</label>
               <select className="form-input" name="category" value={this.state.event.category} onChange={this.handleChange}>
                 <option value="" disabled>Pick a Language</option>
-                <option value="javascript">Javascript</option>
-                <option value="python">Python</option>
-                <option value="php">PHP</option>
-                <option value="java">Java</option>
-                <option value="swift">Swift</option>
-                <option value="c++">C++</option>
-                <option value="sql">SQL</option>
-                <option value="ruby">Ruby</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Python">Python</option>
+                <option value="PHP">PHP</option>
+                <option value="Java">Java</option>
+                <option value="Swift">Swift</option>
+                <option value="C++">C++</option>
+                <option value="Sql">SQL</option>
+                <option value="Ruby">Ruby</option>
               </select>
             </div>
             <div className="form-input-wrapper">

@@ -6,6 +6,7 @@ import makeAnimated from 'react-select/animated'
 import moment from 'moment'
 
 import Map from '../common/Map'
+import EventLogo from './EventLogo'
 
 const animatedComponents = makeAnimated()
 
@@ -111,10 +112,10 @@ class EventIndex extends React.Component {
             </div>
             <div className="foreground-bottom">
               <div className="list-map-wrapper">
+                <div className="map-events-title">
+                  <h4>Events</h4>
+                </div>
                 <div className="event-list">
-                  <div className="map-events-title">
-                    <h4>Events</h4>
-                  </div>
                   {
                     this.filteredEvents().map(event => (
                       <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
@@ -129,7 +130,7 @@ class EventIndex extends React.Component {
                             </div>
                           </div>
                           <div className="event-thumbnail-image">
-                            <i className="fab fa-js-square"></i>
+                            <EventLogo category={event.category} />
                           </div>
                         </div>
                       </Link>

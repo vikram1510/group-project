@@ -5,7 +5,7 @@ class Home extends React.Component {
     return (
       <div className="home-page">
         <div className="home-image">
-          <h2>{'{ techMeet }'}</h2>
+          <h2>{'{ techTalk }'}</h2>
           <div className="home-page-line"></div>
           <p>A website about meetings on tech</p>
         </div>

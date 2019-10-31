@@ -21,9 +21,11 @@ class Register extends React.Component {
   }
 
   handleChange(e) {
+    console.log(e.target)
+    console.log('hi', e.target.name, e.target.value)
     const data = { ...this.state.data, [e.target.name]: e.target.value } //adds inputted data to initially empty keys
-    const errors = { ...this.state.data, [e.target.name]: '' }
-    this.setState({ data, errors }) //each key stroke causes re-render
+    // const errors = { ...this.state.data, [e.target.name]: '' }
+    this.setState({ data }) //each key stroke causes re-render
 
   }
   handleSubmit(e) {
@@ -45,6 +47,15 @@ class Register extends React.Component {
         
         <form onSubmit={this.handleSubmit}>
           <h1>Register</h1>
+
+          
+
+
+
+
+
+
+
 
           <div className="field">
             <label className="label">Username:</label>
@@ -99,43 +110,95 @@ class Register extends React.Component {
             {/* ROW 1 */}
             <div className="row1">
 
-              <div className="category-box">
-                <div className="box">
-                  {/* WHITE LOGO */}
-                  <img className="box-initial-image" src="../assets/java-white-button.png"></img>
-                  <div className="box-overlay">
-                    {/* TO COLOUR LOGO */}
-                    <img className="box-after-image" src="../assets/javaT.png"></img>
-                  </div>
-                </div>
-              </div>
+              {/* RADIO BUTTON 1 */}
+              <label htmlFor="java"> {/* htmlFor -links to input id on radio button */}
 
-              <div className="category-box">
-                <div className="box">
-                  <img className="box-initial-image" src="../assets/swift-white-button.png"></img>
-                  <div className="box-overlay">
-                    <img className="box-after-image" src="../assets/swift-colour-button.png"></img>
-                  </div>
-                </div>
-              </div>
+                <div className="category-box">
+                  <div className="box" 
+                    onClick={this.handleChange}
+                    name="category"
+                  >
+                    {/* WHITE LOGO */}
+                    {this.state.data.category === 'java' ?
+                      <img className="box-after-image selected" src="../assets/javaT.png"></img> :
+                      <>
+                      <img className="box-initial-image" src="../assets/java-white-button.png"></img>
+                      <div className="box-overlay"> {/* TO COLOUR LOGO */}
+                        <img className="box-after-image" src="../assets/javaT.png"></img>
+                      </div>
+                      </>
+                    }
 
-              <div className="category-box">
-                <div className="box">
-                  <img className="box-initial-image" src="../assets/js-white-button.png"></img>
-                  <div className="box-overlay">
-                    <img className="box-after-image" src="../assets/js-colour-button.png"></img>
                   </div>
                 </div>
-              </div>
+              </label>
+              <input // input=e.target
+                type="radio" 
+                id="java" 
+                name="category" 
+                onChange={this.handleChange}
+                checked={this.state.category === 'java'} // if category is java = true, if not false
+                value="java"
+              ></input> {/* handles radio button change */}
+            
+              <label htmlFor="swift"> 
+                <div className="category-box">
+                  <div className="box">
+                    <img className="box-initial-image" src="../assets/swift-white-button.png"></img>
+                    <div className="box-overlay">
+                      <img className="box-after-image" src="../assets/swift-colour-button.png"></img>
+                    </div>
+                  </div>
+                </div>
+              </label>
+              <input 
+                type="radio"
+                id="swift"
+                name="category"
+                onChange={this.handleChange}
+                checked={this.state.category === 'swift'}
+                value="swift"
+              ></input> 
 
-              <div className="category-box">
-                <div className="box">
-                  <img className="box-initial-image" src="../assets/php-white-button.png"></img>
-                  <div className="box-overlay">
-                    <img className="box-after-image" src="../assets/php-colour-button.png"></img>
+
+              <label htmlFor="js"> 
+                <div className="category-box">
+                  <div className="box">
+                    <img className="box-initial-image" src="../assets/js-white-button.png"></img>
+                    <div className="box-overlay">
+                      <img className="box-after-image" src="../assets/js-colour-button.png"></img>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </label>
+              <input
+                type="radio"
+                id="js"
+                name="category"
+                onChange={this.handleChange}
+                checked={this.state.category === 'js'}
+                value="js"
+              ></input> 
+
+
+              <label htmlFor="php"> 
+                <div className="category-box">
+                  <div className="box">
+                    <img className="box-initial-image" src="../assets/php-white-button.png"></img>
+                    <div className="box-overlay">
+                      <img className="box-after-image" src="../assets/php-colour-button.png"></img>
+                    </div>
+                  </div>
+                </div>
+              </label>
+              <input
+                type="radio"
+                id="php"
+                name="category"
+                onChange={this.handleChange}
+                checked={this.state.category === 'php'}
+                value="php"
+              ></input> 
 
             </div>
 
@@ -149,41 +212,82 @@ class Register extends React.Component {
 
             {/* ROW 3 */}
             <div className="row3">
-              <div className="category-box">
-                <div className="box">
-                  <img className="box-initial-image" src="../assets/c-white-button.png"></img>
-                  <div className="box-overlay">
-                    <img className="box-after-image" src="../assets/c-colour-button.png"></img>
-                  </div>
-                </div>
-              </div>
 
-              <div className="category-box">
-                <div className="box">
-                  <img className="box-initial-image" src="../assets/sql-white-button.png"></img>
-                  <div className="box-overlay">
-                    <img className="box-after-image" src="../assets/sql-colour-button.png"></img>
+              <label htmlFor="c"> 
+                <div className="category-box">
+                  <div className="box">
+                    <img className="box-initial-image" src="../assets/c-white-button.png"></img>
+                    <div className="box-overlay">
+                      <img className="box-after-image" src="../assets/c-colour-button.png"></img>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </label>
+              <input
+                type="radio"
+                id="c"
+                name="category"
+                onChange={this.handleChange}
+                checked={this.state.category === 'c'}
+                value="c"
+              ></input> 
 
-              <div className="category-box">
-                <div className="box">
-                  <img className="box-initial-image" src="../assets/python-white-button.png"></img>
-                  <div className="box-overlay">
-                    <img className="box-after-image" src="../assets/python-colour-button.png"></img>
+              <label htmlFor="sql"> 
+                <div className="category-box">
+                  <div className="box">
+                    <img className="box-initial-image" src="../assets/sql-white-button.png"></img>
+                    <div className="box-overlay">
+                      <img className="box-after-image" src="../assets/sql-colour-button.png"></img>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </label>
+              <input
+                type="radio"
+                id="sql"
+                name="category"
+                onChange={this.handleChange}
+                checked={this.state.category === 'sql'}
+                value="sql"
+              ></input> 
 
-              <div className="category-box">
-                <div className="box">
-                  <img className="box-initial-image" src="../assets/ruby-white-button.png"></img>
-                  <div className="box-overlay">
-                    <img className="box-after-image" src="../assets/ruby-colour-button.png"></img>
+              <label htmlFor="python"> 
+                <div className="category-box">
+                  <div className="box">
+                    <img className="box-initial-image" src="../assets/python-white-button.png"></img>
+                    <div className="box-overlay">
+                      <img className="box-after-image" src="../assets/python-colour-button.png"></img>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </label>
+              <input
+                type="radio"
+                id="python"
+                name="category"
+                onChange={this.handleChange}
+                checked={this.state.category === 'python'}
+                value="python"
+              ></input> 
+
+              <label htmlFor="ruby"> 
+                <div className="category-box">
+                  <div className="box">
+                    <img className="box-initial-image" src="../assets/ruby-white-button.png"></img>
+                    <div className="box-overlay">
+                      <img className="box-after-image" src="../assets/ruby-colour-button.png"></img>
+                    </div>
+                  </div>
+                </div>
+              </label>
+              <input
+                type="radio"
+                id="ruby"
+                name="category"
+                onChange={this.handleChange}
+                checked={this.state.category === 'ruby'}
+                value="ruby"
+              ></input> 
 
             </div>
 
