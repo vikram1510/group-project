@@ -139,6 +139,7 @@ class EventShow extends React.Component{
                   value={editEvent.name}
                   handleInput={this.handleInput}
                   submitChange={this.submitChange}
+                  hostId={event.hostUser._id}
                 ></ShowInput>
                 <div className="event-logo">
                   <EventLogo category={event.category}></EventLogo>
@@ -157,11 +158,12 @@ class EventShow extends React.Component{
 
                 <div className="info date">
                   <h3>Date</h3>
-                  <ShowInput className="text info" 
+                  <ShowInput className="text info date" 
                     name="date" 
                     value={editEvent.date}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
+                    hostId={event.hostUser._id}
                   ></ShowInput>
                   {/* <p>{moment(event.date).format('MMM Do YYYY')}</p> */}
                 </div>
@@ -172,6 +174,7 @@ class EventShow extends React.Component{
                     value={editEvent.time}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
+                    hostId={event.hostUser._id}
                   ></ShowInput>
                   {/* <p>{moment(event.time,'HH:mm').format('h:mm A')}</p> */}
                 </div>
@@ -182,6 +185,7 @@ class EventShow extends React.Component{
                     value={editEvent.price}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
+                    hostId={event.hostUser._id}
                   ></ShowInput>
                   {/* <p>{event.price === 0 ? 'Free' : `£${event.price}`}</p> */}
                 </div>
@@ -197,6 +201,7 @@ class EventShow extends React.Component{
                 value={editEvent.description}
                 handleInput={this.handleInput}
                 submitChange={this.submitChange}
+                hostId={event.hostUser._id}
               ></ShowInput>
             </div>
             <div className="comments-section">
@@ -265,6 +270,7 @@ class EventShow extends React.Component{
                     value={editEvent.location}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
+                    hostId={event.hostUser._id}
                   ></ShowInput>
                 </div>
               </div>
