@@ -7,7 +7,9 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   profilePic: { type: String },
   // the events the user has/are attending
-  eventsAttend: [{ type: mongoose.Schema.ObjectId, ref: 'Event', required: false }]
+  eventsAttend: [{ type: mongoose.Schema.ObjectId, ref: 'Event', required: false }],
+  // the events the user is hosting
+  hostedEvents: [{ type: mongoose.Schema.ObjectId, ref: 'Event', required: false }]
 })
 
 userSchema
