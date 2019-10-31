@@ -34,7 +34,8 @@
       // border-bottom: 2px $color-two solid;
       height: 100px;
       // width: 95%;
-      width: 100vw;
+      // width: 100vw;
+      width: 100%;
       // margin: 10px 0 0px 0 ;
       margin: 0;
       border-bottom: 1px solid #bbb;
@@ -98,8 +99,21 @@
     height: 100%;
     
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    
+    .map-events-title {
+      background: $color-black;
+      color: $color-white;
+      width: 350px;
+      border-left: 1px #bbb solid;
+
+      h4 {
+        margin-left: 10px;
+        width: 250px;
+      }
+    }
 
     
     .event-list {
@@ -122,12 +136,8 @@
       .map-events-title {
         background: $color-black;
         color: $color-white;
-        width: 100%;
+        width: 350px;
         height: 50px;
-        h4 {
-          margin-left: 10px;
-          width: 250px;
-        }
       }
       
       .event-wrapper {
@@ -146,7 +156,6 @@
         color: black;
 
         .event-text {
-          
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -187,6 +196,11 @@
           display: flex;
           justify-content: center;
           align-items: center;
+
+          img {
+            height: 100%;
+            width: auto;
+          }
           
           .fa-js-square {
             // color: $color-two;
@@ -260,4 +274,16 @@
 
 .marker-link {
   text-decoration: none;
+  
+  .marker {
+    height: 20px;
+    width: 20px;
+    
+  }
+  
+  img {
+    // border-radius: 100%;
+    height: 100%;
+    width: auto;
+  }
 }

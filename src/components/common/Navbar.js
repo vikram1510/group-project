@@ -51,7 +51,7 @@ class Navbar extends React.Component {
                 <Link to='/' className="logo">
                   {/* <i className="far fa-handshake"></i> */}
                   {/* <p><span>tech</span><span>Meet</span></p> */}
-                  <p>techMeet</p>
+                  <p>{'techTalk'}</p>
                 </Link>
               </div>
               <Link to='/'>
