@@ -6,6 +6,8 @@ import Auth from '../../lib/auth'
 
 import ShowInput from '../common/ShowInput'
 import MapShow from '../common/MapShow'
+import EventLogo from './EventLogo'
+
 
 class EventShow extends React.Component{
   constructor(){
@@ -58,12 +60,28 @@ class EventShow extends React.Component{
   }
 
   submitChange(e){
-    console.log('hello', this.state.editEvent)
-    axios.put(`/api/events/${this.props.match.params.id}`, this.state.editEvent, {
-      headers: { Authorization: `Bearer ${Auth.getToken()}` }
-    })
-      .then(() => this.getEvent())
-      .catch(err => console.log(err.response.data))
+    const name = e.target.name
+    const value = e.target.value
+    
+    // console.log('submit change', name, value)
+    if (this.state.event[name] !== this.state.editEvent[name]) {
+
+      axios.put(`/api/events/${this.props.match.params.id}`, { [name]: value }, {
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+        .then(res => {
+          if (name === 'date') res.data[name] = moment(res.data[name]).format('MMM Do YYYY')
+          if (name === 'time') res.data[name] = moment(res.data[name],'HH:mm').format('h:mm A')
+          if (name === 'price') res.data[name] = Number(res.data[name]) === 0 ? 'Free' : `£${res.data[name]}`
+          const updateState = { ...this.state.editEvent, [name]: res.data[name] }
+          this.setState({ editEvent: updateState, event: updateState })
+        })
+        .catch(err => {
+          this.setState({ editEvent: { ...this.state.event } })
+          console.log(err.response.data)
+        })
+    }
+
   }
 
   attendEvent(){
@@ -86,12 +104,18 @@ class EventShow extends React.Component{
 
   getEvent(){
     axios.get(`/api/events/${this.props.match.params.id}`)
-      .then(res => this.setState({ editEvent: res.data, event: res.data, commentText: '' }))
+      .then(res => {
+        res.data['date'] = moment(res.data['date']).format('MMM Do YYYY')
+        res.data['time'] = moment(res.data['time'],'HH:mm').format('h:mm A')
+        res.data['price'] = Number(res.data['price']) === 0 ? 'Free' : `£${res.data['price']}`
+        console.log('showing', res.data)
+        this.setState({ editEvent: res.data, event: res.data, commentText: '' })
+      })
       .catch(err => console.log(err))
   }
 
   componentDidMount(){
-    this.getEvent()
+    this.getEvent(true)
   }
 
   isAttending(){
@@ -100,10 +124,10 @@ class EventShow extends React.Component{
   }
 
   render(){
-    console.log('show', this.state)
     const { event, editEvent } = this.state
     if (!event) return null
-    console.log(moment(event.date).format('MMM Do YY'))
+    // console.log('show', this.state)
+    // console.log(moment(event.date).format('MMM Do YY'))
     return (
       <div className="show-page-wrapper">
         <div className="show-page">
@@ -115,9 +139,11 @@ class EventShow extends React.Component{
                   value={editEvent.name}
                   handleInput={this.handleInput}
                   submitChange={this.submitChange}
+                  hostId={event.hostUser._id}
                 ></ShowInput>
                 <div className="event-logo">
-                  <img src="../assets/java-white-button.png"></img>
+                  <EventLogo category={event.category}></EventLogo>
+                  {/* <img src="../assets/java-white-button.png"></img> */}
                 </div>
 
               </div>
@@ -132,11 +158,12 @@ class EventShow extends React.Component{
 
                 <div className="info date">
                   <h3>Date</h3>
-                  <ShowInput className="text info" 
+                  <ShowInput className="text info date" 
                     name="date" 
                     value={editEvent.date}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
+                    hostId={event.hostUser._id}
                   ></ShowInput>
                   {/* <p>{moment(event.date).format('MMM Do YYYY')}</p> */}
                 </div>
@@ -147,6 +174,7 @@ class EventShow extends React.Component{
                     value={editEvent.time}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
+                    hostId={event.hostUser._id}
                   ></ShowInput>
                   {/* <p>{moment(event.time,'HH:mm').format('h:mm A')}</p> */}
                 </div>
@@ -157,6 +185,7 @@ class EventShow extends React.Component{
                     value={editEvent.price}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
+                    hostId={event.hostUser._id}
                   ></ShowInput>
                   {/* <p>{event.price === 0 ? 'Free' : `£${event.price}`}</p> */}
                 </div>
@@ -172,6 +201,7 @@ class EventShow extends React.Component{
                 value={editEvent.description}
                 handleInput={this.handleInput}
                 submitChange={this.submitChange}
+                hostId={event.hostUser._id}
               ></ShowInput>
             </div>
             <div className="comments-section">
@@ -221,7 +251,7 @@ class EventShow extends React.Component{
             <h3>People Attending</h3>
             <div className="profile attendees-images">
               {event.attendees.map(attendee => {
-                console.log(attendee)
+                // console.log(attendee)
                 return (
                   <div className="profile" key={attendee._id}>
                     <img className="profile" src={attendee.profilePic}></img>
@@ -234,14 +264,15 @@ class EventShow extends React.Component{
               <h3>Location</h3>
               <div className="map-location">
                 <MapShow event={event}></MapShow>
-                <p><i className="fas fa-map-marker-alt"></i>
+                <div><i className="fas fa-map-marker-alt"></i>
                   <ShowInput className="text location" 
                     name="location" 
                     value={editEvent.location}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
+                    hostId={event.hostUser._id}
                   ></ShowInput>
-                </p>
+                </div>
               </div>
             </div>
           </section>

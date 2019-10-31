@@ -62,6 +62,10 @@ class Navbar extends React.Component {
                 <i className="fa fa-search left"></i>
                 <span>EVENTS</span>
               </Link>
+              <Link to='/events/create'>
+                <i className="fas fa-pencil-alt left"></i>
+                <span>CREATE</span>
+              </Link>
             </div>         
             <div className="nav-bottom">
               {Auth.isAuthenticated() ?
@@ -69,8 +73,8 @@ class Navbar extends React.Component {
               <Link to='/profile'>
                 <div className="profile-wrapper left">
                   <div className="profile">
-                    <img src={this.state.profilePic}></img>
-                    {/* <i className="fas fa-user-circle"></i> */}
+                    {/* <img src={this.state.profilePic}></img> */}
+                    <i className="fas fa-user-circle"></i>
                   </div> 
                 </div>
                 <span>PROFILE</span>
