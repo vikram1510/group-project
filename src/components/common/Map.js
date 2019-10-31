@@ -60,7 +60,8 @@ class Map extends React.Component {
           width={'87.7vw'}
           // mapStyle="mapbox://styles/mapbox/streets-v11"
           // mapStyle="mapbox://styles/mapbox/streets-v11"
-          mapStyle="mapbox://styles/mapbox/light-v10"
+          // mapStyle="mapbox://styles/mapbox/light-v10"
+          mapStyle="mapbox://styles/mapbox/dark-v9"
           zoom={12}
           latitude={51.515877}
           longitude={-0.142888}
