@@ -86,11 +86,17 @@
       padding: 0;
       // transition: all 0.3s ease;
       // transform: scale(1.02);
+      
     }
     
     .on {
       background: #069E2D;
       color: $color-white;
+      // transform: translateX(-3px);
+      // box-shadow:
+      //           1px 1px #bbb,
+      //           2px 2px #bbb,
+      //           3px 3px #bbb;
     }
 
   }
@@ -110,6 +116,7 @@
       color: $color-white;
       width: 350px;
       border-left: 1px #bbb solid;
+      margin-top: 1px;
 
       h4 {
         margin-left: 10px;
