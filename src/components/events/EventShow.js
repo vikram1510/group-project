@@ -211,6 +211,7 @@ class EventShow extends React.Component{
                   className="comment-input"
                   value={this.state.commentText}
                   onChange={(e) => this.commentInput(e)}
+                  // disabled={!Auth.isAuthenticated()}
                   
                 ></input>
                 <button className={this.state.commentText ? 'active' : ''} type="submit">Send</button>
