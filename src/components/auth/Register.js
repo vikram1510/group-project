@@ -24,8 +24,8 @@ class Register extends React.Component {
     console.log(e.target)
     console.log('hi', e.target.name, e.target.value)
     const data = { ...this.state.data, [e.target.name]: e.target.value } //adds inputted data to initially empty keys
-    // const errors = { ...this.state.data, [e.target.name]: '' }
-    this.setState({ data }) //each key stroke causes re-render
+    const errors = { ...this.state.data, [e.target.name]: '' } //clears the error meessage when start typijng again
+    this.setState({ data, errors }) //each key stroke causes re-render
 
   }
   handleSubmit(e) {
@@ -33,8 +33,9 @@ class Register extends React.Component {
     axios.post('/api/register', this.state.data)  //posts inputted data to the api
       .then(res => console.log(res.data))
       .then(() => this.props.history.push('/login')) // redirects user to login page
-      .catch(err => this.setState({ errors: err.response.data.errors }))
-    console.log('submitted', this.state.data)
+      .catch(err => this.setState({ errors: err.response.data }))
+      // .catch(err => console.log(err.response.data))
+    // console.log('submitted', this.state.data)
   }
 
 
@@ -53,7 +54,8 @@ class Register extends React.Component {
             <div className="form-input-wrapper">
               <label className="label">Username:</label>
               <div className="control">
-                <input className="form-input"
+                <input className="form-input " 
+                  // className={`input ${this.state.errors.username} ? : 'is-danger' : '' `}
                   name="username"
                   type="text"
                   placeholder="e.g. Joe Blogs"
@@ -61,7 +63,11 @@ class Register extends React.Component {
                 />
               </div>
               {this.state.errors.username && <small >{this.state.errors.username}</small>}
+              {/* first time there is n such thing as this.state.errors.username as errors is an empty object until submitted data causes an error */}
+              {/* if username is not undeefined, display <small> message */}
             </div>
+
+
           
             <div className="form-input-wrapper">
               <label className="label">Email:</label>
@@ -73,6 +79,7 @@ class Register extends React.Component {
                   onChange={this.handleChange}
                 />
               </div>
+              {this.state.errors.email && <small >{this.state.errors.email}</small>}
             </div>
 
             <div className="form-input-wrapper">
@@ -85,6 +92,7 @@ class Register extends React.Component {
                   onChange={this.handleChange}
                 />
               </div>
+              {this.state.errors.password && <small >{this.state.errors.password}</small>}
             </div>
 
             <div className="form-input-wrapper">
@@ -96,15 +104,14 @@ class Register extends React.Component {
                   placeholder="Please repeat password here"
                   onChange={this.handleChange}
                 />
-              </div>
+              </div>{this.state.errors.password && <small >{this.state.errors.password}</small>}
             </div>
+
+
+
             <div className="form-input-wrapper">
               <label className="label">Please select your language below: </label>
             </div>
-
-
-
-
 
 
             {/* BOXES */}
