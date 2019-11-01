@@ -60,6 +60,7 @@ class Register extends React.Component {
                   onChange={this.handleChange}
                 />
               </div>
+              {this.state.errors.username && <small >{this.state.errors.username}</small>}
             </div>
           
             <div className="form-input-wrapper">
