@@ -43,7 +43,7 @@ class Register extends React.Component {
     return (
       // <div className="register-page">
       <div className="register-page">
-        <div className="form-box-register">
+        <div className="form-box-register animated fadeInUp">
       
           <form onSubmit={this.handleSubmit}>
             <div className="form-title-wrapper">

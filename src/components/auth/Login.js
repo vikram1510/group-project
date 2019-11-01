@@ -35,7 +35,7 @@ class Login extends React.Component {
     console.log(this.state)
     return (
       <div className="auth-page-login">
-        <div className="form-box-login">
+        <div className="form-box-login animated fadeInUp">
           <form onSubmit={this.handleSubmit}>
             <div className="form-title-wrapper">
               <h1>Login Page</h1>

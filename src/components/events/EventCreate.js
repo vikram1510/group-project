@@ -42,7 +42,7 @@ class EventCreate extends React.Component {
     console.log(this.state)
     return (
       <div className='auth-page'>
-        <div className="form-box">
+        <div className="form-box animated fadeInUp">
           <div className="form-title-wrapper">
             <h1>Event Create</h1>
           </div>

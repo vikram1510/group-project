@@ -45,7 +45,7 @@ class Profile extends React.Component {
     if (!user) return null
     console.log(this.state.user.hostedEvents)
     return (
-      <div className="profile-page">
+      <div className="profile-page animated fadeIn">
         
         <div className="profile-bar-wrapper">
           <div className="profile-bar">
