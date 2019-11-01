@@ -47,14 +47,14 @@ class Profile extends React.Component {
     return (
       <div className="profile-page animated fadeIn">
         
-        <div className="profile-bar-wrapper">
+        <div className="profile-bar-wrapper animated fadeInDown">
           <div className="profile-bar">
             <h2>Welcome to your profile, {user.username}!</h2>
             <img className="profile-bar-image" src={user.profilePic}></img>
           </div>
         </div>
 
-        <div className="dashboard-wrapper">
+        <div className="dashboard-wrapper animated fadeInUp">
           <div className="dashboard-content">
 
             <div className="your-events">
