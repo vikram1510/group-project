@@ -11,7 +11,8 @@ function register(req, res, next) {
     .then(user => {
       res.status(200).json({ message: `Welcome to the website techmaster ${user.username}!` })
     })
-    .catch(next)
+    .catch(next) //sends to errorHandler
+    // .catch((err) => res.status(400).json(err))
 }
 
 // login function

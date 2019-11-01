@@ -211,6 +211,13 @@
   position: absolute;
   border-radius: 2vw;
   cursor: pointer;
+  
+  //SCALES THE IMAGE SIZE
+  img {
+    border-radius: 4px;
+    height: 80px;
+    width: auto;
+  }
 }
 
   .box-initial-image {
@@ -279,6 +286,10 @@
     button {
       width: 600px;
     }
+    // button:hover {
+    //   background: $color-black;
+    //   color: $color-white;
+    // }
   }
 }
 .form-button-wrapper {
