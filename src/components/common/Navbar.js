@@ -38,7 +38,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <div className="nav-sidebar" style={{ userSelect: 'none' }}>
+      <div className="nav-sidebar animated fadeIn" style={{ userSelect: 'none' }}>
         {/* <div className="burger-menu">
         <div></div>
         <div></div>
@@ -51,7 +51,7 @@ class Navbar extends React.Component {
                 <Link to='/' className="logo">
                   {/* <i className="far fa-handshake"></i> */}
                   {/* <p><span>tech</span><span>Meet</span></p> */}
-                  <p>{'techTalk'}</p>
+                  <p className="animated fadeIn">{'techTalk'}</p>
                 </Link>
               </div>
               <Link to='/' className="animated fadeInLeft">

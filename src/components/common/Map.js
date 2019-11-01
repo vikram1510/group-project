@@ -64,7 +64,7 @@ class Map extends React.Component {
           mapStyle="mapbox://styles/mapbox/dark-v9"
           zoom={12}
           latitude={51.515877}
-          longitude={-0.142888}
+          longitude={-0.07}
           {...this.state.viewport}
           onViewportChange={(viewport) => this.setState({ viewport })}
         >
