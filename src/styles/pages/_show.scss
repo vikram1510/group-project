@@ -121,8 +121,8 @@ $colorText: $color-black;
       box-shadow: 0 0 5px 2px rgb(143, 143, 143);
       font-weight: bold;
       div{
-        background-color: $primaryColour;
-        box-shadow: 0 0 4px 1px $primaryColour;
+        // background-color: $primaryColour;
+        box-shadow: 0 0 4px 1px $borderGrey;
       }
     }
   }

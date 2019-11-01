@@ -54,7 +54,7 @@ class Navbar extends React.Component {
                   <p className="animated fadeIn">{'techTalk'}</p>
                 </Link>
               </div>
-              <Link to='/' className="animated fadeInLeft">
+              <Link to='/' className="home animated fadeInLeft">
                 <i className="fas fa-home left"></i>
                 <span>HOME</span>
               </Link>

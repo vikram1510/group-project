@@ -11,11 +11,12 @@ function register(req, res, next) {
     .then(user => {
       res.status(200).json({ message: `Welcome to the website techmaster ${user.username}!` })
     })
-    .catch(next)
+    .catch(next) //sends to errorHandler
+    // .catch((err) => res.status(400).json(err))
 }
 
 // login function
-function login(req, res){
+function login(req, res, next){
   User
     .findOne({ email: req.body.email })
     .then(user => {
@@ -27,6 +28,7 @@ function login(req, res){
       res.status(202).json({ message: `Welcome back ${user.username}`, token })
     })
     .catch(() => res.status(401).json({ message: 'Unauthorized' }))
+    // .catch(next)
 }
 
 function profile(req, res){

@@ -1,7 +1,7 @@
 // TOP PROFILE BAR
 
 .profile-bar-wrapper { // the top section for profile bar
-  background-color: $color-gold;
+  background-color: $color-two;
   display: flex;
   width: 100%;
   height: 150px;
@@ -14,6 +14,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 50px;
+      color: $color-white;
     }
 
     .profile-bar-image { // the user's profile image in the profile bar

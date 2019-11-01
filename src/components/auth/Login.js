@@ -11,7 +11,8 @@ class Login extends React.Component {
       data: {
         email: '',
         password: ''
-      }
+      },
+      error: null
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -19,16 +20,20 @@ class Login extends React.Component {
 
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
-    this.setState({ data })
+    this.setState({ data, error: null })
   }
   
   handleSubmit(e) {
     e.preventDefault()
+    this.setState({ error: null })
     axios.post('/api/login', this.state.data)
       .then((res) => {
         Auth.setToken(res.data.token)
         this.props.history.push('/profile')
       })
+      // .catch(err => console.log(err.response.data))
+      .catch(err => this.setState({ error: err.response.data }))
+
   }
 
   render() {
@@ -67,8 +72,11 @@ class Login extends React.Component {
               </div>
             </div>
             <div className="form-button-wrapper">
-              <button type="submit">Submit</button>
+              <button type="submit"
+                className={`${this.state.error ? 'animated shake error' : ''}`}
+              >Submit</button>
             </div>
+            
           </form>
         </div>
         {/* SKELETON FORMS */}

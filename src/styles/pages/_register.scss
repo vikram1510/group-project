@@ -126,6 +126,9 @@
         height: 25px;
         width: 400px;
         margin: 0 30px 0 0;
+        &.error {
+          border: 1px solid red;
+        }
       }
     }
   }
@@ -300,6 +303,8 @@
     width: 500px;
   }
 }
+
+
 
   // button {
   //     width: $vw;

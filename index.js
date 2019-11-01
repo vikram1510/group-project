@@ -7,6 +7,7 @@ const router = require('./config/router')
 const bodyParser = require('body-parser')
 
 const logger = require('./lib/logger')
+const errorHandler = require('./lib/errorHandler')
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
   () => console.log('Mongo is connected'))
@@ -19,6 +20,7 @@ app.use(logger)
 
 app.use('/api', router)
 
+app.use(errorHandler)
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
