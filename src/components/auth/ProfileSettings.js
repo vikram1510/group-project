@@ -41,7 +41,7 @@ class ProfileSettings extends React.Component {
   render() {
     return (
 
-      <div className="auth-page">
+      <div className="auth-page-setting">
         <div className="form-box-setting">
 
           <form onSubmit={this.handleSubmit}>
