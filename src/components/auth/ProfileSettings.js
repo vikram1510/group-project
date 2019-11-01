@@ -1,15 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 
+import Auth from '../../lib/auth'
+
 class ProfileSettings extends React.Component {
   constructor() {
     super()
 
     this.state = {
       data: {
-        
-        email: '',
-        password: '',
         
         category: ''
       },
@@ -22,7 +21,7 @@ class ProfileSettings extends React.Component {
 
   handleChange(e) {
     console.log(e.target)
-    console.log('hi', e.target.name, e.target.value)
+    // console.log('hi', e.target.name, e.target.value)
     const data = { ...this.state.data, [e.target.name]: e.target.value } //adds inputted data to initially empty keys
     // const errors = { ...this.state.data, [e.target.name]: '' }
     this.setState({ data }) //each key stroke causes re-render
@@ -30,7 +29,9 @@ class ProfileSettings extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()  //stops page auto reload
-    axios.post('/api/profile', this.state.data)  //posts inputted data to the api
+    axios.post('/api/profile', this.state.data, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}` }
+    })  //posts inputted data to the api
       .then(res => console.log(res.data))
       .then(() => this.props.history.push('/profile')) // redirects user to login page
       .catch(err => this.setState({ errors: err.response.data.errors }))
@@ -50,7 +51,7 @@ class ProfileSettings extends React.Component {
             </div>
 
             <div className="form-input-wrapper">
-              <label>Email:</label>
+              <label>Email</label>
               <input
                 className="form-input"
                 name="email"
@@ -60,11 +61,20 @@ class ProfileSettings extends React.Component {
             </div>
 
             <div className="form-input-wrapper">
-              <label>Password:</label>
+              <label>Password</label>
               <input
                 className="form-input"
-                name="email"
-                type="text"
+                name="password"
+                type="password"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="form-input-wrapper">
+              <label>Password Confirmation</label>
+              <input
+                className="form-input"
+                name="passwordConfirmation"
+                type="password"
                 onChange={this.handleChange}
               />
             </div>

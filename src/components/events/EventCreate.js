@@ -16,7 +16,8 @@ class EventCreate extends React.Component {
         date: '',
         time: '',
         images: ''
-      }
+      },
+      errors: {}
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,7 +26,8 @@ class EventCreate extends React.Component {
   handleChange(e) {
     console.log(e.target.name)
     console.log(e.target.value)
-    this.setState({ event: { ...this.state.event, [e.target.name]: e.target.value } })
+    const errors = {  ...this.state.errors, [e.target.name]: ''  } 
+    this.setState({ errors, event: { ...this.state.event, [e.target.name]: e.target.value } })
   }
 
   handleSubmit(e) {
@@ -35,7 +37,7 @@ class EventCreate extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}` }
     })
       .then(res => this.props.history.push(`/events/${res.data._id}`))
-      .catch(err => console.log(err))
+      .catch(err => this.setState({ errors: err.response.data }))
   }
 
   render() {
@@ -49,19 +51,20 @@ class EventCreate extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className="form-input-wrapper">
               <label>Event Name</label>
-              <input className="form-input" type="text" placeholder="" name="name" onChange={this.handleChange}></input>
+              <input className={`form-input ${this.state.errors.name ? 'error' : '' }`} type="text" placeholder="" 
+                name="name" onChange={this.handleChange}></input>
             </div>
             <div className="form-input-wrapper">
               <label>Event Location</label>
-              <input className="form-input" type="text" placeholder="" name="location" onChange={this.handleChange}></input>
+              <input className={`form-input ${this.state.errors.location ? 'error' : '' }`} type="text" placeholder="" name="location" onChange={this.handleChange}></input>
             </div>
             <div className="form-input-wrapper">
               <label>Event Description</label>
-              <input className="form-input" type="text" placeholder="" name="description" onChange={this.handleChange}></input>
+              <input className={`form-input ${this.state.errors.description ? 'error' : '' }`} type="text" placeholder="" name="description" onChange={this.handleChange}></input>
             </div>
             <div className="form-input-wrapper">
               <label>Price</label>
-              <input className="form-input" type="number" placeholder="" name="price" onChange={this.handleChange}></input>
+              <input className={`form-input ${this.state.errors.price ? 'error' : '' }`} type="number" placeholder="" name="price" onChange={this.handleChange}></input>
             </div>
             <div className="form-input-wrapper">
               <label>Language</label>
