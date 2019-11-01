@@ -217,7 +217,7 @@
 
   }
   .map-wrapper {
-    background: $color-one;
+    // background: $color-one;
     // height: 600px;
     // width: 700px;
     height: 100%;
@@ -286,4 +286,8 @@
     height: 100%;
     width: auto;
   }
+
+}
+.hidden {
+  display: none;
 }

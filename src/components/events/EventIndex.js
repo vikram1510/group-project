@@ -24,7 +24,10 @@ class EventIndex extends React.Component {
         },
         price: []
       },
-      checkbox: false
+      checkbox: false,
+      loading: true,
+      loadingBars: true,
+      loadingCards: true
     }
 
     this.categories = [
@@ -56,7 +59,19 @@ class EventIndex extends React.Component {
 
   componentDidMount() {
     axios.get('/api/events')
-      .then(res => this.setState({ events: res.data }))
+      .then(res => {
+        this.setState({ events: res.data })
+        setTimeout(() => {
+          this.setState({ loading: false })
+        }, 1000)
+        setTimeout(() => {
+          this.setState({ loadingBars: false })
+        }, 1500)
+        setTimeout(() => {
+          this.setState({ loadingCards: false })
+        }, 2000)
+      })
+      
   }
 
   handleFreeEventClick(e) {
@@ -99,13 +114,13 @@ class EventIndex extends React.Component {
     if (!events) return null
     return (
       <div className="index-page">
-        <div className="map-wrapper">
+        <div className={`map-wrapper ${!this.state.loading ? 'animated fadeIn' : 'hidden'}`}>
           <Map className="map-element" events={this.priceFilter(this.filteredEvents())}/>
         </div>
         <div className="index-foreground">
           <div className="flex-foreground">
             <div className="foreground-top">
-              <div className="filter-list-wrapper">
+              <div className={`filter-list-wrapper ${!this.state.loadingBars ? 'animated fadeInDown' : 'hidden'}`}>
                 <Select className="category-select"
                   options={this.categories} 
                   placeholder="Categories" 
@@ -121,11 +136,11 @@ class EventIndex extends React.Component {
               </div>
             </div>
             <div className="foreground-bottom">
-              <div className="list-map-wrapper">
+              <div className={`list-map-wrapper ${!this.state.loadingBars ? 'animated fadeInRight' : 'hidden'}`}>
                 <div className="map-events-title">
                   <h4>Events</h4>
                 </div>
-                <div className="event-list">
+                <div className={`event-list ${!this.state.loadingCards ? 'animated fadeIn' : 'hidden'}`}>
                   {
                     this.priceFilter(this.filteredEvents()).map(event => (
                       <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
