@@ -16,7 +16,7 @@ function register(req, res, next) {
 }
 
 // login function
-function login(req, res){
+function login(req, res, next){
   User
     .findOne({ email: req.body.email })
     .then(user => {
@@ -28,6 +28,7 @@ function login(req, res){
       res.status(202).json({ message: `Welcome back ${user.username}`, token })
     })
     .catch(() => res.status(401).json({ message: 'Unauthorized' }))
+    // .catch(next)
 }
 
 function profile(req, res){
