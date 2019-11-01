@@ -9,14 +9,14 @@ const commentSchema = new mongoose.Schema({
 })
 
 const eventSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: true, maxlength: 35 },
   location: { type: String, required: true }, //full address including 
   description: { type: String, required: true },
   price: { type: Number, required: true },
   category: { type: String, required: false }, //programming language
   date: { type: String, required: false },
   time: { type: String, required: false },
-  images: { type: [String], required: false },
+  image: { type: String, required: false },
   industry: { type: String },
   comments: {  type: [commentSchema] },
   hostUser: { type: mongoose.Schema.ObjectId, ref: 'User', required: false },
