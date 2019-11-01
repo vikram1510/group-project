@@ -25,7 +25,7 @@ class Map extends React.Component {
 
   componentDidMount() {
     // console.log('mounting')
-    console.log('props', this.props.events)
+    // console.log('props', this.props.events)
     this.latlongCalc()
     
   }

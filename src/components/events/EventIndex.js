@@ -24,7 +24,10 @@ class EventIndex extends React.Component {
         },
         price: []
       },
-      checkbox: false
+      checkbox: false,
+      loading: true,
+      loadingBars: true,
+      loadingCards: true
     }
 
     this.categories = [
@@ -56,7 +59,19 @@ class EventIndex extends React.Component {
 
   componentDidMount() {
     axios.get('/api/events')
-      .then(res => this.setState({ events: res.data }))
+      .then(res => {
+        this.setState({ events: res.data })
+        setTimeout(() => {
+          this.setState({ loading: false })
+        }, 300)
+        setTimeout(() => {
+          this.setState({ loadingBars: false })
+        }, 1000)
+        setTimeout(() => {
+          this.setState({ loadingCards: false })
+        }, 2000)
+      })
+      
   }
 
   handleFreeEventClick(e) {
@@ -65,6 +80,7 @@ class EventIndex extends React.Component {
   }
 
   filteredEvents() {
+    console.log(this.state.checkbox)
     const selectedCategory = this.state.filter.category ? this.state.filter.category.map(cat => cat.value) : []
     const selectedPeriod = this.state.filter.date.value
     return this.state.events.filter(event => {
@@ -80,6 +96,13 @@ class EventIndex extends React.Component {
     })
   }
   
+  priceFilter(events){
+    return events.filter(event => {
+      if (this.state.checkbox) return event.price === 0
+      return true
+    })
+  }
+
   handleMultiCatergorySelect(selected, action) {
     this.setState({ filter: { ...this.state.filter, [action.name]: selected } }) 
   }
@@ -91,13 +114,13 @@ class EventIndex extends React.Component {
     if (!events) return null
     return (
       <div className="index-page">
-        <div className="map-wrapper">
-          <Map className="map-element" events={this.filteredEvents()}/>
+        <div className={`map-wrapper ${!this.state.loading ? 'animated fadeIn' : 'hidden'}`}>
+          <Map className="map-element" events={this.priceFilter(this.filteredEvents())}/>
         </div>
         <div className="index-foreground">
           <div className="flex-foreground">
             <div className="foreground-top">
-              <div className="filter-list-wrapper">
+              <div className={`filter-list-wrapper ${!this.state.loadingBars ? 'animated fadeInDown' : 'hidden'}`}>
                 <Select className="category-select"
                   options={this.categories} 
                   placeholder="Categories" 
@@ -107,19 +130,21 @@ class EventIndex extends React.Component {
                   name="category" 
                 />
                 <Select className="date-select" name="date" options={this.date} placeholder="Date" deafultValue={this.date[2]} onChange={this.handleMultiCatergorySelect} />
-                <button onClick={this.handleFreeEventClick} className={`checkbox-input ${!this.state.checkbox ? 'off' : 'on' }`}>Free Events Only</button>
+                <button onClick={this.handleFreeEventClick} 
+                  className={`checkbox-input ${!this.state.checkbox ? 'off' : 'on' }`}
+                >Free Events Only</button>
               </div>
             </div>
             <div className="foreground-bottom">
-              <div className="list-map-wrapper">
+              <div className={`list-map-wrapper ${!this.state.loadingBars ? 'animated fadeInRight' : 'hidden'}`}>
                 <div className="map-events-title">
                   <h4>Events</h4>
                 </div>
                 <div className="event-list">
                   {
-                    this.filteredEvents().map(event => (
+                    this.priceFilter(this.filteredEvents()).map(event => (
                       <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
-                        <div className="event-wrapper" >
+                        <div className={`event-wrapper ${!this.state.loadingCards ? 'animated fadeIn' : 'hidden'}`} >
                           <div className="event-text">
                             <div className="event-name">
                               <h4 className="event-name-text">{event.name}</h4>

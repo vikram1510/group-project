@@ -54,15 +54,15 @@ class Navbar extends React.Component {
                   <p>{'techTalk'}</p>
                 </Link>
               </div>
-              <Link to='/'>
+              <Link to='/' className="animated fadeInLeft">
                 <i className="fas fa-home left"></i>
                 <span>HOME</span>
               </Link>
-              <Link to='/events'>
+              <Link to='/events' className="animated fadeInLeft">
                 <i className="fa fa-search left"></i>
                 <span>EVENTS</span>
               </Link>
-              <Link to='/events/create'>
+              <Link to='/events/create' className="animated fadeInLeft">
                 <i className="fas fa-pencil-alt left"></i>
                 <span>CREATE</span>
               </Link>
@@ -70,7 +70,7 @@ class Navbar extends React.Component {
             <div className="nav-bottom">
               {Auth.isAuthenticated() ?
             <>
-              <Link to='/profile'>
+              <Link to='/profile' className="animated fadeInLeft">
                 <div className="profile-wrapper left">
                   <div className="profile">
                     {/* <img src={this.state.profilePic}></img> */}
@@ -79,18 +79,18 @@ class Navbar extends React.Component {
                 </div>
                 <span>PROFILE</span>
               </Link>
-              <Link to='/settings'><i className="fas fa-cogs left"></i>
+              <Link to='/settings' className="animated fadeInLeft"><i className="fas fa-cogs left"></i>
                 <span>SETTINGS</span></Link>
               <Link to='/' onClick={this.handleLogout}><button className="button-warning auth-button">
                 <span>LOGOUT</span>
               </button></Link>
             </> :
             <>
-            <Link to='/register'>
+            <Link to='/register' className="animated fadeInLeft">
               <button className="button-secondary auth-button">
                 <span>Register</span>
               </button></Link>
-            <Link to='/login'>
+            <Link to='/login' className="animated fadeInLeft">
               <button className="button-secondary auth-button">
                 <span>Login</span>
               </button></Link>

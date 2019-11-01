@@ -130,7 +130,7 @@ class EventShow extends React.Component{
     // console.log(moment(event.date).format('MMM Do YY'))
     return (
       <div className="show-page-wrapper">
-        <div className="show-page">
+        <div className="show-page animated fadeInRight">
           <section className="main">
             <div>
               <div className="title-attend">
@@ -215,7 +215,7 @@ class EventShow extends React.Component{
                 ></input>
                 <button className={this.state.commentText ? 'active' : ''} type="submit">Send</button>
               </form>
-              <div className="comments">
+              <div className="comments animated fadeInUp">
                 {event.comments.map(comment => (
                   <div className="comment" key={comment._id}>
                     <div className="comment-profile"><img src={comment.user.profilePic}></img></div>

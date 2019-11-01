@@ -13,7 +13,6 @@ class Login extends React.Component {
         password: ''
       }
     }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -35,40 +34,42 @@ class Login extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <div className="login-page">
-        
-
-        <form onSubmit={this.handleSubmit}>
-          <h1>Login Page</h1>
-          
-          <div className="field">
-            <label className="label">Email:</label>
-            <div className="control">
-              <input
-                name="email"
-                placeholder="test@mailbox.com"
-                onChange={this.handleChange}
-              />
+      <div className="auth-page-login">
+        <div className="form-box-login animated fadeInUp">
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-title-wrapper">
+              <h1>Login Page</h1>
             </div>
-          </div>
-
-          <div className="field">
-            <label className="label">Password:</label>
-            <div className="control">
-              <input
-                name="password"
-                type="password"
-                placeholder="Please enter your password here"
-                onChange={this.handleChange}
-              />
+            
+            <div className="form-input-wrapper">
+              <label className="label">Email</label>
+              <div className="control">
+                <input
+                  className="form-input"
+                  name="email"
+                  placeholder="test@mailbox.com"
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
 
-          <button type="submit">Submit</button>
-        </form>
-
-
-
+            <div className="form-input-wrapper">
+              <label className="label">Password</label>
+              <div className="control">
+                <input
+                  className="form-input"
+                  name="password"
+                  type="password"
+                  placeholder="Please enter your password here"
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div className="form-button-wrapper">
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
         {/* SKELETON FORMS */}
 
         {/* <form>
