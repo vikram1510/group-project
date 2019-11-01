@@ -42,7 +42,7 @@ class ProfileSettings extends React.Component {
     return (
 
       <div className="auth-page-setting">
-        <div className="form-box-setting">
+        <div className="form-box-setting animated fadeInUp">
 
           <form onSubmit={this.handleSubmit}>
             <div className="form-title-wrapper">

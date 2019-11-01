@@ -63,10 +63,10 @@ class EventIndex extends React.Component {
         this.setState({ events: res.data })
         setTimeout(() => {
           this.setState({ loading: false })
-        }, 1000)
+        }, 300)
         setTimeout(() => {
           this.setState({ loadingBars: false })
-        }, 1500)
+        }, 1000)
         setTimeout(() => {
           this.setState({ loadingCards: false })
         }, 2000)
@@ -140,11 +140,11 @@ class EventIndex extends React.Component {
                 <div className="map-events-title">
                   <h4>Events</h4>
                 </div>
-                <div className={`event-list ${!this.state.loadingCards ? 'animated fadeIn' : 'hidden'}`}>
+                <div className="event-list">
                   {
                     this.priceFilter(this.filteredEvents()).map(event => (
                       <Link to={`/events/${event._id}`} key={event._id} className="event-linktag">
-                        <div className="event-wrapper" >
+                        <div className={`event-wrapper ${!this.state.loadingCards ? 'animated fadeIn' : 'hidden'}`} >
                           <div className="event-text">
                             <div className="event-name">
                               <h4 className="event-name-text">{event.name}</h4>
