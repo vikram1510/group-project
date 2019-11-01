@@ -26,7 +26,9 @@
     }
 
     h4 {
-      background-color: $color-gold;
+      background-color: $color-one;
+      font-size: 23px;
+      color: $color-white;
     }
 
     table {
@@ -45,7 +47,7 @@
           // padding-bottom: 20px;
           border-bottom: 3px solid $color-black;
           text-transform: uppercase;
-          font-size: 20px;
+          font-size: 18px;
         }
 
         th:nth-of-type(2) {
@@ -61,18 +63,19 @@
 
     .your-hosted-events {
       .hosted-title {
-        width: 75%;
+        width: 65%;
       }
 
       table {
-        width: 75%;
+        width: 65%;
 
 
         div {
-          width: 90%;
+          width: 55%;
+          margin-left: 50px;
           display: flex;
           align-items: center;
-          justify-content: space-around;        
+          justify-content: space-between;        
           a {
             padding: 0 8px;
             border: solid 1px $borderGrey;
