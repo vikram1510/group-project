@@ -2,7 +2,7 @@ import React from 'react'
 import Auth from '../../lib/auth'
 import TextAreaAutoSize from 'react-autosize-textarea'
 
-const ShowInput = ({ name, value, className, handleInput, submitChange, hostId }) => {
+const ShowEditInput = ({ name, value, className, handleInput, submitChange, hostId }) => {
 
   return (
     <div className="show-input">
@@ -22,4 +22,4 @@ const ShowInput = ({ name, value, className, handleInput, submitChange, hostId }
 
 }
 
-export default ShowInput
+export default ShowEditInput
