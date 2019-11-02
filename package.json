@@ -7,7 +7,9 @@
     "test": "mocha test/**/*_spec.js --require test/helper --recursive --exit",
     "serve:front": "webpack-dev-server --mode=development",
     "seed": "node db/seeds.js",
-    "serve:back": "nodemon index.js"
+    "serve:back": "nodemon index.js",
+    "build": "webpack -p",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",

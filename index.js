@@ -20,6 +20,8 @@ app.use(logger)
 
 app.use('/api', router)
 
+app.use('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
+
 app.use(errorHandler)
 
 
