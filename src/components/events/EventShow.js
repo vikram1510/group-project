@@ -4,7 +4,7 @@ import moment from 'moment'
 
 import Auth from '../../lib/auth'
 
-import ShowInput from '../common/ShowInput'
+import ShowEditInput from '../common/ShowEditInput'
 import MapShow from '../common/MapShow'
 import EventLogo from './EventLogo'
 
@@ -134,13 +134,13 @@ class EventShow extends React.Component{
           <section className="main">
             <div>
               <div className="title-attend">
-                <ShowInput className="text name" 
+                <ShowEditInput className="text name" 
                   name="name" 
                   value={editEvent.name}
                   handleInput={this.handleInput}
                   submitChange={this.submitChange}
                   hostId={event.hostUser._id}
-                ></ShowInput>
+                ></ShowEditInput>
                 <div className="event-logo">
                   <EventLogo category={event.category}></EventLogo>
                   {/* <img src="../assets/java-white-button.png"></img> */}
@@ -158,35 +158,35 @@ class EventShow extends React.Component{
 
                 <div className="info date">
                   <h3>Date</h3>
-                  <ShowInput className="text info date" 
+                  <ShowEditInput className="text info date" 
                     name="date" 
                     value={editEvent.date}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
                     hostId={event.hostUser._id}
-                  ></ShowInput>
+                  ></ShowEditInput>
                   {/* <p>{moment(event.date).format('MMM Do YYYY')}</p> */}
                 </div>
                 <div className="info time">
                   <h3>Time</h3>
-                  <ShowInput className="text info" 
+                  <ShowEditInput className="text info" 
                     name="time" 
                     value={editEvent.time}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
                     hostId={event.hostUser._id}
-                  ></ShowInput>
+                  ></ShowEditInput>
                   {/* <p>{moment(event.time,'HH:mm').format('h:mm A')}</p> */}
                 </div>
                 <div className="info price">
                   <h3>Price</h3>
-                  <ShowInput className="text info" 
+                  <ShowEditInput className="text info" 
                     name="price" 
                     value={editEvent.price}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
                     hostId={event.hostUser._id}
-                  ></ShowInput>
+                  ></ShowEditInput>
                   {/* <p>{event.price === 0 ? 'Free' : `£${event.price}`}</p> */}
                 </div>
 
@@ -196,13 +196,13 @@ class EventShow extends React.Component{
 
             <div className="description">
               <h3>Description</h3>
-              <ShowInput className="text description" 
+              <ShowEditInput className="text description" 
                 name="description" 
                 value={editEvent.description}
                 handleInput={this.handleInput}
                 submitChange={this.submitChange}
                 hostId={event.hostUser._id}
-              ></ShowInput>
+              ></ShowEditInput>
             </div>
             <div className="comments-section">
               <h3>Comments</h3>
@@ -237,7 +237,7 @@ class EventShow extends React.Component{
                 ))}
               </div>
             </div>
-            {/* <ShowInput name="description" value={event.description}></ShowInput> */}
+            {/* <ShowEditInput name="description" value={event.description}></ShowEditInput> */}
           </section>
           <section className="side">
 
@@ -266,13 +266,13 @@ class EventShow extends React.Component{
               <div className="map-location">
                 <MapShow event={event}></MapShow>
                 <div><i className="fas fa-map-marker-alt"></i>
-                  <ShowInput className="text location" 
+                  <ShowEditInput className="text location" 
                     name="location" 
                     value={editEvent.location}
                     handleInput={this.handleInput}
                     submitChange={this.submitChange}
                     hostId={event.hostUser._id}
-                  ></ShowInput>
+                  ></ShowEditInput>
                 </div>
               </div>
             </div>
